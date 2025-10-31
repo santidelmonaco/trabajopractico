@@ -11,7 +11,9 @@ public class Lista<T> {
      * Constructor de Lista.
      */
     public Lista() {
-        // Implementar.
+        this.primero = null;
+        this.ultimo = null;
+        this.cantidadDatos = 0;
     }
 
     /**
@@ -22,7 +24,20 @@ public class Lista<T> {
      * @throws ExcepcionLista si la lista es nula.
      */
     public Lista(Lista<T> lista) {
-        // Implementar.
+        if (lista == null) {
+            throw new ExcepcionLista("La lista no puede ser nula.");
+        }
+
+        this.primero = null;
+        this.ultimo = null;
+        this.cantidadDatos = 0;
+
+        // Recorro la lista original y copio cada dato
+        Nodo<T> cursor = lista.primero;
+        while (cursor != null) {
+            this.agregar(cursor.dato);
+            cursor = cursor.siguiente;
+        }
     }
 
     /**
@@ -31,7 +46,19 @@ public class Lista<T> {
      * @param dato Dato a agregar.
      */
     public void agregar(T dato) {
-        // Implementar.
+        Nodo<T> nuevoNodo = new Nodo<>(dato, ultimo, null);
+
+        // La lista está vacía
+        if (primero == null) {
+            primero = nuevoNodo;
+            ultimo = nuevoNodo;
+        } else {
+            // La lista tiene al menos un nodo
+            ultimo.siguiente = nuevoNodo;
+            ultimo = nuevoNodo;
+        }
+
+        cantidadDatos++;
     }
 
     /**
@@ -53,7 +80,49 @@ public class Lista<T> {
      * @throws ExcepcionLista si el índice no es válido.
      */
     public void agregar(T dato, int indice) {
-        // Implementar.
+        if (indice < 0 || indice > cantidadDatos) {
+            throw new ExcepcionLista("Índice inválido.");
+        }
+
+        // Inserto al final
+        if (indice == cantidadDatos) {
+            agregar(dato);
+            return;
+        }
+
+        // Inserto al principio
+        if (indice == 0) {
+            Nodo<T> nuevoNodo = new Nodo<>(dato, null, primero);
+            // Si la lista no estaba vacía, actualizo el anterior del viejo primero
+            if (primero != null) {
+                primero.anterior = nuevoNodo;
+            }
+            primero = nuevoNodo;
+            // Si era el único nodo, también es el último
+            if (ultimo == null) {
+                ultimo = nuevoNodo;
+            }
+            cantidadDatos++;
+            return;
+        }
+
+        // Inserto en medio
+        Nodo<T> cursor = primero;
+        for (int i = 0; i < indice - 1; i++) {
+            cursor = cursor.siguiente;
+        }
+
+        // Ahora cursor apunta al nodo anterior de donde quiero insertar
+        Nodo<T> nuevoNodo = new Nodo<>(dato, cursor, cursor.siguiente);
+
+        // Actualizo las referencias de los nodos vecinos
+        if (cursor.siguiente != null) {
+            cursor.siguiente.anterior = nuevoNodo;
+        }
+        // El nodo antes del nuevo debe apuntar hacia adelante al nuevo
+        cursor.siguiente = nuevoNodo;
+
+        cantidadDatos++;
     }
 
     /**
@@ -63,8 +132,25 @@ public class Lista<T> {
      * @throws ExcepcionLista si la lista está vacía.
      */
     public T eliminar() {
-        // Implementar.
-        return (T) new Object();
+        if (cantidadDatos == 0) {
+            throw new ExcepcionLista("La lista está vacía.");
+        }
+
+        T datoEliminado = ultimo.dato;
+
+        // La lista tiene solo un elemento
+        if (primero == ultimo) {
+            primero = null;
+            ultimo = null;
+        } else {
+            // La lista tiene múltiples elementos
+            ultimo = ultimo.anterior;
+            ultimo.siguiente = null;
+        }
+
+        cantidadDatos--;
+
+        return datoEliminado;
     }
 
     /**
@@ -85,8 +171,54 @@ public class Lista<T> {
      * @return el dato eliminado.
      */
     public T eliminar(int indice) {
-        // Implementar.
-        return (T) new Object();
+        if (cantidadDatos == 0) {
+            throw new ExcepcionLista("La lista está vacía.");
+        }
+
+        if (indice < 0 || indice >= cantidadDatos) {
+            throw new ExcepcionLista("Índice inválido.");
+        }
+
+        T datoEliminado;
+
+        // Elimino el primero
+        if (indice == 0) {
+            datoEliminado = primero.dato;
+
+            primero = primero.siguiente;
+
+            // Si la lista no quedó vacía, actualizo el anterior del nuevo primero
+            if (primero != null) {
+                primero.anterior = null;
+            } else {
+                // Si quedó vacía, último también debe ser null
+                ultimo = null;
+            }
+
+            cantidadDatos--;
+            return datoEliminado;
+        }
+
+        // Elimino el último
+        if (indice == cantidadDatos - 1) {
+            return eliminar();
+        }
+
+        // Elimino en medio
+        Nodo<T> cursor = primero;
+        for (int i = 0; i < indice; i++) {
+            cursor = cursor.siguiente;
+        }
+
+        datoEliminado = cursor.dato;
+
+        // Reconecto los nodos vecinos entre sí
+        cursor.anterior.siguiente = cursor.siguiente;
+        cursor.siguiente.anterior = cursor.anterior;
+
+        cantidadDatos--;
+
+        return datoEliminado;
     }
 
     /**
@@ -99,8 +231,20 @@ public class Lista<T> {
      * @throws ExcepcionLista si el índice no es válido.
      */
     public T dato(int indice) {
-        // Implementar.
-        return (T) new Object();
+        if (cantidadDatos == 0) {
+            throw new ExcepcionLista("La lista está vacía.");
+        }
+
+        if (indice < 0 || indice >= cantidadDatos) {
+            throw new ExcepcionLista("Índice inválido.");
+        }
+
+        Nodo<T> cursor = primero;
+        for (int i = 0; i < indice; i++) {
+            cursor = cursor.siguiente;
+        }
+
+        return cursor.dato;
     }
 
     /**
@@ -113,7 +257,20 @@ public class Lista<T> {
      * @throws ExcepcionLista si el índice no es válido.
      */
     public void modificarDato(T dato, int indice) {
-        // Implementar.
+        if (cantidadDatos == 0) {
+            throw new ExcepcionLista("La lista está vacía.");
+        }
+
+        if (indice < 0 || indice >= cantidadDatos) {
+            throw new ExcepcionLista("Índice inválido.");
+        }
+
+        Nodo<T> cursor = primero;
+        for (int i = 0; i < indice; i++) {
+            cursor = cursor.siguiente;
+        }
+
+        cursor.dato = dato;
     }
 
     /**
@@ -122,8 +279,7 @@ public class Lista<T> {
      * @return el tamaño de la lista.
      */
     public int tamanio() {
-        // Implementar.
-        return 0;
+        return cantidadDatos;
     }
 
     /**
@@ -132,8 +288,7 @@ public class Lista<T> {
      * @return true si la lista está vacía.
      */
     public boolean vacio() {
-        // Implementar.
-        return true;
+        return cantidadDatos == 0;
     }
 
     /**
@@ -144,8 +299,7 @@ public class Lista<T> {
      * @see Iterador
      */
     public Iterador<T> iterador() {
-        // Implementar.
-        return (Iterador<T>) new Object();
+        return new IteradorLista<>(this);
     }
 
     /**
@@ -160,7 +314,10 @@ public class Lista<T> {
      * @see Iterador
      */
     public Iterador<T> iterador(int indice) {
-        // Implementar.
-        return (Iterador<T>) new Object();
+        if (indice < 0 || indice > cantidadDatos) {
+            throw new ExcepcionLista("Índice inválido.");
+        }
+
+        return new IteradorLista<>(this, indice);
     }
 }
