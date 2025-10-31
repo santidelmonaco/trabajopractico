@@ -17,7 +17,13 @@ public class ColaPrioridad<T> {
      * @throws ExcepcionColaPrioridad si el comparador es nulo.
      */
     public ColaPrioridad(Comparador<T> comparador) {
-        // Implementar.
+        if (comparador == null) {
+            throw new ExcepcionColaPrioridad("El comparador no puede ser nulo.");
+        }
+
+        this.comparador = comparador;
+
+        this.datos = new Vector<>();
     }
 
     /**
@@ -28,7 +34,13 @@ public class ColaPrioridad<T> {
      * @throws ExcepcionColaPrioridad si la cola es nula.
      */
     public ColaPrioridad(ColaPrioridad<T> colaPrioridad) {
-        // Implementar.
+        if (colaPrioridad == null) {
+            throw new ExcepcionColaPrioridad("La cola de prioridad no puede ser nula.");
+        }
+
+        this.comparador = colaPrioridad.comparador;
+
+        this.datos = new Vector<>(colaPrioridad.datos);
     }
 
     /**
@@ -38,7 +50,22 @@ public class ColaPrioridad<T> {
      * Inicia en el último dato del vector.
      */
     private void heapificarHaciaArriba() {
-        // Implementar.
+        int indiceActual = datos.tamanio() - 1;
+
+        // Mientras no este en la raíz y el elemento tenga mayor prioridad que su padre
+        while (indiceActual > 0) {
+            int indicePadre = obtenerIndicePadre(indiceActual);
+
+            // Si el comparador devuelve positivo, el actual tiene mayor prioridad
+            if (comparador.comparar(datos.dato(indiceActual), datos.dato(indicePadre)) > 0) {
+                intercambiar(indiceActual, indicePadre);
+
+                indiceActual = indicePadre;
+            } else {
+                // El padre tiene mayor o igual prioridad
+                break;
+            }
+        }
     }
 
     /**
@@ -48,7 +75,32 @@ public class ColaPrioridad<T> {
      * invariante. Inicia en el primer dato del vector.
      */
     private void heapificarHaciaAbajo() {
-        // Implementar.
+        int indiceActual = 0;
+
+        // Continuo mientras haya al menos un hijo izquierdo
+        while (obtenerIndiceHijoIzquierdo(indiceActual) < datos.tamanio()) {
+            int indiceHijoIzquierdo = obtenerIndiceHijoIzquierdo(indiceActual);
+            int indiceHijoDerecho = obtenerIndiceHijoDerecho(indiceActual);
+
+            // Determino cuál hijo tiene mayor prioridad
+            int indiceHijoMayor = indiceHijoIzquierdo;
+
+            if (indiceHijoDerecho < datos.tamanio() &&
+                    comparador.comparar(datos.dato(indiceHijoDerecho), datos.dato(indiceHijoIzquierdo)) > 0) {
+                indiceHijoMayor = indiceHijoDerecho;
+            }
+
+            // Comparamos el elemento actual con el hijo de mayor prioridad
+            if (comparador.comparar(datos.dato(indiceHijoMayor), datos.dato(indiceActual)) > 0) {
+                intercambiar(indiceActual, indiceHijoMayor);
+
+                indiceActual = indiceHijoMayor;
+            } else {
+                // El elemento actual tiene mayor o igual prioridad que ambos hijos
+                // El invariante está restaurado
+                break;
+            }
+        }
     }
 
     /**
@@ -58,7 +110,10 @@ public class ColaPrioridad<T> {
      * @param dato Dato a agregar.
      */
     public void agregar(T dato) {
-        // Implementar.
+        datos.agregar(dato);
+
+        // Restauro el invariante del heap
+        heapificarHaciaArriba();
     }
 
     /**
@@ -69,8 +124,27 @@ public class ColaPrioridad<T> {
      * @throws ExcepcionColaPrioridad si la cola está vacía.
      */
     public T eliminar() {
-        // Implementar.
-        return (T) new Object();
+        if (datos.vacio()) {
+            throw new ExcepcionColaPrioridad("La cola de prioridad está vacía.");
+        }
+
+        T elementoMaximo = datos.dato(0);
+
+        if (datos.tamanio() == 1) {
+            datos.eliminar();
+            return elementoMaximo;
+        }
+
+        // Muevo el último elemento a la raíz
+        datos.modificarDato(datos.dato(datos.tamanio() - 1), 0);
+
+        // Elimino el último elemento
+        datos.eliminar();
+
+        // Restauro el invariante del heap
+        heapificarHaciaAbajo();
+
+        return elementoMaximo;
     }
 
     /**
@@ -80,8 +154,11 @@ public class ColaPrioridad<T> {
      * @throws ExcepcionColaPrioridad si la cola está vacía.
      */
     public T siguiente() {
-        // Implementar.
-        return (T) new Object();
+        if (datos.vacio()) {
+            throw new ExcepcionColaPrioridad("La cola de prioridad está vacía.");
+        }
+
+        return datos.dato(0);
     }
 
     /**
@@ -90,8 +167,7 @@ public class ColaPrioridad<T> {
      * @return el tamaño de la cola.
      */
     public int tamanio() {
-        // Implementar.
-        return 0;
+        return datos.tamanio();
     }
 
     /**
@@ -100,7 +176,30 @@ public class ColaPrioridad<T> {
      * @return true si la cola está vacía.
      */
     public boolean vacio() {
-        // Implementar.
-        return true;
+        return datos.vacio();
+    }
+
+    /**** HELPERS ****/
+
+    private int obtenerIndicePadre(int indice) {
+        // El padre de un nodo en índice i está en (i - 1) / 2
+        return (indice - 1) / 2;
+    }
+
+    private int obtenerIndiceHijoIzquierdo(int indice) {
+        // El hijo izquierdo de un nodo en índice i está en 2*i + 1
+        return 2 * indice + 1;
+    }
+
+    private int obtenerIndiceHijoDerecho(int indice) {
+        // El hijo derecho de un nodo en índice i está en 2*i + 2
+        return 2 * indice + 2;
+    }
+
+    private void intercambiar(int indice1, int indice2) {
+        // Intercambio dos elementos en el vector
+        T temporal = datos.dato(indice1);
+        datos.modificarDato(datos.dato(indice2), indice1);
+        datos.modificarDato(temporal, indice2);
     }
 }
