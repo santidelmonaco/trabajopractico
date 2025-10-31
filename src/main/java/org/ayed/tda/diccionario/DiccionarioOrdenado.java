@@ -1,6 +1,7 @@
 package org.ayed.tda.diccionario;
 
 import org.ayed.tda.comparador.Comparador;
+import org.ayed.tda.lista.Cola;
 import org.ayed.tda.lista.Lista;
 import org.ayed.tda.tupla.Tupla;
 
@@ -31,7 +32,15 @@ public class DiccionarioOrdenado<C, V> {
      * @throws ExcepcionDiccionario si el comparador es nulo.
      */
     public DiccionarioOrdenado(Comparador<C> comparador) {
-        // Implementar.
+        if (comparador == null) {
+            throw new ExcepcionDiccionario("El comparador no puede ser nulo.");
+        }
+
+        this.comparador = comparador;
+
+        this.raiz = null;
+
+        this.cantidadDatos = 0;
     }
 
     /**
@@ -44,7 +53,19 @@ public class DiccionarioOrdenado<C, V> {
      * @throws ExcepcionDiccionario si el diccionario es nulo.
      */
     public DiccionarioOrdenado(DiccionarioOrdenado<C, V> diccionarioOrdenado) {
-        // Implementar.
+        if (diccionarioOrdenado == null) {
+            throw new ExcepcionDiccionario("El diccionario no puede ser nulo.");
+        }
+
+        this.comparador = diccionarioOrdenado.comparador;
+
+        this.raiz = null;
+
+        this.cantidadDatos = diccionarioOrdenado.cantidadDatos;
+
+        if (diccionarioOrdenado.raiz != null) {
+            this.raiz = copiarSubarbol(diccionarioOrdenado.raiz, null);
+        }
     }
 
     /**
@@ -54,8 +75,13 @@ public class DiccionarioOrdenado<C, V> {
      * @return el sucesor inmediato.
      */
     private Nodo<C, V> obtenerSucesorInmediato(Nodo<C, V> nodo) {
-        // Implementar.
-        return new Nodo<>((C) new Object(), (V) new Object());
+        Nodo<C, V> sucesor = nodo.hijoDerecho;
+
+        while (sucesor.hijoIzquierdo != null) {
+            sucesor = sucesor.hijoIzquierdo;
+        }
+
+        return sucesor;
     }
 
     /**
@@ -69,8 +95,49 @@ public class DiccionarioOrdenado<C, V> {
      * anterior, devuelve null.
      */
     public V agregar(C clave, V valor) {
-        // Implementar.
-        return (V) new Object();
+        // árbol vacío
+        if (raiz == null) {
+            raiz = new Nodo<>(clave, valor);
+            cantidadDatos++;
+            return null;
+        }
+
+        Nodo<C, V> actual = raiz;
+        Nodo<C, V> padre = null;
+
+        // busco la posición correcta
+        while (actual != null) {
+            padre = actual;
+
+            int comparacion = comparador.comparar(clave, actual.clave);
+
+            if (comparacion < 0) {
+                // La clave nueva es menor, voy al subárbol izquierdo
+                actual = actual.hijoIzquierdo;
+            } else if (comparacion > 0) {
+                // La clave nueva es mayor, voy al subárbol derecho
+                actual = actual.hijoDerecho;
+            } else {
+                // Las claves son iguales, reemplazo el valor
+                V valorAnterior = actual.valor;
+                actual.valor = valor;
+                return valorAnterior;
+            }
+        }
+
+        // Si llego aca, encontró donde insertar el nuevo nodo
+        Nodo<C, V> nuevoNodo = new Nodo<>(clave, valor, padre);
+
+        // Determino si el nuevo nodo va a la izquierda o derecha del padre
+        int comparacion = comparador.comparar(clave, padre.clave);
+        if (comparacion < 0) {
+            padre.hijoIzquierdo = nuevoNodo;
+        } else {
+            padre.hijoDerecho = nuevoNodo;
+        }
+
+        cantidadDatos++;
+        return null;
     }
 
     /**
@@ -86,8 +153,29 @@ public class DiccionarioOrdenado<C, V> {
      * un valor, devuelve null.
      */
     public V eliminar(C clave) {
-        // Implementar.
-        return (V) new Object();
+        Nodo<C, V> nodo = buscarNodo(raiz, clave);
+
+        if (nodo == null) {
+            return null;
+        }
+
+        V valorEliminado = nodo.valor;
+
+        // El nodo es una hoja
+        if (nodo.hijoIzquierdo == null && nodo.hijoDerecho == null) {
+            eliminarHoja(nodo);
+        }
+        // El nodo tiene exactamente un hijo
+        else if (nodo.hijoIzquierdo == null || nodo.hijoDerecho == null) {
+            eliminarNodoConUnHijo(nodo);
+        }
+        // El nodo tiene dos hijos
+        else {
+            eliminarNodoConDosHijos(nodo);
+        }
+
+        cantidadDatos--;
+        return valorEliminado;
     }
 
     /**
@@ -99,8 +187,13 @@ public class DiccionarioOrdenado<C, V> {
      * null.
      */
     public V obtenerValor(C clave) {
-        // Implementar.
-        return (V) new Object();
+        Nodo<C, V> nodo = buscarNodo(raiz, clave);
+
+        if (nodo == null) {
+            return null;
+        }
+
+        return nodo.valor;
     }
 
     /**
@@ -109,8 +202,9 @@ public class DiccionarioOrdenado<C, V> {
      * @return el recorrido.
      */
     public Lista<Tupla<C, V>> inorder() {
-        // Implementar.
-        return new Lista<>();
+        Lista<Tupla<C, V>> resultado = new Lista<>();
+        inorderRecursivo(raiz, resultado);
+        return resultado;
     }
 
     /**
@@ -119,8 +213,9 @@ public class DiccionarioOrdenado<C, V> {
      * @return el recorrido.
      */
     public Lista<Tupla<C, V>> preorder() {
-        // Implementar.
-        return new Lista<>();
+        Lista<Tupla<C, V>> resultado = new Lista<>();
+        preorderRecursivo(raiz, resultado);
+        return resultado;
     }
 
     /**
@@ -129,8 +224,9 @@ public class DiccionarioOrdenado<C, V> {
      * @return el recorrido.
      */
     public Lista<Tupla<C, V>> postorder() {
-        // Implementar.
-        return new Lista<>();
+        Lista<Tupla<C, V>> resultado = new Lista<>();
+        postorderRecursivo(raiz, resultado);
+        return resultado;
     }
 
     /**
@@ -139,8 +235,30 @@ public class DiccionarioOrdenado<C, V> {
      * @return el recorrido.
      */
     public Lista<Tupla<C, V>> ancho() {
-        // Implementar.
-        return new Lista<>();
+        Lista<Tupla<C, V>> resultado = new Lista<>();
+
+        if (raiz == null) {
+            return resultado;
+        }
+
+        // Uso una cola para procesar los nodos nivel por nivel
+        Cola<Nodo<C, V>> cola = new Cola<>();
+        cola.agregar(raiz);
+
+        while (!cola.vacio()) {
+            Nodo<C, V> nodo = cola.eliminar();
+
+            resultado.agregar(new Tupla<>(nodo.clave, nodo.valor));
+
+            if (nodo.hijoIzquierdo != null) {
+                cola.agregar(nodo.hijoIzquierdo);
+            }
+            if (nodo.hijoDerecho != null) {
+                cola.agregar(nodo.hijoDerecho);
+            }
+        }
+
+        return resultado;
     }
 
     /**
@@ -149,8 +267,7 @@ public class DiccionarioOrdenado<C, V> {
      * @return el tamaño del diccionario.
      */
     public int tamanio() {
-        // Implementar.
-        return 0;
+        return cantidadDatos;
     }
 
     /**
@@ -159,7 +276,127 @@ public class DiccionarioOrdenado<C, V> {
      * @return true si el diccionario está vacío.
      */
     public boolean vacio() {
-        // Implementar.
-        return true;
+        return cantidadDatos == 0;
+    }
+
+    /**** HELPERS ****/
+
+    private Nodo<C, V> copiarSubarbol(Nodo<C, V> nodoOriginal, Nodo<C, V> padre) {
+        if (nodoOriginal == null) {
+            return null;
+        }
+
+        Nodo<C, V> nodoCopia = new Nodo<>(nodoOriginal.clave, nodoOriginal.valor, padre);
+
+        // copio el subárbol izquierdo
+        nodoCopia.hijoIzquierdo = copiarSubarbol(nodoOriginal.hijoIzquierdo, nodoCopia);
+
+        // copio el subárbol derecho
+        nodoCopia.hijoDerecho = copiarSubarbol(nodoOriginal.hijoDerecho, nodoCopia);
+
+        // Devuelvo la copia del subárbol
+        return nodoCopia;
+    }
+
+    private Nodo<C, V> buscarNodo(Nodo<C, V> nodo, C clave) {
+        if (nodo == null) {
+            return null;
+        }
+
+        int comparacion = comparador.comparar(clave, nodo.clave);
+
+        if (comparacion < 0) {
+            // La clave está en el subárbol izquierdo
+            return buscarNodo(nodo.hijoIzquierdo, clave);
+        } else if (comparacion > 0) {
+            // La clave está en el subárbol derecho
+            return buscarNodo(nodo.hijoDerecho, clave);
+        } else {
+            // Encontro el nodo
+            return nodo;
+        }
+    }
+
+    private void eliminarHoja(Nodo<C, V> nodo) {
+        // Si el nodo es la raíz, el árbol queda vacío
+        if (nodo == raiz) {
+            raiz = null;
+        } else {
+            // Desconecto el nodo de su padre
+            if (nodo.padre.hijoIzquierdo == nodo) {
+                nodo.padre.hijoIzquierdo = null;
+            } else {
+                nodo.padre.hijoDerecho = null;
+            }
+        }
+    }
+
+    private void eliminarNodoConUnHijo(Nodo<C, V> nodo) {
+        // Determino cuál es el único hijo
+        Nodo<C, V> hijo = (nodo.hijoIzquierdo != null) ? nodo.hijoIzquierdo : nodo.hijoDerecho;
+
+        // Si el nodo es la raíz, el hijo se convierte en la nueva raíz
+        if (nodo == raiz) {
+            raiz = hijo;
+            hijo.padre = null;
+        } else {
+            // Conecto el hijo con el padre del nodo eliminado
+            hijo.padre = nodo.padre;
+
+            // Actualizo la referencia del padre
+            if (nodo.padre.hijoIzquierdo == nodo) {
+                nodo.padre.hijoIzquierdo = hijo;
+            } else {
+                nodo.padre.hijoDerecho = hijo;
+            }
+        }
+    }
+
+    private void eliminarNodoConDosHijos(Nodo<C, V> nodo) {
+        // Busco el sucesor inmediato
+        Nodo<C, V> sucesor = obtenerSucesorInmediato(nodo);
+
+        nodo.clave = sucesor.clave;
+        nodo.valor = sucesor.valor;
+
+        // Elimino el sucesor
+        if (sucesor.hijoIzquierdo == null && sucesor.hijoDerecho == null) {
+            eliminarHoja(sucesor);
+        } else {
+            eliminarNodoConUnHijo(sucesor);
+        }
+    }
+
+    private void inorderRecursivo(Nodo<C, V> nodo, Lista<Tupla<C, V>> resultado) {
+        if (nodo == null) {
+            return;
+        }
+
+        // izquierda, raíz, derecha
+        inorderRecursivo(nodo.hijoIzquierdo, resultado);
+        resultado.agregar(new Tupla<>(nodo.clave, nodo.valor));
+        inorderRecursivo(nodo.hijoDerecho, resultado);
+    }
+
+    private void preorderRecursivo(Nodo<C, V> nodo, Lista<Tupla<C, V>> resultado) {
+        if (nodo == null) {
+            return;
+        }
+
+        // raíz, izquierda, derecha
+        resultado.agregar(new Tupla<>(nodo.clave, nodo.valor));
+        preorderRecursivo(nodo.hijoIzquierdo, resultado);
+        preorderRecursivo(nodo.hijoDerecho, resultado);
+    }
+
+    private void postorderRecursivo(Nodo<C, V> nodo, Lista<Tupla<C, V>> resultado) {
+        if (nodo == null) {
+            return;
+        }
+
+        // izquierda, derecha, raíz
+        postorderRecursivo(nodo.hijoIzquierdo, resultado);
+        postorderRecursivo(nodo.hijoDerecho, resultado);
+        resultado.agregar(new Tupla<>(nodo.clave, nodo.valor));
     }
 }

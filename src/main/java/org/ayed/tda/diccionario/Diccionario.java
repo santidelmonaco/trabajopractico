@@ -62,8 +62,16 @@ public class Diccionario<C, V> {
      * @return el tamaño de la tabla.
      */
     private int calcularTamanioTabla(int tamanio) {
-        // Implementar.
-        return 0;
+        // Calculo el tamaño mínimo necesario según el factor de carga
+        int tamanioMinimo = (int) Math.ceil(tamanio / factorDeCarga);
+
+        // Busco el primer número primo mayor o igual al tamaño mínimo
+        int candidato = tamanioMinimo;
+        while (!esPrimo(candidato)) {
+            candidato++;
+        }
+
+        return candidato;
     }
 
     /**
@@ -81,7 +89,25 @@ public class Diccionario<C, V> {
      *                              de carga no es válido.
      */
     public Diccionario(int tamanio, double factorDeCarga) {
-        // Implementar.
+        if (tamanio <= 0) {
+            throw new ExcepcionDiccionario("El tamaño debe ser positivo.");
+        }
+
+        if (factorDeCarga <= 0 || factorDeCarga > 1) {
+            throw new ExcepcionDiccionario("El factor de carga debe estar entre 0 y 1.");
+        }
+
+        this.factorDeCarga = factorDeCarga;
+
+        this.tamanioTabla = calcularTamanioTabla(tamanio);
+
+        this.datos = new VectorEstatico<>(this.tamanioTabla);
+
+        for (int i = 0; i < this.tamanioTabla; i++) {
+            this.datos.agregar(new Lista<>());
+        }
+
+        this.cantidadDatos = 0;
     }
 
     /**
@@ -103,6 +129,9 @@ public class Diccionario<C, V> {
      * @throws ExcepcionDiccionario si el diccionario es nulo.
      */
     public Diccionario(Diccionario<C, V> diccionario) {
+        if (diccionario == null) {
+            throw new ExcepcionDiccionario("El diccionario no puede ser nulo.");
+        }
         this.factorDeCarga = diccionario.factorDeCarga;
         this.tamanioTabla = diccionario.tamanioTabla;
         datos = new VectorEstatico<>(tamanioTabla);
@@ -123,8 +152,37 @@ public class Diccionario<C, V> {
      * anterior, devuelve null.
      */
     public V agregar(C clave, V valor) {
-        // Implementar.
-        return (V) new Object();
+        int indice = obtenerIndice(clave);
+
+        Lista<Tupla<C, V>> lista = datos.dato(indice);
+
+        Iterador<Tupla<C, V>> iterador = lista.iterador();
+        while (iterador.haySiguiente()) {
+            Tupla<C, V> tupla = iterador.dato();
+
+            // Comparo las claves
+            if (tupla.clave() == null && clave == null ||
+                    tupla.clave() != null && tupla.clave().equals(clave)) {
+
+                // La clave ya existe, reemplazo el valor
+                V valorAnterior = tupla.valor();
+
+                Tupla<C, V> nuevaTupla = new Tupla<>(clave, valor);
+                iterador.modificarDato(nuevaTupla);
+
+                return valorAnterior;
+            }
+
+            iterador.siguiente();
+        }
+
+        // Si llego aca, la clave no existía
+        Tupla<C, V> nuevaTupla = new Tupla<>(clave, valor);
+        lista.agregar(nuevaTupla);
+
+        cantidadDatos++;
+
+        return null;
     }
 
     /**
@@ -140,8 +198,30 @@ public class Diccionario<C, V> {
      * un valor, devuelve null.
      */
     public V eliminar(C clave) {
-        // Implementar.
-        return (V) new Object();
+        int indice = obtenerIndice(clave);
+
+        Lista<Tupla<C, V>> lista = datos.dato(indice);
+
+        Iterador<Tupla<C, V>> iterador = lista.iterador();
+        while (iterador.haySiguiente()) {
+            Tupla<C, V> tupla = iterador.dato();
+
+            // Comparo las claves
+            if (tupla.clave() == null && clave == null ||
+                    tupla.clave() != null && tupla.clave().equals(clave)) {
+                V valorEliminado = tupla.valor();
+                iterador.eliminar();
+
+                cantidadDatos--;
+
+                return valorEliminado;
+            }
+
+            iterador.siguiente();
+        }
+
+        // Si llego aca, la clave no existía
+        return null;
     }
 
     /**
@@ -153,8 +233,26 @@ public class Diccionario<C, V> {
      * null.
      */
     public V obtenerValor(C clave) {
-        // Implementar.
-        return (V) new Object();
+        int indice = obtenerIndice(clave);
+
+        Lista<Tupla<C, V>> lista = datos.dato(indice);
+
+        Iterador<Tupla<C, V>> iterador = lista.iterador();
+        while (iterador.haySiguiente()) {
+            Tupla<C, V> tupla = iterador.dato();
+
+            // Comparo las claves
+            if (tupla.clave() == null && clave == null ||
+                    tupla.clave() != null && tupla.clave().equals(clave)) {
+
+                return tupla.valor();
+            }
+
+            iterador.siguiente();
+        }
+
+        // Si llego aca, la clave no existe
+        return null;
     }
 
     /**
@@ -163,8 +261,7 @@ public class Diccionario<C, V> {
      * @return el tamaño del diccionario.
      */
     public int tamanio() {
-        // Implementar.
-        return 0;
+        return cantidadDatos;
     }
 
     /**
@@ -173,8 +270,7 @@ public class Diccionario<C, V> {
      * @return true si el diccionario está vacío.
      */
     public boolean vacio() {
-        // Implementar.
-        return true;
+        return cantidadDatos == 0;
     }
 
     /**
@@ -195,5 +291,31 @@ public class Diccionario<C, V> {
             }
         }
         return valores;
+    }
+
+    /**** HELPERS ****/
+
+    private boolean esPrimo(int numero) {
+        if (numero < 2) {
+            return false;
+        }
+
+        if (numero == 2) {
+            return true;
+        }
+
+        if (numero % 2 == 0) {
+            return false;
+        }
+
+        // Verifico divisibilidad por números impares hasta la raíz cuadrada
+        int limite = (int) Math.sqrt(numero);
+        for (int i = 3; i <= limite; i += 2) {
+            if (numero % i == 0) {
+                return false;
+            }
+        }
+
+        return true;
     }
 }

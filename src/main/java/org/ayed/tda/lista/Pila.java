@@ -8,7 +8,8 @@ public class Pila<T> {
      * Constructor de Pila.
      */
     public Pila() {
-        // Implementar.
+        this.ultimo = null;
+        this.cantidadDatos = 0;
     }
 
     /**
@@ -19,7 +20,17 @@ public class Pila<T> {
      * @throws ExcepcionLista si la pila es nula.
      */
     public Pila(Pila<T> pila) {
-        // Implementar.
+        if (pila == null) {
+            throw new ExcepcionLista("La pila no puede ser nula.");
+        }
+
+        this.ultimo = null;
+        this.cantidadDatos = 0;
+
+        // Construyo la nueva pila desde el fondo hacia arriba
+        if (pila.ultimo != null) {
+            copiarDesdeNodo(pila.ultimo);
+        }
     }
 
     /**
@@ -28,7 +39,11 @@ public class Pila<T> {
      * @param dato Dato a agregar.
      */
     public void agregar(T dato) {
-        // Implementar.
+        Nodo<T> nuevoNodo = new Nodo<>(dato, ultimo, null);
+
+        ultimo = nuevoNodo;
+
+        cantidadDatos++;
     }
 
     /**
@@ -38,8 +53,17 @@ public class Pila<T> {
      * @throws ExcepcionLista si la pila está vacía.
      */
     public T eliminar() {
-        // Implementar.
-        return (T) new Object();
+        if (ultimo == null) {
+            throw new ExcepcionLista("La pila está vacía.");
+        }
+
+        T datoEliminado = ultimo.dato;
+
+        ultimo = ultimo.anterior;
+
+        cantidadDatos--;
+
+        return datoEliminado;
     }
 
     /**
@@ -49,8 +73,11 @@ public class Pila<T> {
      * @throws ExcepcionLista si la pila está vacía.
      */
     public T siguiente() {
-        // Implementar.
-        return (T) new Object();
+        if (ultimo == null) {
+            throw new ExcepcionLista("La pila está vacía.");
+        }
+
+        return ultimo.dato;
     }
 
     /**
@@ -59,8 +86,7 @@ public class Pila<T> {
      * @return el tamaño de la pila.
      */
     public int tamanio() {
-        // Implementar.
-        return 0;
+        return cantidadDatos;
     }
 
     /**
@@ -69,7 +95,17 @@ public class Pila<T> {
      * @return true si la pila está vacía.
      */
     public boolean vacio() {
-        // Implementar.
-        return true;
+        return cantidadDatos == 0;
+    }
+
+    /**** HELPERS ****/
+
+    private void copiarDesdeNodo(Nodo<T> nodo) {
+        // primero copio todo lo que está debajo
+        if (nodo.anterior != null) {
+            copiarDesdeNodo(nodo.anterior);
+        }
+        // Luego apilo el dato actual
+        this.agregar(nodo.dato);
     }
 }
