@@ -12,7 +12,7 @@ public class Exotico extends Vehiculo {
     private int ruedas;
     
     public Exotico(String nombre, int precio, int capacidadGasolina,  int velocidadMaxima, int ruedas) {
-        super(nombre, precio, capacidadGasolina, velocidadMaxima);
+        super(nombre, null, precio, capacidadGasolina, velocidadMaxima);
         if(ruedas <= 0) {
             throw new IllegalArgumentException("Ruedas debe ser mayor a 0");
         }

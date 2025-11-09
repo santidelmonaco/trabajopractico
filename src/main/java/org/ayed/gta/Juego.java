@@ -103,11 +103,18 @@ public class Juego { // Clase principal que maneja la interacción del usuario
     // Solicita los datos de un vehículo y lo agrega al garaje
     private void agregarVehiculo() {
         String nombre = leerTexto("Ingrese nombre del vehículo: ");
+        String marca = leerTexto("Ingrese marca: ");
         int precio = leerEntero("Ingrese precio: ");
         TipoVehiculo tipo = leerTipo("Ingrese tipo (AUTO/MOTO): ");
         int capacidadGas = leerEntero("Ingrese capacidad de gasolina: ");
+        int velocidadMax = leerEntero("Ingrese velocidad máxima: ");
 
-        Vehiculo v = new Vehiculo(nombre, tipo, precio, capacidadGas);
+        Vehiculo v = null;
+        if (tipo == TipoVehiculo.AUTO) {
+            v = new Auto(nombre, marca, precio, capacidadGas, velocidadMax);
+        } else if (tipo == TipoVehiculo.MOTO) {
+            v = new Moto(nombre, marca, precio, capacidadGas, velocidadMax);
+        }
 
         try {
             garaje.agregarVehiculo(v); // Llama al método de Garaje para agregar vehículo

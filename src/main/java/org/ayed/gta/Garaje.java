@@ -313,14 +313,34 @@ public class Garaje {
                     }
 
                 } else if (partes.length >= 5) {
-                    String nombreVeh = partes[0];
-                    int precioVeh = Integer.parseInt(partes[1]);
-                    String tipoVeh = partes[2];
-                    int capacidadGasolina = Integer.parseInt(partes[4]);
+                    String nombre = partes[0];
+                    String marca = partes[1].equals("null") ? null : partes[1];
+                    int precio = Integer.parseInt(partes[2]);
+                    String tipo = partes[3];
+                    int ruedas = Integer.parseInt(partes[4]);
+                    int capacidadGas = Integer.parseInt(partes[5]);
+                    int velocidadMax = Integer.parseInt(partes[6]);
+                    // int kilometraje = Integer.parseInt(partes[7]); // si lo usás
 
-                    TipoVehiculo tipoVehiculo = TipoVehiculo.valueOf(tipoVeh);
-                    Vehiculo v = new Vehiculo(nombreVeh, tipoVehiculo, precioVeh, capacidadGasolina);
+                    Vehiculo v;
+
+                    switch (tipo.toUpperCase()) {
+                        case "AUTO":
+                            v = new Auto(nombre, marca, precio, capacidadGas, velocidadMax);
+                            break;
+                        case "MOTO":
+                            v = new Moto(nombre, marca, precio, capacidadGas, velocidadMax);
+                            break;
+                        case "EXOTICO":
+                            v = new Exotico(nombre, precio, capacidadGas, velocidadMax, ruedas);
+                            break;
+                        default:
+                            System.out.println("Tipo de vehículo desconocido: " + tipo);
+                            return;
+                    }
+
                     this.agregarVehiculo(v);
+
                 }
                 lineaActual++;
             }
