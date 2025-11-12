@@ -107,5 +107,23 @@ public abstract class Vehiculo {
         return nombre + "," + marca + "," + precio + "," + getClass().getSimpleName() + "," + 
                getRuedas() + "," + capacidadGasolina + "," + velocidadMaxima + "," + kilometraje;
     }
-}
 
+
+    public void consumirGasolina(int cantidad){
+        if(cantidad < 0){
+            throw new IllegalArgumentException("La cantidad no puede ser negativa");
+        }
+        if(getGasolinaActual() < cantidad){
+            gasolinaActual = 0;
+            throw new IllegalArgumentException("No hay suficiente gasolina");
+        }
+        gasolinaActual -= cantidad;
+    }
+
+    public void sumarKilometraje(int cantidad){
+        if(cantidad < 0){
+            throw new IllegalArgumentException("La cantidad no puede ser negativa");
+        }
+        kilometraje += cantidad;
+    }
+}
