@@ -268,6 +268,15 @@ public class Garaje {
         }
     }
 
+    public Vehiculo asignarVehiculo(String nombre) {
+        int posicion = buscarVehiculo(nombre);
+        if(posicion < 0){
+            throw new ExcepcionGaraje("No existe un vehículo con el nombre \"" + nombre + "\"");
+        }else{
+            return vehiculos.dato(posicion);
+        }
+    }
+
     public void exportarACSV() {
         try (FileWriter fw = new FileWriter("garaje.csv")) {
             fw.write(this.capacidadMaxVehiculos + "," + this.creditos + "\n");
