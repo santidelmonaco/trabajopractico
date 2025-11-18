@@ -157,17 +157,15 @@ public class Garaje {
     }
         return total;
     }
-       
-       /**
-     * Devuelve el vector de vehículos.
-     * <pre>
-     * Precondición: ninguna.
-     * Postcondición: retorna la colección de vehículos del garaje.
-     * </pre>
-     * 
-     * @return vector de vehículos
-     */
-       
+
+    public Vector<Vehiculo> getVehiculos() {
+        return vehiculos;
+    }
+
+    public int getCantidadVehiculos() {
+        return vehiculos.tamanio();
+    }
+
        /**
      * Devuelve la cantidad de créditos disponibles.
      * <pre>
@@ -177,9 +175,9 @@ public class Garaje {
      * 
      * @return créditos actuales
      */
-       public int getCreditos() {
+    public int getCreditos() {
         return creditos;
-    }
+    }   
        /**
      * Devuelve la capacidad máxima de vehículos.
      * <pre>
@@ -277,85 +275,108 @@ public class Garaje {
         }
     }
 
-    public void exportarACSV() {
-        try (FileWriter fw = new FileWriter("garaje.csv")) {
-            fw.write(this.capacidadMaxVehiculos + "," + this.creditos + "\n");
+    public boolean guardarEnCSV(String rutaArchivo) {
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter(rutaArchivo))) {
+
+            bw.write("CREDITOS;" + this.creditos);
+            bw.newLine();
+
+            bw.write("CAPACIDAD;" + this.capacidadMaxVehiculos);
+            bw.newLine();
+            bw.newLine();
+
+            bw.write("Tipo;Nombre;Marca;Precio;CapacidadGasolina;GasolinaActual;Kilometraje;VelocidadMaxima;Ruedas");
+            bw.newLine();
 
             for (int i = 0; i < vehiculos.tamanio(); i++) {
-                Vehiculo v = vehiculos.dato(i);
-                fw.write(v.exportar() + "\n");
-            }
+            Vehiculo v = vehiculos.dato(i);
 
-            System.out.println("Garaje exportado a garaje.csv");
-        } catch (IOException e) {
-            e.printStackTrace();
+            bw.write(
+                v.getClass().getSimpleName() + ";" +
+                v.getNombre() + ";" +
+                v.getMarca() + ";" +
+                v.getPrecio() + ";" +
+                v.getCapacidadGasolina() + ";" +
+                v.getGasolinaActual() + ";" +
+                v.getKilometraje() + ";" +
+                v.getVelocidadMaxima() + ";" +
+                v.getRuedas()
+            );
+            bw.newLine();
+        }
+
+        return true;
+        } catch (Exception e) {
+            System.out.println("Error al guardar garaje: " + e.getMessage());
+            return false;
         }
     }
-    
-    public void cargarDesdeCSV() {
-        try (BufferedReader br = new BufferedReader(new FileReader("garaje.csv"))) {
-            String linea;
-            int lineaActual = 0;
 
-            // Limpiar garaje actual
+    
+    public boolean cargarDesdeCSV(String rutaArchivo) {
+        try (BufferedReader br = new BufferedReader(new FileReader(rutaArchivo))) {
+
+            String linea;
+
+            linea = br.readLine();
+            if (linea != null && linea.startsWith("CREDITOS")) {
+                this.creditos = Integer.parseInt(linea.split(";")[1]);
+            }
+
+            // Capacidad
+            linea = br.readLine();
+            if (linea != null && linea.startsWith("CAPACIDAD")) {
+                this.capacidadMaxVehiculos = Integer.parseInt(linea.split(";")[1]);
+            }
+
+            br.readLine(); 
+            br.readLine(); 
+
             this.vehiculos = new Vector<>();
-            this.creditos = 0;
-            this.capacidadMaxVehiculos = 5;
 
             while ((linea = br.readLine()) != null) {
-                String[] partes = linea.split(",");
-                if (lineaActual == 0) {
-                    // Primera línea: capacidad y créditos
-                    int capacidad = Integer.parseInt(partes[0]);
-                    int creditos = Integer.parseInt(partes[1]);
 
-                    // Ajusto capacidad usando mejorarGaraje y créditos
-                    while (this.capacidadMaxVehiculos < capacidad) {
-                        // Si no hay créditos suficientes, agregamos temporalmente
-                        if (this.creditos < 50) this.creditos += 50;
-                        this.mejorarGaraje();
-                    }
+                String[] d = linea.split(";");
 
-                    // Ajusto créditos restantes
-                    if (this.creditos < creditos) {
-                        this.creditos = creditos;
-                    }
+                String tipo = d[0];
+                String nombre = d[1];
+                String marca = d[2].equals("null") ? null : d[2];
+                int precio = Integer.parseInt(d[3]);
+                int capacidad = Integer.parseInt(d[4]);
+                int gasolina = Integer.parseInt(d[5]);
+                int km = Integer.parseInt(d[6]);
+                int velMax = Integer.parseInt(d[7]);
+                int ruedas = Integer.parseInt(d[8]);
 
-                } else if (partes.length >= 5) {
-                    String nombre = partes[0];
-                    String marca = partes[1].equals("null") ? null : partes[1];
-                    int precio = Integer.parseInt(partes[2]);
-                    String tipo = partes[3];
-                    int ruedas = Integer.parseInt(partes[4]);
-                    int capacidadGas = Integer.parseInt(partes[5]);
-                    int velocidadMax = Integer.parseInt(partes[6]);
-                    // int kilometraje = Integer.parseInt(partes[7]); // si lo usás
+                Vehiculo v;
 
-                    Vehiculo v;
-
-                    switch (tipo.toUpperCase()) {
-                        case "AUTO":
-                            v = new Auto(nombre, marca, precio, capacidadGas, velocidadMax);
-                            break;
-                        case "MOTO":
-                            v = new Moto(nombre, marca, precio, capacidadGas, velocidadMax);
-                            break;
-                        case "EXOTICO":
-                            v = new Exotico(nombre, precio, capacidadGas, velocidadMax, ruedas);
-                            break;
-                        default:
-                            System.out.println("Tipo de vehículo desconocido: " + tipo);
-                            return;
-                    }
-
-                    this.agregarVehiculo(v);
-
+                switch (tipo) {
+                    case "Auto":
+                        v = new Auto(nombre, marca, precio, capacidad, velMax);
+                        break;
+                    case "Moto":
+                        v = new Moto(nombre, marca, precio, capacidad, velMax);
+                        break;
+                    case "Exotico":
+                        v = new Exotico(nombre, precio, capacidad, velMax, ruedas);
+                        break;
+                    default:
+                        System.out.println("Tipo desconocido: " + tipo);
+                        continue;
                 }
-                lineaActual++;
+
+                v.cargarGasolina(gasolina);
+                v.kilometraje = km;
+
+                agregarVehiculo(v);
             }
-            System.out.println("Garaje cargado desde garaje.csv");
-        } catch (IOException | ExcepcionGaraje e) {
-            e.printStackTrace();
+
+            return true;
+
+        } catch (Exception e) {
+            System.out.println("Error al cargar garaje: " + e.getMessage());
+            return false;
         }
     }
+
 }

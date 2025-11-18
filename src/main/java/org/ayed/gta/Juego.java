@@ -67,10 +67,10 @@ public class Juego { // Clase principal que maneja la interacción del usuario
                     mostrarCosto();
                     break;
                 case EXPORTAR:
-                    garaje.exportarACSV();
+                    //garaje.exportarACSV();
                     break;
                 case CARGAR:
-                    garaje.cargarDesdeCSV();
+                    //garaje.cargarDesdeCSV();
                     break;
                 case SALIR:
                     System.out.println("Adios");

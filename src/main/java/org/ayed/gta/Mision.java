@@ -116,4 +116,20 @@ public class Mision {
         }
         System.out.println();
     }
+
+    public int getTiempoLimite() {
+        return tiempoLimite;
+    }
+
+    public int getRecompensaDinero() {
+        return recompensaDinero;
+    }
+
+    public int getRecompensaCreditos() {
+        return recompensaCreditos;
+    }
+
+    public Vehiculo getVehiculoAsignado() {
+        return vehiculoAsignado;
+    }
 }
