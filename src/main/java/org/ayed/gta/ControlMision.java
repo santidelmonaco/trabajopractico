@@ -1,4 +1,5 @@
 package org.ayed.gta;
+import org.ayed.gta.mapa.*;
 
 public class ControlMision{
     protected Vehiculo vehiculo;

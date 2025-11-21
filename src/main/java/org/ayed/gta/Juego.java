@@ -1,196 +1,436 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+package org.ayed.gta;
+import org.ayed.gta.mapa.*;
+import java.util.Scanner;
 
-package org.ayed.gta; 
-/**
- *
- * @author delmo
- */
-import java.util.Scanner; 
+public class Juego {
 
-public class Juego { // Clase principal que maneja la interacción del usuario
+    private Jugador jugador;
+    private Concesionario concesionario;
+    private Mapa mapa;
+    private ControlMision control;
+    private boolean juegoActivo;
+    private Scanner sc;
 
-    private Garaje garaje; 
-    private Scanner sc;    
-
-    // Constantes de menú para mejorar la legibilidad del código
-    private static final int AGREGAR_VEHICULO = 1;
-    private static final int MOSTRAR_VEHICULOS = 2;
-    private static final int ELIMINAR_VEHICULO = 3;
-    private static final int MEJORAR_GARAJE = 4;
-    private static final int AGREGAR_CREDITOS = 5;
-    private static final int MOSTRAR_VALOR_TOTAL = 6;
-    private static final int MOSTRAR_COSTO = 7;
-    private static final int EXPORTAR = 8;
-    private static final int CARGAR = 9;
-    private static final int SALIR = 0;
-
-    // Constructor
     public Juego() {
-        this.garaje = new Garaje(); 
-        this.sc = new Scanner(System.in); 
+        this.sc = new Scanner(System.in);
+        this.juegoActivo = false;
     }
 
-    // Método principal que ejecuta el bucle del juego
     public void ejecutar() {
-        System.out.println("Bienvenido al garaje");
-        System.out.println("Tenés capacidad para " + garaje.getCapacidadMaxVehiculos() + " vehículos");
+        mostrarMenuPrincipal();
 
-        int opcion;
-        do {
-            mostrarMenu(); 
-            opcion = leerEntero("Ingrese opción: "); 
+        while (juegoActivo) {
+            mostrarEstadoJugador();
+            mostrarOpcionesPrincipal();
 
-            // Llama al método de Garaje segun la opcion
+            int opcion = leerEntero("Seleccione una opción: ");
+
             switch (opcion) {
-                case AGREGAR_VEHICULO:
-                    agregarVehiculo();
+                case 1:
+                    System.out.println("\n>> Entrando al concesionario...");
+                    irAlConcesionario();
                     break;
-                case MOSTRAR_VEHICULOS:
-                    garaje.mostrarVehiculos(); // Llama al método de Garaje
+
+                case 2:
+                    System.out.println("\n>> Abriendo el garaje...");
+                    administrarGaraje();
                     break;
-                case ELIMINAR_VEHICULO:
-                    eliminarVehiculo();
+
+                case 3:
+                    System.out.println("\n>> Iniciando misión...");
+                    iniciarMision();
                     break;
-                case MEJORAR_GARAJE:
-                    mejorarGaraje();
+
+                case 4:
+                    System.out.println("\n>> Guardando partida y saliendo del juego...");
+                    guardarPartida();
+                    juegoActivo = false;
                     break;
-                case AGREGAR_CREDITOS:
-                    agregarCreditos();
-                    break;
-                case MOSTRAR_VALOR_TOTAL:
-                    mostrarValorTotal();
-                    break;
-                case MOSTRAR_COSTO:
-                    mostrarCosto();
-                    break;
-                case EXPORTAR:
-                    //garaje.exportarACSV();
-                    break;
-                case CARGAR:
-                    //garaje.cargarDesdeCSV();
-                    break;
-                case SALIR:
-                    System.out.println("Adios");
-                    break;
+
                 default:
-                    System.out.println("Opción inválida.");
+                    System.out.println("Opción inválida. Intente nuevamente.");
                     break;
             }
-
-        } while (opcion != SALIR); 
-    }
-
-    
-    private void mostrarMenu() {
-        System.out.println("\nMENU PRINCIPAL:");
-        System.out.println("1) Agregar vehículo");
-        System.out.println("2) Mostrar vehículos");
-        System.out.println("3) Eliminar vehículo por nombre");
-        System.out.println("4) Mejorar garaje (+1 espacio)");
-        System.out.println("5) Agregar créditos");
-        System.out.println("6) Mostrar valor total del garaje");
-        System.out.println("7) Mostrar costo diario de mantenimiento");
-        System.out.println("8) Exportar garaje a archivo");
-        System.out.println("9) Cargar garaje desde archivo");
-        System.out.println("0) Salir");
-    }
-
-    // --- Métodos auxiliares para interactuar con Garaje ---
-
-    // Solicita los datos de un vehículo y lo agrega al garaje
-    private void agregarVehiculo() {
-        String nombre = leerTexto("Ingrese nombre del vehículo: ");
-        String marca = leerTexto("Ingrese marca: ");
-        int precio = leerEntero("Ingrese precio: ");
-        TipoVehiculo tipo = leerTipo("Ingrese tipo (AUTO/MOTO): ");
-        int capacidadGas = leerEntero("Ingrese capacidad de gasolina: ");
-        int velocidadMax = leerEntero("Ingrese velocidad máxima: ");
-
-        Vehiculo v = null;
-        if (tipo == TipoVehiculo.AUTO) {
-            v = new Auto(nombre, marca, precio, capacidadGas, velocidadMax);
-        } else if (tipo == TipoVehiculo.MOTO) {
-            v = new Moto(nombre, marca, precio, capacidadGas, velocidadMax);
         }
 
-        try {
-            garaje.agregarVehiculo(v); // Llama al método de Garaje para agregar vehículo
-            System.out.println("Vehículo agregado correctamente.");
-        } catch (ExcepcionGaraje e) { // Captura errores (garaje lleno o vehículo nulo)
-            System.out.println("⚠️ " + e.getMessage());
+        System.out.println("Fin del juego.");
+    }
+
+
+    private void mostrarMenuPrincipal() {
+        System.out.println("=== MENU PRINCIPAL ===");
+        System.out.println("1. Nueva partida");
+        System.out.println("2. Cargar partida");
+
+        int opcion = leerEntero("Seleccione una opción: ");
+
+        if (opcion == 1) {
+            // Crear nuevo garaje vacío
+            Garaje nuevoGaraje = new Garaje();
+            // Crear nuevo jugador con nombre ingresado
+            String nombre = leerTexto("Ingrese el nombre del jugador: ");
+            jugador = new Jugador(nombre, 8000, nuevoGaraje);
+            System.out.println("Nueva partida iniciada para " + nombre + ".");
+        } 
+        else if (opcion == 2) {
+            String nombreArchivo = leerTexto("Ingrese el nombre del archivo de guardado: ");
+            Garaje garajeCargado = new Garaje();
+            jugador = new Jugador("Jugador", 0, garajeCargado);
+            boolean cargado = jugador.cargarPartida(nombreArchivo);
+            if (!cargado) {
+                System.out.println("No se pudo cargar la partida. Iniciando nueva...");
+                jugador = new Jugador("Jugador", 8000, new Garaje());
+            }
+        } 
+        else {
+            System.out.println("Opción inválida, iniciando nueva partida.");
+            jugador = new Jugador("Jugador", 8000, new Garaje());
+        }
+
+        concesionario = CatalogoVehiculos.crearConcesionarioCompleto();
+        juegoActivo = true;
+    }
+
+    private void mostrarEstadoJugador() {
+        System.out.println("Jugador: " + jugador.getNombre());
+        System.out.println("Dinero disponible: $" + jugador.getDinero());
+        System.out.println("Vehículos en garaje: " + jugador.getGaraje().getVehiculos().tamanio() 
+                        + "/" + jugador.getGaraje().getCapacidadMaxVehiculos());
+    }
+
+
+    private void mostrarOpcionesPrincipal() {
+        System.out.println("\n MENÚ PRINCIPAL ");
+        System.out.println("1. Ir al Concesionario");
+        System.out.println("2. Ver Garaje");
+        System.out.println("3. Iniciar misión");
+        System.out.println("4. Guardar y salir");
+        System.out.print("Seleccione una opción: ");
+    }
+
+
+    private void irAlConcesionario() {
+        boolean enConcesionario = true;
+
+        while (enConcesionario) {
+            System.out.println(concesionario.toString());
+            System.out.println("1. Comprar vehículo");
+            System.out.println("2. Buscar por nombre");
+            System.out.println("3. Buscar por marca");
+            System.out.println("4. Volver al menú principal");
+
+            int opcion = leerEntero("Seleccione una opción: ");
+
+            switch (opcion) {
+                case 1: {
+                    String nombreCompra = leerTexto("Ingrese el nombre exacto del vehículo que desea comprar: ");
+                    Vehiculo vehiculoAComprar = concesionario.comprarVehiculo(nombreCompra);
+
+                    if (vehiculoAComprar == null) {
+                        System.out.println("No se encontró el vehículo \"" + nombreCompra + "\" en el concesionario.");
+                    } 
+                    else if (jugador.getDinero() < vehiculoAComprar.getPrecio()) {
+                        System.out.println("No tienes suficiente dinero para comprar este vehículo.");
+                        concesionario.agregarVehiculo(vehiculoAComprar); 
+                    } 
+                    else {
+                        jugador.restarDinero(vehiculoAComprar.getPrecio());
+                        jugador.getGaraje().agregarVehiculo(vehiculoAComprar);
+                        System.out.println("¡Has comprado el " + vehiculoAComprar.getNombre() + " por $" + vehiculoAComprar.getPrecio() + "!");
+                    }
+                    break;
+                }
+
+                case 2: {
+                    String busquedaNombre = leerTexto("Ingrese parte del nombre a buscar: ");
+                    Vehiculo[] resultadosNombre = concesionario.buscarPorNombre(busquedaNombre);
+                    mostrarResultadosBusqueda(resultadosNombre);
+                    break;
+                }
+
+                case 3: {
+                    String busquedaMarca = leerTexto("Ingrese parte de la marca a buscar: ");
+                    Vehiculo[] resultadosMarca = concesionario.buscarPorMarca(busquedaMarca);
+                    mostrarResultadosBusqueda(resultadosMarca);
+                    break;
+                }
+
+                case 4:
+                    enConcesionario = false;
+                    break;
+
+                default:
+                    System.out.println("Opción inválida, intente nuevamente.");
+                    break;
+            }
+        }
+    }
+    private void mostrarResultadosBusqueda(Vehiculo[] resultados) {
+        if (resultados == null || resultados.length == 0) {
+            System.out.println("No se encontraron vehículos con ese criterio.");
+            return;
+        }
+
+        System.out.println("=== Resultados de búsqueda ===");
+        for (Vehiculo v : resultados) {
+            System.out.printf("%-20s | Marca: %-15s | Precio: $%-8d | Tipo: %s\n",
+                    v.getNombre(), v.getMarca(), v.getPrecio(), v.getClass().getSimpleName());
         }
     }
 
-    // Solicita nombre de vehículo y lo elimina del garaje
-    private void eliminarVehiculo() {
-        String nombre = leerTexto("Ingrese nombre del vehículo a eliminar: ");
-        try {
-            garaje.eliminarVehiculo(nombre); // Llama al método de Garaje
-        } catch (ExcepcionGaraje e) {
-            System.out.println("Error: " + e.getMessage());
+    private void administrarGaraje() {
+        boolean volver = false;
+
+        while (!volver) {
+            System.out.println("\n MENÚ DEL GARAJE");
+            System.out.println("1. Ver vehículos");
+            System.out.println("2. Eliminar vehículo");
+            System.out.println("3. Mejorar garaje");
+            System.out.println("4. Cargar tanques al máximo");
+            System.out.println("5. Ver créditos y capacidad");
+            System.out.println("6. Volver al menú principal");
+
+            int opcion = leerEntero("Seleccione una opción: ");
+            Garaje garaje = jugador.getGaraje();
+
+            switch (opcion) {
+                case 1:
+                    garaje.mostrarVehiculos();
+                    break;
+
+                case 2:
+                    String nombre = leerTexto("Ingrese el nombre del vehículo a eliminar: ");
+                    try {
+                        garaje.eliminarVehiculo(nombre);
+                    } catch (ExcepcionGaraje e) {
+                        System.out.println(" " + e.getMessage());
+                    }
+                    break;
+
+                case 3:
+                    try {
+                        garaje.mejorarGaraje();
+                    } catch (ExcepcionGaraje e) {
+                        System.out.println(" " + e.getMessage());
+                    }
+                    break;
+
+                case 4:
+                    garaje.cargarTanquesMaximo();
+                    break;
+
+                case 5:
+                    System.out.println("Créditos: " + garaje.getCreditos());
+                    System.out.println("Capacidad máxima: " + garaje.getCapacidadMaxVehiculos());
+                    System.out.println("Valor total vehículos: " + garaje.obtenerValorTotal());
+                    System.out.println("Costo de mantenimiento total: " + garaje.obtenerCostoMantenimiento());
+                    break;
+
+                case 6:
+                    volver = true;
+                    System.out.println("Volviendo al menú principal");
+                    break;
+
+                default:
+                    System.out.println("Opción inválida. Intente nuevamente.");
+            }
         }
     }
 
-    
-    private void mejorarGaraje() {
-        try {
-            garaje.mejorarGaraje(); 
-        } catch (ExcepcionGaraje e) {
-            System.out.println("Error al mejorar el garaje: " + e.getMessage());
+    public void iniciarMision() {
+        boolean seleccionar = true;
+
+        while (seleccionar) {
+            mostrarMenuDificultad();
+
+            int opcion = leerEntero("Seleccione una opción: ");
+            Mision mision = seleccionarMision(opcion);
+
+            if (mision == null) {
+                continue;
+            }
+            boolean asignado = mision.asignarVehiculo(jugador.getGaraje());
+            if (!asignado) {
+                continue;
+            }
+
+            mapa = crearMapaMision();
+
+            control = new ControlMision(
+                    mision.getVehiculoAsignado(),
+                    jugador,
+                    mapa,
+                    mision
+            );
+
+            control.iniciarMision();
+
+            while (control.estaEnCurso()) {
+                mostrarInformacionMision(control);
+                char direccion = leerDireccionMovimiento();
+                control.moverVehiculo(String.valueOf(direccion));
+                verificarEventosDelMapa(control);
+            }
+
+            ResultadoMision resultado = control.getResultado();
+
+            jugador.aplicarResultado(resultado);
+
+            mostrarResumenFinal(resultado);
+
+            seleccionar = false;
         }
     }
 
-    
-    private void agregarCreditos() {
-        int creditos = leerEntero("Ingrese cantidad de créditos a agregar: ");
-        try {
-            garaje.agregarCreditos(creditos); // Llama a Garaje
-            System.out.println("Créditos agregados correctamente.");
-        } catch (ExcepcionGaraje e) {
-            System.out.println("Error: " + e.getMessage());
+    private void mostrarMenuDificultad() {
+        System.out.println("\n SELECCIONE LA DIFICULTAD DE LA MISIÓN");
+        System.out.println("1. Misión fácil    (Tiempo: 1000s | Recompensa: $2500 | Créditos: 20)");
+        System.out.println("2. Misión media   (Tiempo: 500s  | Recompensa: $5000 | Créditos: 35)");
+        System.out.println("3. Misión difícil (Tiempo: 250s  | Recompensa: $10000| Créditos: 50)");
+        System.out.println("4. Volver");
+    }
+    private Mision seleccionarMision(int opcion) {
+        switch (opcion) {
+            case 1:
+                return new Mision(
+                        1000,   
+                        20,    
+                        2500,   
+                        null    
+                );
+
+            case 2:
+                return new Mision(
+                        500,
+                        35,
+                        5000,
+                        null
+                );
+
+            case 3:
+                return new Mision(
+                        250,
+                        50,
+                        10000,
+                        null
+                );
+
+            case 4:
+                System.out.println("Volviendo al menú");
+                return null;
+
+            default:
+                System.out.println("Opción inválida.");
+                return null;
+        }
+    }
+    private Mapa crearMapaMision() {
+        System.out.println("CARGAR MAPA DE LA MISIÓN ");
+
+        String nombreArchivo = leerTexto("Ingrese el nombre del archivo del mapa: ");
+
+        Mapa mapa = new Mapa();
+
+        boolean cargado = mapa.cargarDesdeArchivo(nombreArchivo);
+
+        if (!cargado) {
+            System.out.println("Error: no se pudo cargar el mapa. Verifique el archivo.");
+            return null;
+        }
+
+        System.out.println("Mapa cargado correctamente.");
+        return mapa;
+    }
+
+    private void mostrarInformacionMision(ControlMision control) {
+        System.out.println("\n ESTADO DE LA MISIÓN");
+        System.out.println("Dificultad: " + control.getMision().getDificultad());
+        System.out.println("Tiempo restante: " + control.getTiempoRestante() + " segundos");
+
+        Vehiculo v = control.getVehiculo();
+        System.out.println("Vehículo: " + v.getNombre() + 
+                        " | Combustible: " + v.getCombustibleActual() + "/" + v.getCombustibleMax());
+        //Funcion para imprimir Mapa
+    }
+
+    private char leerDireccionMovimiento() {
+        System.out.print("Mover (W/A/S/D): ");
+        
+        String input = sc.nextLine().trim().toUpperCase();
+
+        while (input.length() != 1 || "WASD".indexOf(input.charAt(0)) == -1) {
+            System.out.print("Entrada inválida. Use W/A/S/D: ");
+            input = sc.nextLine().trim().toUpperCase();
+        }
+
+        return input.charAt(0);
+    }
+
+    private void verificarEventosDelMapa(ControlMision control) {
+        ResultadoMision r = control.getResultado();
+        ResultadoMision.Estado estado = r.getEstado();
+
+        switch (estado) {
+            case FALLO_MOVIMIENTO:
+                System.out.println("Movimiento inválido.");
+                break;
+
+            case FALLO_GASOLINA:
+                System.out.println("Sin gasolina.");
+                break;
+
+            case FALLO_TIEMPO:
+                System.out.println("Se acabó el tiempo.");
+                break;
+
+            case EXITO:
+                System.out.println("Objetivo alcanzado.");
+                break;
+
+            default:
+                break;
+        }
+    }
+    private void mostrarResumenFinal(ResultadoMision resultado) {
+        System.out.println("\n RESULTADO DE LA MISIÓN");
+
+        if (resultado.estaCompletada()) {
+            System.out.println("Misión completada");
+        } else {
+            System.out.println("Misión fallida.");
+        }
+
+        System.out.println("Dinero ganado: $" + resultado.getDineroGanado());
+        System.out.println("Créditos ganados: " + resultado.getCreditosGanados());
+
+        if (resultado.obtenerVehiculoExotico()) {
+            System.out.println("Vehículo exótico obtenido");
         }
     }
 
-    
-    private void mostrarValorTotal() {
-        System.out.println("Valor total del garaje: $" + garaje.obtenerValorTotal());
+    private void guardarPartida() {
+        String nombreArchivo = "partida_guardada.txt";
+        if (jugador.guardarPartida(nombreArchivo)) {
+            System.out.println(">> Partida guardada correctamente en: " + nombreArchivo);
+        } else {
+            System.out.println(" Error al guardar la partida.");
+        }
     }
 
-    // Muestra el costo total de mantenimiento de los vehículos
-    private void mostrarCosto() {
-        System.out.println("Costo de mantenimiento diario: $" + garaje.obtenerCostoMantenimiento());
-    }
 
-    // --- Métodos de lectura y validación ---
-
-    
     private String leerTexto(String mensaje) {
         System.out.print(mensaje);
         return sc.nextLine();
     }
 
-    // Lee un número entero desde consola y valida la entrada
     private int leerEntero(String mensaje) {
         System.out.print(mensaje);
         while (!sc.hasNextInt()) {
-            sc.next(); // descarta entrada inválida
+            sc.next();
             System.out.print("Entrada inválida. " + mensaje);
         }
         int valor = sc.nextInt();
-        sc.nextLine(); // limpia buffer
+        sc.nextLine();
         return valor;
-    }
-
-    // Lee y valida el tipo de vehículo (AUTO o MOTO)
-    private TipoVehiculo leerTipo(String mensaje) {
-        while (true) {
-            String tipoStr = leerTexto(mensaje).toUpperCase();
-            if (tipoStr.equals("AUTO")) return TipoVehiculo.AUTO;
-            if (tipoStr.equals("MOTO")) return TipoVehiculo.MOTO;
-            System.out.println("Tipo inválido. Debe ser AUTO o MOTO.");
-        }
     }
 }
