@@ -61,7 +61,16 @@ public class CatalogoVehiculos {
         
         return catalogo;
     }
-    
+    public static Exotico crearVehiculoExotico() {
+        return new Exotico(
+            "Zentolla",   
+            500000,
+            60,             
+            350,             
+            4               
+        );
+    }
+
     /**
      * Crea un concesionario con inventario completo
      */

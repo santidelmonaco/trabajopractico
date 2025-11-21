@@ -68,7 +68,20 @@ public class Jugador {
         return garaje.cargarDesdeCSV(archivoGaraje);
     }
 
-    
+    public void aplicarResultado(ResultadoMision r) {
+        if (r.estaCompletada()) {
+
+            sumarDinero(r.getDineroGanado());
+            garaje.agregarCreditos(r.getCreditosGanados());
+
+            if (r.obtenerVehiculoExotico()) {
+                Vehiculo exo = CatalogoVehiculos.crearVehiculoExotico();
+                garaje.agregarVehiculo(exo);
+                System.out.println("Ganaste un vehiculo exotico");
+            }
+        }
+    }
+
     public void mostrarInfoJugador() {
         System.out.println("=== Información del Jugador ===");
         System.out.println("Nombre: " + nombre);

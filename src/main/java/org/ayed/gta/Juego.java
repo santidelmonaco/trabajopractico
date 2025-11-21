@@ -1,5 +1,7 @@
 package org.ayed.gta;
 import org.ayed.gta.mapa.*;
+
+import java.io.IOException;
 import java.util.Scanner;
 
 public class Juego {
@@ -289,6 +291,7 @@ public class Juego {
         System.out.println("3. Misión difícil (Tiempo: 250s  | Recompensa: $10000| Créditos: 50)");
         System.out.println("4. Volver");
     }
+
     private Mision seleccionarMision(int opcion) {
         switch (opcion) {
             case 1:
@@ -324,22 +327,21 @@ public class Juego {
                 return null;
         }
     }
+    
     private Mapa crearMapaMision() {
         System.out.println("CARGAR MAPA DE LA MISIÓN ");
 
         String nombreArchivo = leerTexto("Ingrese el nombre del archivo del mapa: ");
 
-        Mapa mapa = new Mapa();
+        try {
+            Mapa mapa = Mapa.cargarDesdeArchivo(nombreArchivo); 
+            System.out.println("Mapa cargado");
+            return mapa;
 
-        boolean cargado = mapa.cargarDesdeArchivo(nombreArchivo);
-
-        if (!cargado) {
-            System.out.println("Error: no se pudo cargar el mapa. Verifique el archivo.");
+        } catch (IOException e) {
+            System.out.println("Error: " + e.getMessage());
             return null;
         }
-
-        System.out.println("Mapa cargado correctamente.");
-        return mapa;
     }
 
     private void mostrarInformacionMision(ControlMision control) {
@@ -391,6 +393,7 @@ public class Juego {
                 break;
         }
     }
+    
     private void mostrarResumenFinal(ResultadoMision resultado) {
         System.out.println("\n RESULTADO DE LA MISIÓN");
 
