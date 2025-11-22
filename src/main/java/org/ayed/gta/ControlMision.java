@@ -2,14 +2,14 @@ package org.ayed.gta;
 import org.ayed.gta.mapa.*;
 
 public class ControlMision{
-    protected Vehiculo vehiculo;
-    protected Jugador jugador;
-    protected Mapa mapa;
-    protected Mision mision;
-    protected double tiempoRestante;
-    protected boolean enCurso;
-    protected boolean completada;
-    protected ResultadoMision resultadoMision;
+    private Vehiculo vehiculo;
+    private Jugador jugador;
+    private Mapa mapa;
+    private Mision mision;
+    private double tiempoRestante;
+    private boolean enCurso;
+    private boolean completada;
+    private ResultadoMision resultadoMision;
 
     public ControlMision(Vehiculo vehiculo, Jugador jugador, Mapa mapa, Mision mision){
         this.vehiculo = vehiculo;
@@ -19,12 +19,12 @@ public class ControlMision{
         this.tiempoRestante = mision.getTiempoLimite();
         this.enCurso = false;
         this.completada = false;
-        this.resultadoMision = new ResultadoMision(mision, false, false, ResultadoMision.estado.EN_CURSO);
+        this.resultadoMision = new ResultadoMision(mision, false, false, ResultadoMision.Estado.EN_CURSO);
     }
 
     public void iniciarMision(){
         enCurso = true;
-        resultadoMision = new ResultadoMision(mision, false, false, ResultadoMision.estado.EN_CURSO);
+        resultadoMision = new ResultadoMision(mision, false, false, ResultadoMision.Estado.EN_CURSO);
     }
 
     public void moverVehiculo(String direccion){
@@ -41,7 +41,7 @@ public class ControlMision{
 
     private boolean verificarGasolina(){
         if(vehiculo.getGasolinaActual() <= 0){
-            fallarmision(ResultadoMision.estado.FALLO_GASOLINA);
+            fallarMision(ResultadoMision.Estado.FALLO_GASOLINA);
             return true;
         }
         return false;
@@ -51,13 +51,13 @@ public class ControlMision{
         String origen = mapa.getPosicionActual();
         String destino = mapa.obtenerDestino(origen, direccion);
         if(destino == null){
-            fallarmision(ResultadoMision.estado.FALLO_MOVIMIENTO);
+            fallarMision(ResultadoMision.Estado.FALLO_MOVIMIENTO);
             return false;
         }
 
         boolean movimientoExitoso = mapa.moverVehiculo(direccion);
         if(!movimientoExitoso){
-            fallarmision(ResultadoMision.estado.FALLO_MOVIMIENTO);
+            fallarMision(ResultadoMision.Estado.FALLO_MOVIMIENTO);
             return false;
         }
         return true;
@@ -76,12 +76,16 @@ public class ControlMision{
 
     private void verificarTiempo(){
         if(tiempoRestante <= 0){
-            fallarmision(ResultadoMision.estado.FALLO_TIEMPO);
+            fallarMision(ResultadoMision.Estado.FALLO_TIEMPO);
         }
     }
 
     private void verificarCompletada(){
-        if (mision.verificarCompletada(mapa.getPosicionActual())) {
+        String posActual = mapa.getPosicionActual();
+        Celda destino = mapa.getCeldaDestino();
+        String posDestino = destino.getFilas() + "," + destino.getColumnas();
+
+        if(posActual.equals(posDestino)){
             completada = true;
             enCurso = false;
             boolean vehiculoExotico = mision.esVehiculoExotico();

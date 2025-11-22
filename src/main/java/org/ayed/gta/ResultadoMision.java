@@ -8,16 +8,16 @@ public class ResultadoMision{
         FALLO_GASOLINA,
         FALLO_MOVIMIENTO
     }
-    protected boolean completada;
-    protected int dineroGanado;
-    protected int creditosGanados;
-    protected boolean vehiculoExotico;
-    protected Estado estado;
+    private boolean completada;
+    private int dineroGanado;
+    private int creditosGanados;
+    private boolean vehiculoExotico;
+    private Estado estado;
 
     public ResultadoMision(Mision mision, boolean completada, boolean vehiculoExotico, Estado estado){
         this.completada = completada;
-        this.dineroGanado = mision.getRecompensaDinero();
-        this.creditosGanados = mision.getRecompensaCreditos();
+        this.dineroGanado = completada ? mision.getRecompensaDinero() : 0;
+        this.creditosGanados = completada ? mision.getRecompensaCreditos() : 0;
         this.vehiculoExotico = vehiculoExotico;
         this.estado = estado;
     }
