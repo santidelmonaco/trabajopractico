@@ -14,11 +14,30 @@ public class Mapa {
     private Celda celdaDestino;
     private Random random;
 
+    // Posición actual del jugador
+    private int filaJugador;
+    private int columnaJugador;
+
     // Probabilidades para generación aleatoria
     private static final double PROB_EDIFICIO = 0.20;
     private static final double PROB_CONGESTION = 0.10;
     private static final double PROB_RECOMPENSA = 0.05;
     private static final double PROB_EXOTICO = 0.02;
+
+    // Tamaño por defecto
+    private static final int FILAS_DEFAULT = 10;
+    private static final int COLUMNAS_DEFAULT = 15;
+
+    /**
+     * Constructor vacío que crea un mapa con tamaño por defecto.
+     * El mapa se inicializa con todas las celdas como calles.
+     */
+    public Mapa() {
+        this.filas = FILAS_DEFAULT;
+        this.columnas = COLUMNAS_DEFAULT;
+        this.random = new Random();
+        inicializarCeldas();
+    }
 
     /**
      * Constructor que crea un mapa vacío de tamaño específico.
@@ -35,7 +54,13 @@ public class Mapa {
         this.filas = filas;
         this.columnas = columnas;
         this.random = new Random();
+        inicializarCeldas();
+    }
 
+    /**
+     * Inicializa todas las celdas del mapa como calles.
+     */
+    private void inicializarCeldas() {
         this.celdas = new Celda[filas][columnas];
         for (int f = 0; f < filas; f++) {
             for (int c = 0; c < columnas; c++) {
@@ -84,6 +109,63 @@ public class Mapa {
 
     public Celda getCeldaDestino() {
         return celdaDestino;
+    }
+
+    // === MÉTODOS DE POSICIÓN DEL JUGADOR ===
+
+    /**
+     * Obtiene la posición actual del jugador como string.
+     *
+     * @return Posición en formato "fila,columna"
+     */
+    public String getPosicionActual() {
+        return filaJugador + "," + columnaJugador;
+    }
+
+    /**
+     * Calcula la posición destino dada una dirección.
+     *
+     * @param origen Posición actual en formato "fila,columna"
+     * @param direccion W/A/S/D para arriba/izquierda/abajo/derecha
+     * @return Posición destino en formato "fila,columna", o null si es inválida
+     */
+    public String obtenerDestino(String origen, String direccion) {
+        String[] partes = origen.split(",");
+        int fila = Integer.parseInt(partes[0]);
+        int columna = Integer.parseInt(partes[1]);
+
+        switch (direccion.toUpperCase()) {
+            case "W": fila--; break;
+            case "S": fila++; break;
+            case "A": columna--; break;
+            case "D": columna++; break;
+            default: return null;
+        }
+
+        if (!estaDentro(fila, columna)) {
+            return null;
+        }
+
+        if (!celdas[fila][columna].esTransitable()) {
+            return null;
+        }
+
+        return fila + "," + columna;
+    }
+
+    /**
+     * Obtiene el costo de transitar entre dos celdas.
+     *
+     * @param origen Posición origen "fila,columna"
+     * @param destino Posición destino "fila,columna"
+     * @return Costo de la celda destino
+     */
+    public double obtenerCosto(String origen, String destino) {
+        String[] partes = destino.split(",");
+        int fila = Integer.parseInt(partes[0]);
+        int columna = Integer.parseInt(partes[1]);
+
+        return celdas[fila][columna].getCostoTransito();
     }
 
     // === GENERACIÓN ALEATORIA ===
@@ -202,10 +284,9 @@ public class Mapa {
      *
      * @param nombreArchivo Ruta del archivo a cargar
      */
-    public static Mapa cargarDesdeArchivo(String nombreArchivo) throws IOException {
+    public Mapa cargarDesdeArchivo(String nombreArchivo) throws IOException {
         try (BufferedReader reader = new BufferedReader(new FileReader(nombreArchivo))) {
 
-            // Leemos dimensiones
             String primeraLinea = reader.readLine();
             if (primeraLinea == null) {
                 throw new IOException("Archivo vacío");
