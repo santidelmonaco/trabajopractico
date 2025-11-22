@@ -132,4 +132,8 @@ public class Mision {
     public Vehiculo getVehiculoAsignado() {
         return vehiculoAsignado;
     }
+    public String getDificultad() {
+        return dificultad;
+    }
+
 }

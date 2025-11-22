@@ -56,6 +56,15 @@ public abstract class Vehiculo {
         return velocidadMaxima;
     }
 
+    public int getCombustibleActual() {
+        return gasolinaActual;
+    }
+
+    public int getCombustibleMax() {
+        return capacidadGasolina;
+    }
+
+
     public void setNombre(String nombre) {
         if(nombre == null) throw new IllegalArgumentException("Nombre no puede ser nulo");
         this.nombre = nombre;

@@ -334,7 +334,8 @@ public class Juego {
         String nombreArchivo = leerTexto("Ingrese el nombre del archivo del mapa: ");
 
         try {
-            Mapa mapa = Mapa.cargarDesdeArchivo(nombreArchivo); 
+            Mapa mapa = new Mapa();
+            mapa = mapa.cargarDesdeArchivo(nombreArchivo);
             System.out.println("Mapa cargado");
             return mapa;
 
