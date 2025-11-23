@@ -168,6 +168,34 @@ public class Mapa {
         return celdas[fila][columna].getCostoTransito();
     }
 
+    /**
+     * Evalua si el movimiento es posible de acuerdo a la configuracion del mapa
+     * 
+     * @param direccion Direccion solicitada para el movimiento
+     * @return true si el movimiento fue válido
+     */
+
+    public boolean movimientoExitoso(String direccion){
+        String origen = getPosicionActual();
+        String destino = obtenerDestino(origen, direccion);
+        
+        if(destino == null){
+            return false;
+        }
+
+        String[] partes = destino.split(",");
+        int fila = Integer.parseInt(partes[0]);
+        int columna = Integer.parseInt(partes[1]);
+        return true;
+    }
+
+    /**
+     *Evalua si en la celda actual se encuentra un vehiculo exotico
+     */
+    public boolean esVehiculoExotico(Celda actual){
+        return actual.getRecompensa() == tipoRecompensa.VEHICULO_EXOTICO;
+    }
+
     // === GENERACIÓN ALEATORIA ===
 
     /**

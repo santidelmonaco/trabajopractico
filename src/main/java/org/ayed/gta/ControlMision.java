@@ -1,6 +1,9 @@
 package org.ayed.gta;
 import org.ayed.gta.mapa.*;
 
+/**
+ * Controlador de mision que administra el progreso, el movimiento del vehiculo y el estado final de la mision
+ */
 public class ControlMision{
     private Vehiculo vehiculo;
     private Jugador jugador;
@@ -22,11 +25,27 @@ public class ControlMision{
         this.resultadoMision = new ResultadoMision(mision, false, false, ResultadoMision.Estado.EN_CURSO);
     }
 
+    /**
+     * Inicia la mision
+     * Marca la mision como en curso y reinicia el resultado parcial dejando todo para arrancar
+     */
     public void iniciarMision(){
         enCurso = true;
         resultadoMision = new ResultadoMision(mision, false, false, ResultadoMision.Estado.EN_CURSO);
     }
 
+    /**
+     * Intenta mover el vehiculo a la direccion indicada
+     * Este metodo coordina todo el flujo:
+     * -Verifica que la mision este activa
+     * -Verifica si hay gasolina disponible
+     * -Verifica si el movimiento es posible en el mapa
+     * -Actualiza gasolina, kilometraje y tiempo restante
+     * -Verifica si hay tiempo restante
+     * -Comprueba si el jugador alcanzo la celda destino
+     * 
+     * @param direccion Direccion a la cual se intenta mover
+     */
     public void moverVehiculo(String direccion){
         if(!enCurso) return;
 
@@ -39,6 +58,12 @@ public class ControlMision{
 
     }
 
+    /**
+     * Verifica si el vehiculo tiene gasolina disponible
+     * Si no tiene gasolina la mision se marca como fallida con el estado FALLO_GASOLINA
+     * 
+     * @return true si la mision debe detenerse por falta de gasolina, false en caso contrario
+     */
     private boolean verificarGasolina(){
         if(vehiculo.getGasolinaActual() <= 0){
             fallarMision(ResultadoMision.Estado.FALLO_GASOLINA);
@@ -47,6 +72,13 @@ public class ControlMision{
         return false;
     }
 
+    /**
+     * Valida si existe un movimiento posible en esa direccion en el mapa
+     * Si no puede moverse la mision se marca como fallida con el estado FALLO_MOVIMIENTO
+     * 
+     * @param direccion Direccion a la cual se intenta mover
+     * @return true si el movimiento es valido y fue realizado, false si falla
+     */
     private boolean verificarDestino(String direccion){
         String origen = mapa.getPosicionActual();
         String destino = mapa.obtenerDestino(origen, direccion);
@@ -55,14 +87,22 @@ public class ControlMision{
             return false;
         }
 
-        boolean movimientoExitoso = mapa.moverVehiculo(direccion);
-        if(!movimientoExitoso){
+        boolean movimiento = mapa.movimientoExitoso(direccion);
+        if(!movimiento){
             fallarMision(ResultadoMision.Estado.FALLO_MOVIMIENTO);
             return false;
         }
         return true;
     }
 
+    /**
+     * Actualiza el estado del vehiculo y el tiempo de la mision
+     * -Consume 1 de gasolina
+     * -Aumenta en 1 el kilometraje
+     * -Calcula el tiempo consumido en base al costo de la calle y la velocidad del vehiculo
+     * 
+     * @param direccion Direccion a la cual se mueve
+     */
     private void moverYActualizar(String direccion){
         vehiculo.consumirGasolina(1);
         vehiculo.sumarKilometraje(1);
@@ -74,12 +114,23 @@ public class ControlMision{
         tiempoRestante -= tiempoCalle;
     }
 
+    /**
+     * Verifica si el tiempo de la mision esta en 0 o menos
+     * En caso afirmativo, la mision se marca como falida con el estado FALLO_TIEMPO
+     */
     private void verificarTiempo(){
         if(tiempoRestante <= 0){
             fallarMision(ResultadoMision.Estado.FALLO_TIEMPO);
         }
     }
 
+    /**
+     * Verifica si el jugador alcanzo la celda destino de la mision
+     * Si se alcanza:
+     * -La mision se marca como completada
+     * -Se consulta en el mapa si se obtiene un vehiculo exotico
+     * -Se genera un resultado mision con estado EXITO
+     */
     private void verificarCompletada(){
         String posActual = mapa.getPosicionActual();
         Celda destino = mapa.getCeldaDestino();
@@ -88,11 +139,17 @@ public class ControlMision{
         if(posActual.equals(posDestino)){
             completada = true;
             enCurso = false;
-            boolean vehiculoExotico = mision.esVehiculoExotico();
+            boolean vehiculoExotico = mapa.esVehiculoExotico(destino);
             resultadoMision = new ResultadoMision(mision, true, vehiculoExotico, ResultadoMision.Estado.EXITO);
         }
     }
 
+    /**
+     * Marca la mision como fallida, registrando el tipo de fallo
+     * Detiene la mision inmediatamente y genera un resultado mision con el estado del fallo
+     * 
+     * @param estado Motivo del fallo de la mision
+     */
     private void fallarMision(ResultadoMision.Estado estado) {
         enCurso = false;
         completada = false;
@@ -104,35 +161,74 @@ public class ControlMision{
         );
     }
 
-
+    /**
+     * Obtiene el vehiculo utilizado en la mision
+     * 
+     * @return Vehiculo usado
+     */
     public Vehiculo getVehiculo(){
         return vehiculo;
     }
 
+    /**
+     * Devuelve el jugador que participa en la mision
+     * 
+     * @return Jugador participante
+     */
     public Jugador getJugador(){
         return jugador;
     }
 
+    /**
+     * Retorna el mapa sobre el cual se realiza la mision
+     * 
+     * @return Mapa actual jugandose
+     */
     public Mapa getMapa(){
         return mapa;
     }
 
+    /**
+     * Obtiene la mision que se esta ejecutando
+     * 
+     * @return Mision jugandose
+     */
     public Mision getMision(){
         return mision;
     }
 
+    /**
+     * Obtiene el tiempo restante de la mision
+     * 
+     * @return Tiempo restante para completar la mision
+     */
     public double getTiempoRestante(){
         return tiempoRestante;
     }
 
+    /**
+     * Indica si la mision esta actualmente en curso
+     * 
+     * @return true si sigue en curso, false en caso contrario
+     */
     public boolean estaEnCurso(){
         return enCurso;
     }
 
+    /**
+     * Indica si la mision fue completada exitosamente
+     * 
+     * @return true si se completo, false en caso contrario
+     */
     public boolean estaCompletada(){
         return completada;
     }
 
+    /**
+     * Devuelve el resultado actual o final de la mision
+     * 
+     * @return Resultado de la mision con informacion del progreso finalizacion
+     */
     public ResultadoMision getResultado(){
         return resultadoMision;
     }
