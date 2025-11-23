@@ -9,58 +9,58 @@ import java.util.Map;
 public class Nodo<T> {
     private T dato;
     private Nodo<T> siguiente;
-    private double g;
-    private double h;
+    private double costoAcumulado;
+    private double heuristica;
     private Nodo<T> predecesor;
     private boolean visitado;
     protected static final int INFINITO = 99999;
 
-    public Nodo(T d) {
-        dato = d;
+    public Nodo(T dato) {
+        this.dato = dato;
         siguiente = null;
-        this.g = INFINITO;
-        this.h = 0;
+        this.costoAcumulado = INFINITO;
+        this.heuristica = 0;
         this.predecesor = null;
         this.visitado = false;
     }
 
-    public double getG() {
-        return g;
+    public double obtenerCostoAcumulado() {
+        return costoAcumulado;
     }
 
-    public void setG(double g) {
-        this.g = g;
+    public void costoAcumulado(double costoAcumulado) {
+        this.costoAcumulado = costoAcumulado;
     }
 
-    public double getH() {
-        return h;
+    public double obtenerHeuristica() {
+        return heuristica;
     }
 
-    public void setH(double h) {
-        this.h = h;
+    public void heuristica(double heuristica) {
+        this.heuristica = heuristica;
     }
 
-    public double getF() {
-        return g + h;
+    public double EvaluaciónTotal() {
+        return costoAcumulado + heuristica;
     }
 
-    public Nodo<T> getPredecesor() {
+    public Nodo<T> obtenerPredecesor() {
         return predecesor;
     }
 
-    public void setPredecesor(Nodo<T> predecesor) {
+    public void predecesor(Nodo<T> predecesor) {
         this.predecesor = predecesor;
     }
 
-    public boolean getVisitado() {
+    public boolean obtenerVisitado() {
         return visitado;
     }
 
-    public void setVisitado(boolean visitado) {
+    public void Visitado(boolean visitado) {
         this.visitado = visitado;
     }
 
-    public List<Nodo<T>> getVecinos(Grafo<T> grafo) {
+    public List<Nodo<T>> obtenerVecinos(Grafo<T> grafo) {
         List<Nodo<T>> vecinos = new ArrayList<>();
 
         try {
@@ -71,7 +71,6 @@ public class Nodo<T> {
                 vecinos.add(nodoVecino);
             }
         } catch (ExcepcionGrafo e) {
-
             return new ArrayList<>();
         }
 
@@ -80,13 +79,13 @@ public class Nodo<T> {
 
     public double calcularCosto(Nodo<T> vecino, Grafo<T> grafo) {
         try {
-            return grafo.obtenerArista(this.dato, vecino.getDato());
+            return grafo.obtenerArista(this.dato, vecino.obtenerDato());
         } catch (ExcepcionGrafo e) {
             return Grafo.SIN_PESO;
         }
     }
 
-    public T getDato() {
+    public T obtenerDato() {
         return dato;
     }
 
@@ -94,11 +93,12 @@ public class Nodo<T> {
         this.dato = dato;
     }
 
-    public Nodo<T> getSiguiente() {
+    public Nodo<T> obtenerSiguiente() {
         return siguiente;
     }
 
     public void cambiarSiguiente(Nodo<T> primero) {
         this.siguiente = primero;
     }
+
 }

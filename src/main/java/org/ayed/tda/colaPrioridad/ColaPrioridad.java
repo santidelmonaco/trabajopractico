@@ -202,4 +202,13 @@ public class ColaPrioridad<T> {
         datos.modificarDato(datos.dato(indice2), indice1);
         datos.modificarDato(temporal, indice2);
     }
+
+    public boolean contiene(T dato) {
+        for (int i = 0; i < datos.tamanio(); i++) {
+            if (datos.dato(i).equals(dato)) {
+                return true;
+            }
+        }
+        return false;
+    }
 }
