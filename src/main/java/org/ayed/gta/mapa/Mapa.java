@@ -193,7 +193,7 @@ public class Mapa {
      *Evalua si en la celda actual se encuentra un vehiculo exotico
      */
     public boolean esVehiculoExotico(Celda actual){
-        return actual.getRecompensa() == tipoRecompensa.VEHICULO_EXOTICO;
+        return actual.getRecompensa() == TipoRecompensa.VEHICULO_EXOTICO;
     }
 
     // === GENERACIÓN ALEATORIA ===

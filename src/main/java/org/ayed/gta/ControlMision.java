@@ -134,7 +134,7 @@ public class ControlMision{
     private void verificarCompletada(){
         String posActual = mapa.getPosicionActual();
         Celda destino = mapa.getCeldaDestino();
-        String posDestino = destino.getFilas() + "," + destino.getColumnas();
+        String posDestino = destino.getFila() + "," + destino.getColumna();
 
         if(posActual.equals(posDestino)){
             completada = true;
