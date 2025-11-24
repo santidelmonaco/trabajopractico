@@ -190,6 +190,49 @@ public class Mapa {
     }
 
     /**
+     * Inicializa la posición del jugador en la celda de salida.
+     */
+    public void inicializarPosicionJugador() {
+        if (celdaSalida == null) {
+            throw new IllegalStateException("No se puede inicializar posición: no hay celda de salida definida");
+        }
+
+        this.filaJugador = celdaSalida.getFila();
+        this.columnaJugador = celdaSalida.getColumna();
+
+        System.out.println("Jugador posicionado en la salida: (" + filaJugador + "," + columnaJugador + ")");
+    }
+
+    /**
+     * Actualiza la posición del jugador después de un movimiento exitoso.
+     *
+     * @param nuevaFila Nueva fila donde está el jugador
+     * @param nuevaColumna Nueva columna donde está el jugador
+     * @throws IllegalArgumentException si la nueva posición no es válida
+     */
+    public void actualizarPosicionJugador(int nuevaFila, int nuevaColumna) {
+        if (!estaDentro(nuevaFila, nuevaColumna)) {
+            throw new IllegalArgumentException("Posición inválida: (" + nuevaFila + "," + nuevaColumna + ")");
+        }
+
+        if (!celdas[nuevaFila][nuevaColumna].esTransitable()) {
+            throw new IllegalArgumentException("La celda no es transitable");
+        }
+
+        this.filaJugador = nuevaFila;
+        this.columnaJugador = nuevaColumna;
+    }
+
+    /**
+     * Obtiene la celda donde actualmente está el jugador.
+     *
+     * @return La celda actual del jugador
+     */
+    public Celda getCeldaJugador() {
+        return celdas[filaJugador][columnaJugador];
+    }
+
+    /**
      *Evalua si en la celda actual se encuentra un vehiculo exotico
      */
     public boolean esVehiculoExotico(Celda actual){
