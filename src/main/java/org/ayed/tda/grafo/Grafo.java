@@ -1,6 +1,7 @@
 package org.ayed.tda.grafo;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Esta implementación de Grafo representa un grafo no

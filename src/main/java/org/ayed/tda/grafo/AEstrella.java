@@ -12,41 +12,52 @@ public class AEstrella<T> {
     private Nodo<T> nodoInicial;
     private Nodo<T> nodoObjetivo;
     private Grafo<T> grafo;
+    private Heuristica<T> heuristica;
         
-    public AEstrella(Nodo<T> nodoInicial,
+    public AEstrella(
+        Nodo<T> nodoInicial,
         Nodo<T> nodoObjetivo,
         Comparador<Nodo<T>> comparador,
-        Grafo<T> grafo) {
+        Grafo<T> grafo,
+        Heuristica<T> heuristica) {
     
         this.sa = new ColaPrioridad<>(comparador);
         this.sc = new ArrayList<>();
         this.nodoInicial = nodoInicial;
         this.nodoObjetivo = nodoObjetivo;
         this.grafo = grafo;
+        this.heuristica = heuristica;
     
         sa.agregar(nodoInicial);
-        }
+    }
     
     public List<T> recorrer() {
         while (!sa.vacio()) {
             Nodo<T> actual = sa.eliminar();
             
             if (actual.equals(nodoObjetivo)) {
-                reconstruirCamino(actual);
+                return reconstruirCamino(actual);
             }
     
             sc.add(actual);
-    
+
             for (Nodo<T> vecino : actual.obtenerVecinos(grafo)) {
+
                 if (sc.contains(vecino)) continue;
 
-                double nuevoCosto = actual.obtenerCostoAcumulado() + actual.calcularCosto(vecino,grafo);
+                double costoArista = grafo.obtenerArista(
+                    actual.obtenerDato(),
+                    vecino.obtenerDato()
+                );
 
-                if (!sa.contiene(vecino) || nuevoCosto < vecino.obtenerCostoAcumulado()){
+                double nuevoCosto = actual.obtenerCostoAcumulado() + costoArista;
+
+                if (!sa.contiene(vecino) || nuevoCosto < vecino.obtenerCostoAcumulado()) {
                     vecino.costoAcumulado(nuevoCosto);
-                    vecino.heuristica(vecino.calcularHeuristica(nodoObjetivo));
+                    vecino.heuristica(
+                        heuristica.calcularPuntaje(vecino.obtenerDato(), nodoObjetivo.obtenerDato())
+                    );
                     vecino.predecesor(actual);
-
                     if (!sa.contiene(vecino)) {
                         sa.agregar(vecino);
                     }
@@ -56,12 +67,12 @@ public class AEstrella<T> {
         return new ArrayList<>();
     }
     
-    private List<Nodo<T>> reconstruirCamino(Nodo<T> nodo) {
-        List<Nodo<T>> camino = new ArrayList<>();
+    private List<T> reconstruirCamino(Nodo<T> nodo) {
+        List<T> camino = new ArrayList<>();
         Nodo<T> actual = nodo;
         
         while (actual != null) {
-            camino.add(0, actual);
+            camino.add(0, actual.obtenerDato());
             actual = actual.obtenerPredecesor();
         }
         return camino;
