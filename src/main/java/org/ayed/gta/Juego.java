@@ -265,10 +265,10 @@ public class Juego {
                     mision
             );
 
-            control.iniciarMision();
-
-            // Mostrar mapa inicial con jugador en la salida
-            mapa.imprimirMapa();
+            if(mapa != null){
+                control.iniciarMision();
+                 mapa.imprimirMapa();
+            }
 
             while (control.estaEnCurso()) {
                 mostrarInformacionMision(control);
