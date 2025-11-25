@@ -1,5 +1,7 @@
 package org.ayed.gta.mapa;
 
+import org.ayed.gta.CodigosANSI;
+
 import java.io.*;
 import java.util.Random;
 
@@ -450,5 +452,165 @@ public class Mapa {
 
             System.out.println("Mapa guardado en: " + nombreArchivo);
         }
+    }
+
+    /**
+     * Imprime el mapa completo en la consola usando colores ANSI
+     */
+    public void imprimirMapa() {
+        CodigosANSI.limpiarPantalla();
+
+        for (int f = 0; f < filas; f++) {
+            // Agrego un margen izquierdo para centrar visualmente el mapa
+            System.out.print("  ");
+
+            for (int c = 0; c < columnas; c++) {
+                Celda celda = celdas[f][c];
+
+                // Caso: si es la posición actual del jugador
+                if (f == filaJugador && c == columnaJugador) {
+                    System.out.print(CodigosANSI.VERDE_BRILLANTE_FONDO +
+                            CodigosANSI.NEGRO_TEXTO + " J " +
+                            CodigosANSI.RESET);
+                    continue;
+                }
+
+                // Para las demás celdas, determino el color por su tipo
+                imprimirCelda(celda);
+            }
+
+            System.out.println();
+        }
+
+        //Para que el jugador entienda los colores
+        imprimirLeyenda();
+    }
+
+    /**
+     * Imprime una celda individual con el color y símbolo apropiados
+     *
+     * @param celda La celda a imprimir
+     */
+    private void imprimirCelda(Celda celda) {
+        char simbolo = celda.getSimbolo();
+
+        // Uso tres espacios para hacer cada celda más visible
+        String contenido = " " + simbolo + " ";
+
+        // Determino el color basándonos en el tipo de celda
+        switch (celda.getTipo()) {
+            case CALLE:
+                System.out.print(CodigosANSI.BLANCO_FONDO +
+                        CodigosANSI.NEGRO_TEXTO + " · " +
+                        CodigosANSI.RESET);
+                break;
+
+            case EDIFICIO:
+                System.out.print(CodigosANSI.NEGRO_FONDO +
+                        CodigosANSI.BLANCO_TEXTO + " # " +
+                        CodigosANSI.RESET);
+                break;
+
+            case SALIDA:
+                System.out.print(CodigosANSI.AZUL_FONDO +
+                        CodigosANSI.BLANCO_TEXTO + " S " +
+                        CodigosANSI.RESET);
+                break;
+
+            case DESTINO:
+                System.out.print(CodigosANSI.VERDE_FONDO +
+                        CodigosANSI.NEGRO_TEXTO + " D " +
+                        CodigosANSI.RESET);
+                break;
+
+            case CONGESTION:
+                System.out.print(CodigosANSI.ROJO_FONDO +
+                        CodigosANSI.NEGRO_TEXTO + " X " +
+                        CodigosANSI.RESET);
+                break;
+
+            case RECOMPENSA:
+                if (celda.isRecompensaRecolectada()) {
+                    // Si ya fue recogida, la muestro como calle normal
+                    System.out.print(CodigosANSI.BLANCO_FONDO +
+                            CodigosANSI.NEGRO_TEXTO + " · " +
+                            CodigosANSI.RESET);
+                } else {
+                    System.out.print(CodigosANSI.MAGENTA_FONDO +
+                            CodigosANSI.BLANCO_TEXTO + " $ " +
+                            CodigosANSI.RESET);
+                }
+                break;
+
+            case CAMINO_GPS:
+                System.out.print(CodigosANSI.AMARILLO_BRILLANTE_FONDO +
+                        CodigosANSI.NEGRO_TEXTO + " * " +
+                        CodigosANSI.RESET);
+                break;
+
+            default:
+                // Para cualquier tipo desconocido, uso un símbolo ?
+                System.out.print(CodigosANSI.BLANCO_FONDO +
+                        CodigosANSI.ROJO_TEXTO + " ? " +
+                        CodigosANSI.RESET);
+        }
+    }
+
+    /**
+     * Imprime una leyenda explicando qué significa cada color/símbolo.
+     */
+    private void imprimirLeyenda() {
+        System.out.println("\n"+ String.format("#").repeat(20) +" LEYENDA " + String.format("#").repeat(20));
+
+        // Imprimo cada elemento de la leyenda con su color correspondiente
+        System.out.print("│ ");
+        System.out.print(CodigosANSI.VERDE_BRILLANTE_FONDO +
+                CodigosANSI.NEGRO_TEXTO + " J " +
+                CodigosANSI.RESET);
+        System.out.println(" Jugador (tu posición actual)           │");
+
+        System.out.print("│ ");
+        System.out.print(CodigosANSI.AZUL_FONDO +
+                CodigosANSI.BLANCO_TEXTO + " S " +
+                CodigosANSI.RESET);
+        System.out.println(" Salida (punto de inicio)               │");
+
+        System.out.print("│ ");
+        System.out.print(CodigosANSI.VERDE_FONDO +
+                CodigosANSI.NEGRO_TEXTO + " D " +
+                CodigosANSI.RESET);
+        System.out.println(" Destino (objetivo de la misión)        │");
+
+        System.out.print("│ ");
+        System.out.print(CodigosANSI.BLANCO_FONDO +
+                CodigosANSI.NEGRO_TEXTO + " · " +
+                CodigosANSI.RESET);
+        System.out.println(" Calle (transitable)                    │");
+
+        System.out.print("│ ");
+        System.out.print(CodigosANSI.NEGRO_FONDO +
+                CodigosANSI.BLANCO_TEXTO + " # " +
+                CodigosANSI.RESET);
+        System.out.println(" Edificio (bloqueado)                   │");
+
+        System.out.print("│ ");
+        System.out.print(CodigosANSI.ROJO_FONDO +
+                CodigosANSI.NEGRO_TEXTO + " X " +
+                CodigosANSI.RESET);
+        System.out.println(" Congestión (tráfico lento 5x)         │");
+
+        System.out.print("│ ");
+        System.out.print(CodigosANSI.MAGENTA_FONDO +
+                CodigosANSI.BLANCO_TEXTO + " $ " +
+                CodigosANSI.RESET);
+        System.out.println(" Recompensa (dinero/créditos/exótico)   │");
+
+        System.out.print("│ ");
+        System.out.print(CodigosANSI.AMARILLO_BRILLANTE_FONDO +
+                CodigosANSI.NEGRO_TEXTO + " * " +
+                CodigosANSI.RESET);
+        System.out.println(" Camino GPS (ruta óptima)               │");
+
+        System.out.println(String.format("#").repeat(50));
     }
 }
