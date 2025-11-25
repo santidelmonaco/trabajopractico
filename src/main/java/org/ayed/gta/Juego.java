@@ -276,8 +276,13 @@ public class Juego {
                 control.moverVehiculo(String.valueOf(direccion));
 
                 // Actualizar posición del jugador y mostrar mapa actualizado
-                String posicionActual = mapa.getPosicionActual();
-                mapa.actualizarPosicionJugador(posicionActual);
+                String posicionActual = mapa.getPosicionActual(); // "3,4"
+                String[] partes = posicionActual.split(",");
+
+                int fila = Integer.parseInt(partes[0]);
+                int columna = Integer.parseInt(partes[1]);
+
+                mapa.actualizarPosicionJugador(fila, columna);
                 mapa.imprimirMapa();
                 
                 verificarEventosDelMapa(control);
@@ -304,28 +309,13 @@ public class Juego {
     private Mision seleccionarMision(int opcion) {
         switch (opcion) {
             case 1:
-                return new Mision(
-                        1000,   
-                        20,    
-                        2500,   
-                        null    
-                );
+            return Mision.generarMisionFacil();
 
-            case 2:
-                return new Mision(
-                        500,
-                        35,
-                        5000,
-                        null
-                );
+        case 2:
+            return Mision.generarMisionMedia();
 
-            case 3:
-                return new Mision(
-                        250,
-                        50,
-                        10000,
-                        null
-                );
+        case 3:
+            return Mision.generarMisionDificil();
 
             case 4:
                 System.out.println("Volviendo al menú");
