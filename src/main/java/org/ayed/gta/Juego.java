@@ -1,8 +1,9 @@
 package org.ayed.gta;
-import org.ayed.gta.mapa.*;
 
 import java.io.IOException;
 import java.util.Scanner;
+
+import org.ayed.gta.mapa.Mapa;
 
 public class Juego {
 
@@ -58,7 +59,6 @@ public class Juego {
         System.out.println("Fin del juego.");
     }
 
-
     private void mostrarMenuPrincipal() {
         System.out.println("=== MENU PRINCIPAL ===");
         System.out.println("1. Nueva partida");
@@ -73,8 +73,7 @@ public class Juego {
             String nombre = leerTexto("Ingrese el nombre del jugador: ");
             jugador = new Jugador(nombre, 8000, nuevoGaraje);
             System.out.println("Nueva partida iniciada para " + nombre + ".");
-        } 
-        else if (opcion == 2) {
+        } else if (opcion == 2) {
             String nombreArchivo = leerTexto("Ingrese el nombre del archivo de guardado: ");
             Garaje garajeCargado = new Garaje();
             jugador = new Jugador("Jugador", 0, garajeCargado);
@@ -83,8 +82,7 @@ public class Juego {
                 System.out.println("No se pudo cargar la partida. Iniciando nueva...");
                 jugador = new Jugador("Jugador", 8000, new Garaje());
             }
-        } 
-        else {
+        } else {
             System.out.println("Opción inválida, iniciando nueva partida.");
             jugador = new Jugador("Jugador", 8000, new Garaje());
         }
@@ -96,10 +94,9 @@ public class Juego {
     private void mostrarEstadoJugador() {
         System.out.println("Jugador: " + jugador.getNombre());
         System.out.println("Dinero disponible: $" + jugador.getDinero());
-        System.out.println("Vehículos en garaje: " + jugador.getGaraje().getVehiculos().tamanio() 
-                        + "/" + jugador.getGaraje().getCapacidadMaxVehiculos());
+        System.out.println("Vehículos en garaje: " + jugador.getGaraje().getVehiculos().tamanio()
+                + "/" + jugador.getGaraje().getCapacidadMaxVehiculos());
     }
-
 
     private void mostrarOpcionesPrincipal() {
         System.out.println("\n MENÚ PRINCIPAL ");
@@ -109,7 +106,6 @@ public class Juego {
         System.out.println("4. Guardar y salir");
         System.out.print("Seleccione una opción: ");
     }
-
 
     private void irAlConcesionario() {
         boolean enConcesionario = true;
@@ -130,15 +126,14 @@ public class Juego {
 
                     if (vehiculoAComprar == null) {
                         System.out.println("No se encontró el vehículo \"" + nombreCompra + "\" en el concesionario.");
-                    } 
-                    else if (jugador.getDinero() < vehiculoAComprar.getPrecio()) {
+                    } else if (jugador.getDinero() < vehiculoAComprar.getPrecio()) {
                         System.out.println("No tienes suficiente dinero para comprar este vehículo.");
-                        concesionario.agregarVehiculo(vehiculoAComprar); 
-                    } 
-                    else {
+                        concesionario.agregarVehiculo(vehiculoAComprar);
+                    } else {
                         jugador.restarDinero(vehiculoAComprar.getPrecio());
                         jugador.getGaraje().agregarVehiculo(vehiculoAComprar);
-                        System.out.println("¡Has comprado el " + vehiculoAComprar.getNombre() + " por $" + vehiculoAComprar.getPrecio() + "!");
+                        System.out.println("¡Has comprado el " + vehiculoAComprar.getNombre() + " por $"
+                                + vehiculoAComprar.getPrecio() + "!");
                     }
                     break;
                 }
@@ -167,6 +162,7 @@ public class Juego {
             }
         }
     }
+
     private void mostrarResultadosBusqueda(Vehiculo[] resultados) {
         if (resultados == null || resultados.length == 0) {
             System.out.println("No se encontraron vehículos con ese criterio.");
@@ -249,7 +245,7 @@ public class Juego {
             Mision mision = seleccionarMision(opcion);
 
             if (mision == null) {
-                continue;
+                return;
             }
             boolean asignado = mision.asignarVehiculo(jugador.getGaraje());
             if (!asignado) {
@@ -262,12 +258,11 @@ public class Juego {
                     mision.getVehiculoAsignado(),
                     jugador,
                     mapa,
-                    mision
-            );
+                    mision);
 
-            if(mapa != null){
+            if (mapa != null) {
                 control.iniciarMision();
-                 mapa.imprimirMapa();
+                mapa.imprimirMapa();
             }
 
             while (control.estaEnCurso()) {
@@ -284,7 +279,7 @@ public class Juego {
 
                 mapa.actualizarPosicionJugador(fila, columna);
                 mapa.imprimirMapa();
-                
+
                 verificarEventosDelMapa(control);
             }
 
@@ -309,13 +304,13 @@ public class Juego {
     private Mision seleccionarMision(int opcion) {
         switch (opcion) {
             case 1:
-            return Mision.generarMisionFacil();
+                return Mision.generarMisionFacil();
 
-        case 2:
-            return Mision.generarMisionMedia();
+            case 2:
+                return Mision.generarMisionMedia();
 
-        case 3:
-            return Mision.generarMisionDificil();
+            case 3:
+                return Mision.generarMisionDificil();
 
             case 4:
                 System.out.println("Volviendo al menú");
@@ -326,7 +321,7 @@ public class Juego {
                 return null;
         }
     }
-    
+
     private Mapa crearMapaMision() {
         System.out.println("CARGAR MAPA DE LA MISIÓN ");
 
@@ -350,14 +345,14 @@ public class Juego {
         System.out.println("Tiempo restante: " + control.getTiempoRestante() + " segundos");
 
         Vehiculo v = control.getVehiculo();
-        System.out.println("Vehículo: " + v.getNombre() + 
-                        " | Combustible: " + v.getCombustibleActual() + "/" + v.getCombustibleMax());
-        //Funcion para imprimir Mapa
+        System.out.println("Vehículo: " + v.getNombre() +
+                " | Combustible: " + v.getCombustibleActual() + "/" + v.getCombustibleMax());
+        // Funcion para imprimir Mapa
     }
 
     private char leerDireccionMovimiento() {
         System.out.print("Mover (W/A/S/D): ");
-        
+
         String input = sc.nextLine().trim().toUpperCase();
 
         while (input.length() != 1 || "WASD".indexOf(input.charAt(0)) == -1) {
@@ -393,7 +388,7 @@ public class Juego {
                 break;
         }
     }
-    
+
     private void mostrarResumenFinal(ResultadoMision resultado) {
         System.out.println("\n RESULTADO DE LA MISIÓN");
 
@@ -419,7 +414,6 @@ public class Juego {
             System.out.println(" Error al guardar la partida.");
         }
     }
-
 
     private String leerTexto(String mensaje) {
         System.out.print(mensaje);
