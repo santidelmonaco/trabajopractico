@@ -274,6 +274,12 @@ public class Juego {
                 mostrarInformacionMision(control);
                 char direccion = leerDireccionMovimiento();
                 control.moverVehiculo(String.valueOf(direccion));
+
+                // Actualizar posición del jugador y mostrar mapa actualizado
+                String posicionActual = mapa.getPosicionActual();
+                mapa.actualizarPosicionJugador(posicionActual);
+                mapa.imprimirMapa();
+                
                 verificarEventosDelMapa(control);
             }
 
