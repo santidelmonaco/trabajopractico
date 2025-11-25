@@ -188,6 +188,7 @@ public class Mapa {
         String[] partes = destino.split(",");
         int fila = Integer.parseInt(partes[0]);
         int columna = Integer.parseInt(partes[1]);
+        actualizarPosicionJugador(fila, columna);
         return true;
     }
 
