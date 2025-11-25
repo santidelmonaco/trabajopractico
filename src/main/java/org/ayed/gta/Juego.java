@@ -267,6 +267,9 @@ public class Juego {
 
             control.iniciarMision();
 
+            // Mostrar mapa inicial con jugador en la salida
+            mapa.imprimirMapa();
+
             while (control.estaEnCurso()) {
                 mostrarInformacionMision(control);
                 char direccion = leerDireccionMovimiento();
