@@ -29,8 +29,23 @@ public class CodigosANSI {
     public static final String CYAN_FONDO = "\u001B[46m";
     public static final String BLANCO_FONDO = "\u001B[47m";
 
+    // === COLORES BRILLANTES ===
+    public static final String VERDE_BRILLANTE_FONDO = "\u001B[102m";
+    public static final String AMARILLO_BRILLANTE_FONDO = "\u001B[103m";
+    public static final String NARANJA_FONDO = "\u001B[48;5;208m"; // Color personalizado
+
     // Constructor privado para prevenir instanciación
     private CodigosANSI() {
         throw new AssertionError("Esta clase no debe ser instanciada");
+    }
+
+    /**
+     * Limpia la pantalla de la consola
+     */
+    public static void limpiarPantalla() {
+        // El código \u001B[2J limpia toda la pantalla
+        // El código \u001B[H mueve el cursor a la posición (0,0)
+        System.out.print("\u001B[2J\u001B[H");
+        System.out.flush();
     }
 }
