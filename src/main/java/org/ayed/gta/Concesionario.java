@@ -136,15 +136,6 @@ public class Concesionario {
         for(int i = 0; i < cantidad; i++) {
             if(inventario[i].getNombre().equalsIgnoreCase(nombreExacto.trim())) {
                 Vehiculo vehiculoComprado = inventario[i];
-                
-                // Desplazar elementos hacia la izquierda para eliminar el vehículo
-                for(int j = i; j < cantidad - 1; j++) {
-                    inventario[j] = inventario[j + 1];
-                }
-                
-                inventario[cantidad - 1] = null; // Limpiar última referencia
-                cantidad--;
-                
                 return vehiculoComprado;
             }
         }
