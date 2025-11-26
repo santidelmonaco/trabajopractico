@@ -262,6 +262,8 @@ public class Juego {
 
             if (mapa != null) {
                 control.iniciarMision();
+                // Inicializo la posición del jugador en la salida del mapa
+                mapa.inicializarPosicionJugador();
                 mapa.imprimirMapa();
             }
 
