@@ -54,15 +54,19 @@ public class Mision {
         
         garaje.mostrarVehiculos();
         
+        Vehiculo vehiculoSeleccionado = null;
+
+    while (vehiculoSeleccionado == null) {
         System.out.println("Ingrese el nombre del vehículo que desea usar:");
         String nombreVehiculo = scanner.nextLine();
-        
-        Vehiculo vehiculoSeleccionado = garaje.asignarVehiculo(nombreVehiculo);
-        
-        if (vehiculoSeleccionado == null) {
-            System.out.println("Vehículo no encontrado.");
-            return false;
+
+        try {
+            vehiculoSeleccionado = garaje.asignarVehiculo(nombreVehiculo);
+        } catch (ExcepcionGaraje e) {
+            System.out.println(e.getMessage());  // mensaje: no existe ese vehículo
+            continue; // vuelve a pedir
         }
+    }
         
         if (validarVehiculoParaMision(vehiculoSeleccionado)) {
             this.vehiculoAsignado = vehiculoSeleccionado;
