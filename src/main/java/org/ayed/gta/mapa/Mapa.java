@@ -461,6 +461,9 @@ public class Mapa {
     public void imprimirMapa() {
         CodigosANSI.limpiarPantalla();
 
+        //Para que el jugador entienda los colores
+        imprimirLeyenda();
+
         for (int f = 0; f < filas; f++) {
             // Agrego un margen izquierdo para centrar visualmente el mapa
             System.out.print("  ");
@@ -482,9 +485,6 @@ public class Mapa {
 
             System.out.println();
         }
-
-        //Para que el jugador entienda los colores
-        imprimirLeyenda();
     }
 
     /**
@@ -564,54 +564,54 @@ public class Mapa {
         System.out.println("\n"+ String.format("#").repeat(20) +" LEYENDA " + String.format("#").repeat(20));
 
         // Imprimo cada elemento de la leyenda con su color correspondiente
-        System.out.print("│ ");
+        System.out.print("# ");
         System.out.print(CodigosANSI.VERDE_BRILLANTE_FONDO +
                 CodigosANSI.NEGRO_TEXTO + " J " +
                 CodigosANSI.RESET);
-        System.out.println(" Jugador (tu posición actual)           │");
+        System.out.println(" Jugador (tu posición actual)              #");
 
-        System.out.print("│ ");
+        System.out.print("# ");
         System.out.print(CodigosANSI.AZUL_FONDO +
                 CodigosANSI.BLANCO_TEXTO + " S " +
                 CodigosANSI.RESET);
-        System.out.println(" Salida (punto de inicio)               │");
+        System.out.println(" Salida (punto de inicio)                  #");
 
-        System.out.print("│ ");
+        System.out.print("# ");
         System.out.print(CodigosANSI.VERDE_FONDO +
                 CodigosANSI.NEGRO_TEXTO + " D " +
                 CodigosANSI.RESET);
-        System.out.println(" Destino (objetivo de la misión)        │");
+        System.out.println(" Destino (objetivo de la misión)           #");
 
-        System.out.print("│ ");
+        System.out.print("# ");
         System.out.print(CodigosANSI.BLANCO_FONDO +
                 CodigosANSI.NEGRO_TEXTO + " · " +
                 CodigosANSI.RESET);
-        System.out.println(" Calle (transitable)                    │");
+        System.out.println(" Calle (transitable)                       #");
 
-        System.out.print("│ ");
+        System.out.print("# ");
         System.out.print(CodigosANSI.NEGRO_FONDO +
                 CodigosANSI.BLANCO_TEXTO + " # " +
                 CodigosANSI.RESET);
-        System.out.println(" Edificio (bloqueado)                   │");
+        System.out.println(" Edificio (bloqueado)                      #");
 
-        System.out.print("│ ");
+        System.out.print("# ");
         System.out.print(CodigosANSI.ROJO_FONDO +
                 CodigosANSI.NEGRO_TEXTO + " X " +
                 CodigosANSI.RESET);
-        System.out.println(" Congestión (tráfico lento 5x)         │");
+        System.out.println(" Congestión (tráfico lento 5x)             #");
 
-        System.out.print("│ ");
+        System.out.print("# ");
         System.out.print(CodigosANSI.MAGENTA_FONDO +
                 CodigosANSI.BLANCO_TEXTO + " $ " +
                 CodigosANSI.RESET);
-        System.out.println(" Recompensa (dinero/créditos/exótico)   │");
+        System.out.println(" Recompensa (dinero/créditos/exótico)      #");
 
-        System.out.print("│ ");
+        System.out.print("# ");
         System.out.print(CodigosANSI.AMARILLO_BRILLANTE_FONDO +
                 CodigosANSI.NEGRO_TEXTO + " * " +
                 CodigosANSI.RESET);
-        System.out.println(" Camino GPS (ruta óptima)               │");
+        System.out.println(" Camino GPS (ruta óptima)                  #");
 
-        System.out.println(String.format("#").repeat(50));
+        System.out.println(String.format("#").repeat(49));
     }
 }
