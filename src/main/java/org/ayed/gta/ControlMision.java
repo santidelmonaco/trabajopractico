@@ -27,11 +27,9 @@ public class ControlMision{
 
     /**
      * Inicia la mision
-     * Marca la mision como en curso, inicializa la posición del jugador y reinicia el resultado parcial dejando todo para arrancar
+     * Marca la mision como en curso y reinicia el resultado parcial dejando todo para arrancar
      */
     public void iniciarMision(){
-        // Inicializo la posición del jugador en la salida del mapa
-        mapa.inicializarPosicionJugador();
         enCurso = true;
         resultadoMision = new ResultadoMision(mision, false, false, ResultadoMision.Estado.EN_CURSO);
     }
@@ -112,13 +110,6 @@ public class ControlMision{
 
         String origen = mapa.getPosicionActual();
         String destino = mapa.obtenerDestino(origen, direccion);
-
-        String[] partes = destino.split(",");
-        int nuevaFila = Integer.parseInt(partes[0]);
-        int nuevaColumna = Integer.parseInt(partes[1]);
-
-        // Actualizo la posición del jugador en el mapa
-        mapa.actualizarPosicionJugador(nuevaFila, nuevaColumna);
 
         double costo = mapa.obtenerCosto(origen, destino);
         double tiempoCalle = costo/vehiculo.getVelocidadMaxima();
