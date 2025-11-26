@@ -612,6 +612,6 @@ public class Mapa {
                 CodigosANSI.RESET);
         System.out.println(" Camino GPS (ruta óptima)                  #");
 
-        System.out.println(String.format("#").repeat(49));
+        System.out.println(String.format("#").repeat(49) + "\n");
     }
 }
