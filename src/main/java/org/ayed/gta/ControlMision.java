@@ -55,6 +55,7 @@ public class ControlMision{
         if(!verificarDestino(direccion)) return;
 
         moverYActualizar(direccion);
+        verificarYRecogerRecompensa();
         verificarTiempo();
         verificarCompletada();
 
@@ -241,5 +242,51 @@ public class ControlMision{
      */
     public ResultadoMision getResultado(){
         return resultadoMision;
+    }
+
+    /**
+     * Verifica y recoge cualquier recompensa en la celda actual del jugador.
+     * Este método debe llamarse después de cada movimiento exitoso.
+     */
+    private void verificarYRecogerRecompensa() {
+        Celda celdaActual = mapa.getCeldaJugador();
+
+        // Solo proceso si la celda tiene una recompensa y aún no ha sido recolectada
+        if (celdaActual.getTipo() == TipoCelda.RECOMPENSA &&
+                !celdaActual.isRecompensaRecolectada()) {
+
+            TipoRecompensa tipoRecompensa = celdaActual.getRecompensa();
+
+            // Genero la cantidad apropiada según el tipo
+            int cantidad = tipoRecompensa.generarCantidad();
+
+            // Aplico la recompensa según su tipo
+            switch (tipoRecompensa) {
+                case DINERO:
+                    jugador.sumarDinero(cantidad);
+                    System.out.println("\nHas recogido $" + cantidad + " en efectivo!");
+                    break;
+
+                case CREDITOS:
+                    jugador.getGaraje().agregarCreditos(cantidad);
+                    System.out.println("\nHas recogido " + cantidad + " créditos de garaje!");
+                    break;
+
+                case VEHICULO_EXOTICO:
+                    System.out.println("\nHas encontrado un vehículo exótico!");
+                    System.out.println("Lo recibirás si completas la misión exitosamente.");
+                    // El vehículo exótico solo se otorga al completar la misión
+                    resultadoMision = new ResultadoMision(
+                            mision,
+                            false,
+                            true,  // Marco que hay vehículo exótico disponible
+                            ResultadoMision.Estado.EN_CURSO
+                    );
+                    break;
+            }
+
+            // Marco la recompensa como recogida
+            celdaActual.recolectarRecompensa();
+        }
     }
 }
