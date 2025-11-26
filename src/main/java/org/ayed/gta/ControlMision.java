@@ -27,9 +27,11 @@ public class ControlMision{
 
     /**
      * Inicia la mision
-     * Marca la mision como en curso y reinicia el resultado parcial dejando todo para arrancar
+     * Marca la mision como en curso, inicializa la posición del jugador y reinicia el resultado parcial dejando todo para arrancar
      */
     public void iniciarMision(){
+        // Inicializo la posición del jugador en la salida del mapa
+        mapa.inicializarPosicionJugador();
         enCurso = true;
         resultadoMision = new ResultadoMision(mision, false, false, ResultadoMision.Estado.EN_CURSO);
     }
@@ -43,7 +45,7 @@ public class ControlMision{
      * -Actualiza gasolina, kilometraje y tiempo restante
      * -Verifica si hay tiempo restante
      * -Comprueba si el jugador alcanzo la celda destino
-     * 
+     *
      * @param direccion Direccion a la cual se intenta mover
      */
     public void moverVehiculo(String direccion){
@@ -61,7 +63,7 @@ public class ControlMision{
     /**
      * Verifica si el vehiculo tiene gasolina disponible
      * Si no tiene gasolina la mision se marca como fallida con el estado FALLO_GASOLINA
-     * 
+     *
      * @return true si la mision debe detenerse por falta de gasolina, false en caso contrario
      */
     private boolean verificarGasolina(){
@@ -75,7 +77,7 @@ public class ControlMision{
     /**
      * Valida si existe un movimiento posible en esa direccion en el mapa
      * Si no puede moverse la mision se marca como fallida con el estado FALLO_MOVIMIENTO
-     * 
+     *
      * @param direccion Direccion a la cual se intenta mover
      * @return true si el movimiento es valido y fue realizado, false si falla
      */
@@ -100,7 +102,7 @@ public class ControlMision{
      * -Consume 1 de gasolina
      * -Aumenta en 1 el kilometraje
      * -Calcula el tiempo consumido en base al costo de la calle y la velocidad del vehiculo
-     * 
+     *
      * @param direccion Direccion a la cual se mueve
      */
     private void moverYActualizar(String direccion){
@@ -109,6 +111,14 @@ public class ControlMision{
 
         String origen = mapa.getPosicionActual();
         String destino = mapa.obtenerDestino(origen, direccion);
+
+        String[] partes = destino.split(",");
+        int nuevaFila = Integer.parseInt(partes[0]);
+        int nuevaColumna = Integer.parseInt(partes[1]);
+
+        // Actualizo la posición del jugador en el mapa
+        mapa.actualizarPosicionJugador(nuevaFila, nuevaColumna);
+
         double costo = mapa.obtenerCosto(origen, destino);
         double tiempoCalle = costo/vehiculo.getVelocidadMaxima();
         tiempoRestante -= tiempoCalle;
@@ -147,23 +157,23 @@ public class ControlMision{
     /**
      * Marca la mision como fallida, registrando el tipo de fallo
      * Detiene la mision inmediatamente y genera un resultado mision con el estado del fallo
-     * 
+     *
      * @param estado Motivo del fallo de la mision
      */
     private void fallarMision(ResultadoMision.Estado estado) {
         enCurso = false;
         completada = false;
         resultadoMision = new ResultadoMision(
-            mision,
-            false,
-            false,
-            estado
+                mision,
+                false,
+                false,
+                estado
         );
     }
 
     /**
      * Obtiene el vehiculo utilizado en la mision
-     * 
+     *
      * @return Vehiculo usado
      */
     public Vehiculo getVehiculo(){
@@ -172,7 +182,7 @@ public class ControlMision{
 
     /**
      * Devuelve el jugador que participa en la mision
-     * 
+     *
      * @return Jugador participante
      */
     public Jugador getJugador(){
@@ -181,7 +191,7 @@ public class ControlMision{
 
     /**
      * Retorna el mapa sobre el cual se realiza la mision
-     * 
+     *
      * @return Mapa actual jugandose
      */
     public Mapa getMapa(){
@@ -190,7 +200,7 @@ public class ControlMision{
 
     /**
      * Obtiene la mision que se esta ejecutando
-     * 
+     *
      * @return Mision jugandose
      */
     public Mision getMision(){
@@ -199,7 +209,7 @@ public class ControlMision{
 
     /**
      * Obtiene el tiempo restante de la mision
-     * 
+     *
      * @return Tiempo restante para completar la mision
      */
     public double getTiempoRestante(){
@@ -208,7 +218,7 @@ public class ControlMision{
 
     /**
      * Indica si la mision esta actualmente en curso
-     * 
+     *
      * @return true si sigue en curso, false en caso contrario
      */
     public boolean estaEnCurso(){
@@ -217,7 +227,7 @@ public class ControlMision{
 
     /**
      * Indica si la mision fue completada exitosamente
-     * 
+     *
      * @return true si se completo, false en caso contrario
      */
     public boolean estaCompletada(){
@@ -226,7 +236,7 @@ public class ControlMision{
 
     /**
      * Devuelve el resultado actual o final de la mision
-     * 
+     *
      * @return Resultado de la mision con informacion del progreso finalizacion
      */
     public ResultadoMision getResultado(){
