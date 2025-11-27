@@ -22,7 +22,7 @@ import org.ayed.tda.vector.VectorEstatico;
 public class Diccionario<C, V> {
     private VectorEstatico<Lista<Tupla<C, V>>> datos;
     // Completar con un valor apropiado según la teoría.
-    private static final double FACTOR_DEFAULT = 0;
+    private static final double FACTOR_DEFAULT = 0.75;
     private double factorDeCarga;
     private int tamanioTabla;
     private int cantidadDatos;
