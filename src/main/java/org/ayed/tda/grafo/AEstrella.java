@@ -1,14 +1,14 @@
 package org.ayed.tda.grafo;
 
-import java.util.ArrayList;
-import java.util.List;
 
 import org.ayed.tda.colaPrioridad.ColaPrioridad;
 import org.ayed.tda.comparador.Comparador;
+import org.ayed.tda.iterador.Iterador;
+import org.ayed.tda.lista.Lista;
 
 public class AEstrella<T> {
     private ColaPrioridad<Nodo<T>> sa;
-    private List<Nodo<T>> sc;
+    private Lista<Nodo<T>> sc;
     private Nodo<T> nodoInicial;
     private Nodo<T> nodoObjetivo;
     private Grafo<T> grafo;
@@ -22,7 +22,7 @@ public class AEstrella<T> {
         Heuristica<T> heuristica) {
     
         this.sa = new ColaPrioridad<>(comparador);
-        this.sc = new ArrayList<>();
+        this.sc = new Lista<>();
         this.nodoInicial = nodoInicial;
         this.nodoObjetivo = nodoObjetivo;
         this.grafo = grafo;
@@ -31,7 +31,7 @@ public class AEstrella<T> {
         sa.agregar(nodoInicial);
     }
     
-    public List<T> recorrer() {
+    public Lista<T> recorrer() {
         while (!sa.vacio()) {
             Nodo<T> actual = sa.eliminar();
             
@@ -39,12 +39,14 @@ public class AEstrella<T> {
                 return reconstruirCamino(actual);
             }
     
-            sc.add(actual);
+            sc.agregar(actual);
 
-            for (Nodo<T> vecino : actual.obtenerVecinos(grafo)) {
+            Iterador<Nodo<T>> iterar = actual.obtenerVecinos(grafo).iterador();
+            while (iterar.haySiguiente()) {
+                Nodo<T> vecino = iterar.dato();
+                iterar.siguiente();
 
-                if (sc.contains(vecino)) continue;
-
+                if (listaContiene(sc, vecino)) continue;
                 double costoArista = grafo.obtenerArista(
                     actual.obtenerDato(),
                     vecino.obtenerDato()
@@ -64,15 +66,33 @@ public class AEstrella<T> {
                 }
             }
         }
-        return new ArrayList<>();
+        return new Lista<>();
     }
+
+    private boolean listaContiene(Lista<Nodo<T>> lista, Nodo<T> nodo) {
+    Iterador<Nodo<T>> iterar = lista.iterador();
+    while (iterar.haySiguiente()) {
+        iterar.siguiente();
+        if (iterar.dato().equals(nodo)) {
+            return true;
+        }
+    }
+    return false;
+}
     
-    private List<T> reconstruirCamino(Nodo<T> nodo) {
-        List<T> camino = new ArrayList<>();
+    private Lista<T> reconstruirCamino(Nodo<T> nodo) {
+        Lista<T> camino = new Lista<>();
         Nodo<T> actual = nodo;
         
+        int contador = 0;
         while (actual != null) {
-            camino.add(0, actual.obtenerDato());
+            contador++;
+            actual = actual.obtenerPredecesor();
+        }
+
+        actual = nodo;
+        for (int i = 0; i < contador; i++) {
+            camino.agregar(actual.obtenerDato(), 0);
             actual = actual.obtenerPredecesor();
         }
         return camino;

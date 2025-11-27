@@ -1,8 +1,8 @@
 package org.ayed.tda.grafo;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
+
+import org.ayed.tda.lista.Lista;
 
 // Nodo para A*
 
@@ -60,18 +60,18 @@ public class Nodo<T> {
         this.visitado = visitado;
     }
 
-    public List<Nodo<T>> obtenerVecinos(Grafo<T> grafo) {
-        List<Nodo<T>> vecinos = new ArrayList<>();
+    public Lista<Nodo<T>> obtenerVecinos(Grafo<T> grafo) {
+        Lista<Nodo<T>> vecinos = new Lista<>();
 
         try {
             Map<T, Integer> adyacentes = grafo.obtenerAdyacentes(this.dato);
 
             for (T vertice : adyacentes.keySet()) {
                 Nodo<T> nodoVecino = new Nodo<>(vertice);
-                vecinos.add(nodoVecino);
+                vecinos.agregar(nodoVecino);
             }
         } catch (ExcepcionGrafo e) {
-            return new ArrayList<>();
+            return new Lista<>();
         }
 
         return vecinos;
