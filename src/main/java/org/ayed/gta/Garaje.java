@@ -1,20 +1,27 @@
 package org.ayed.gta;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileReader;
+import java.io.FileWriter;
+
 import org.ayed.tda.lista.Cola;
 import org.ayed.tda.vector.Vector;
-import java.io.*;
+
 public class Garaje {
-    
+
     private static final int CREDITOS_INICIALES = 0;
     private static final int CAPACIDAD_INICIAL = 5;
     private static final int COSTO_MEJORA = 50;
-    
+
     private Vector<Vehiculo> vehiculos;
     private int creditos;
     private int capacidadMaxVehiculos;
-    private Cola<Vehiculo> zonaDeEspera; 
-      /**
+    private Cola<Vehiculo> zonaDeEspera;
+
+    /**
      * Constructor de Garaje.
+     * 
      * <pre>
      * Precondición: ninguna.
      * Postcondición: se crea un garaje vacío con 0 créditos
@@ -27,9 +34,10 @@ public class Garaje {
         this.capacidadMaxVehiculos = CAPACIDAD_INICIAL;
         this.zonaDeEspera = new Cola<>();
     }
-    
-     /**
+
+    /**
      * Agrega un vehículo al garaje.
+     * 
      * <pre>
      * Precondición:
      *   - El parámetro { vehiculo} no puede ser nulo.
@@ -40,15 +48,14 @@ public class Garaje {
      * </pre>
      */
     public void agregarVehiculo(Vehiculo vehiculo) {
-            if (vehiculo == null) {
+        if (vehiculo == null) {
             throw new ExcepcionGaraje("El vehículo no puede ser nulo");
         }
 
         if (vehiculos.tamanio() < capacidadMaxVehiculos) {
             vehiculos.agregar(vehiculo);
             System.out.println("Vehículo \"" + vehiculo.getNombre() + "\" agregado al garaje.");
-        } 
-        else {
+        } else {
             zonaDeEspera.agregar(vehiculo);
             System.out.println("Garaje lleno. Vehículo \"" + vehiculo.getNombre() + "\" agregado a la zona de espera.");
         }
@@ -56,6 +63,7 @@ public class Garaje {
 
     /**
      * Elimina un vehículo del garaje por su nombre.
+     * 
      * <pre>
      * Precondición:
      *   - El parámetro {nombre} no puede ser nulo.
@@ -69,9 +77,9 @@ public class Garaje {
      */
     public void eliminarVehiculo(String nombre) {
         int posicion = buscarVehiculo(nombre);
-        if(posicion < 0){
+        if (posicion < 0) {
             throw new ExcepcionGaraje("No existe un vehículo con el nombre \"" + nombre + "\"");
-        }else{
+        } else {
             vehiculos.eliminar(posicion);
             System.out.println("vehiculo eliminado correctamente.");
 
@@ -79,8 +87,9 @@ public class Garaje {
         }
     }
 
-       /**
+    /**
      * Agrega créditos al garaje.
+     * 
      * <pre>
      * Precondición:
      *   - { creditos} debe ser un valor mayor o igual a 0.
@@ -92,7 +101,7 @@ public class Garaje {
      * @param creditos cantidad de créditos a agregar
      */
     public void agregarCreditos(int creditos) {
-        if(creditos < 0) {
+        if (creditos < 0) {
             throw new ExcepcionGaraje("Los créditos no pueden ser negativos");
         }
         this.creditos += creditos;
@@ -100,6 +109,7 @@ public class Garaje {
 
     /**
      * Mejora la capacidad máxima del garaje consumiendo créditos.
+     * 
      * <pre>
      * Precondición:
      *   - El garaje debe tener al menos 50 créditos disponibles.
@@ -111,17 +121,19 @@ public class Garaje {
      */
     public void mejorarGaraje() {
         if (creditos < COSTO_MEJORA) {
-             throw new ExcepcionGaraje("No hay créditos suficientes para mejorar el garaje (50 necesarios).");
+            throw new ExcepcionGaraje("No hay créditos suficientes para mejorar el garaje (50 necesarios).");
         }
 
         creditos -= 50;
-        capacidadMaxVehiculos+= 1; 
+        capacidadMaxVehiculos += 1;
         System.out.println("Garaje mejorado. Capacidad máxima: " + capacidadMaxVehiculos);
 
         moverVehiculosDesdeZonaDeEspera();
     }
-     /**
+
+    /**
      * Obtiene el valor total de todos los vehículos en el garaje.
+     * 
      * <pre>
      * Precondición: ninguna.
      * Postcondición:
@@ -133,14 +145,15 @@ public class Garaje {
 
     public int obtenerValorTotal() {
         int total = 0;
-        for(int i = 0; i < vehiculos.tamanio(); i++) {
+        for (int i = 0; i < vehiculos.tamanio(); i++) {
             total += vehiculos.dato(i).getPrecio();
         }
         return total;
     }
 
-     /**
+    /**
      * Calcula el costo de mantenimiento total de todos los vehículos.
+     * 
      * <pre>
      * Precondición: ninguna.
      * Postcondición:
@@ -150,11 +163,11 @@ public class Garaje {
      * 
      * @return costo total de mantenimiento
      */
-       public int obtenerCostoMantenimiento() {
+    public int obtenerCostoMantenimiento() {
         int total = 0;
         for (int i = 0; i < vehiculos.tamanio(); i++) {
             total += vehiculos.dato(i).calcularCostoMantenimiento();
-    }
+        }
         return total;
     }
 
@@ -166,8 +179,9 @@ public class Garaje {
         return vehiculos.tamanio();
     }
 
-       /**
+    /**
      * Devuelve la cantidad de créditos disponibles.
+     * 
      * <pre>
      * Precondición: ninguna.
      * Postcondición: retorna los créditos actuales del garaje.
@@ -177,9 +191,11 @@ public class Garaje {
      */
     public int getCreditos() {
         return creditos;
-    }   
-       /**
+    }
+
+    /**
      * Devuelve la capacidad máxima de vehículos.
+     * 
      * <pre>
      * Precondición: ninguna.
      * Postcondición: retorna la capacidad máxima actual del garaje.
@@ -187,11 +203,11 @@ public class Garaje {
      * 
      * @return capacidad máxima
      */
-       public int getCapacidadMaxVehiculos() {
+    public int getCapacidadMaxVehiculos() {
         return capacidadMaxVehiculos;
     }
-      
-    public void mostrarVehiculos(){
+
+    public void mostrarVehiculos() {
         if (vehiculos.vacio()) {
             System.out.println("No hay vehículos en el garaje.");
         } else {
@@ -201,32 +217,37 @@ public class Garaje {
             }
         }
     }
-    
-    public int buscarVehiculo(String nombre){
+
+    public int buscarVehiculo(String nombre) {
         if (nombre == null) {
             throw new ExcepcionGaraje("El nombre no puede ser nulo");
         }
-        
+
         int posicion = -1;
         int i = 0;
         boolean encontrado = false;
-        
-        while(i < vehiculos.tamanio() && !encontrado){
+
+        while (i < vehiculos.tamanio() && !encontrado) {
             Vehiculo aux = vehiculos.dato(i);
-            if(aux.getNombre().equals(nombre)){
+            if (aux.getNombre().equals(nombre)) {
                 posicion = i;
                 encontrado = true;
-            } else{i++;}
-    }
+            } else {
+                i++;
+            }
+        }
         return posicion;
     }
 
-     /**
-     * Mueve vehículos desde la zona de espera al garaje mientras haya espacio disponible.
+    /**
+     * Mueve vehículos desde la zona de espera al garaje mientras haya espacio
+     * disponible.
      * <p>
-     * Se respeta el orden FIFO de la cola: los vehículos que llegaron primero ingresan primero.
+     * Se respeta el orden FIFO de la cola: los vehículos que llegaron primero
+     * ingresan primero.
      * Se llama después de eliminar un vehículo o mejorar la capacidad del garaje.
      * </p>
+     * 
      * <pre>
      * Precondición: ninguna.
      * Postcondición: se agregan al garaje los vehículos en espera hasta llenar la capacidad.
@@ -234,8 +255,8 @@ public class Garaje {
      */
     private void moverVehiculosDesdeZonaDeEspera() {
         while (vehiculos.tamanio() < capacidadMaxVehiculos && !zonaDeEspera.vacio()) {
-            Vehiculo v = zonaDeEspera.eliminar(); 
-            vehiculos.agregar(v);           
+            Vehiculo v = zonaDeEspera.eliminar();
+            vehiculos.agregar(v);
             System.out.println("Vehículo \"" + v.getNombre() + "\" movido desde la zona de espera al garaje.");
         }
 
@@ -249,28 +270,55 @@ public class Garaje {
     /**
      * Carga los tanques de todos los vehículos del garaje al máximo.
      * <p>
-     * Para cada vehículo, calcula cuánto le falta y usa su método cargarGasolina() 
+     * Para cada vehículo, calcula cuánto le falta y usa su método cargarGasolina()
      * para llenar el tanque hasta su capacidad máxima.
      * </p>
      * Precondición: ninguna.
      * Postcondición: todos los vehículos del garaje tendrán su tanque lleno.
      */
-    public void cargarTanquesMaximo() {
+    public void cargarTanquesMaximo(Jugador jugador) {
         for (int i = 0; i < vehiculos.tamanio(); i++) {
             Vehiculo v = vehiculos.dato(i);
             int faltante = v.getCapacidadGasolina() - v.getGasolinaActual();
-            if(faltante > 0) {
+            if (faltante > 0) {
+                if (jugador.getDinero() < faltante) {
+                    System.out.println("Dinero insuficiente");
+                    break;
+                }
+                jugador.restarDinero(faltante);
                 v.cargarGasolina(faltante);
                 System.out.println("Tanque de \"" + v.getNombre() + "\" cargado al máximo.");
             }
         }
     }
 
+    public void cargarTanque(Jugador jugador, String nombre, int cantidad) {
+        int posicion = buscarVehiculo(nombre);
+        Vehiculo v = vehiculos.dato(posicion);
+        int faltante = v.getCapacidadGasolina() - v.getGasolinaActual();
+        if (cantidad <= 0) {
+            System.out.println("La cantidad debe ser mayor a cero.");
+            return;
+        }
+        if (faltante == 0) {
+            System.out.println("El tanque ya está lleno.");
+            return;
+        }
+        int cargaReal = Math.min(cantidad, faltante);
+        if (jugador.getDinero() < cantidad) {
+            System.out.println("Dinero insuficiente");
+            return;
+        }
+        jugador.restarDinero(cargaReal);
+        v.cargarGasolina(cargaReal);
+        System.out.println("Se cargo \"" + cargaReal + "\" de litros al vehiculo \"" + nombre + "\" .");
+    }
+
     public Vehiculo asignarVehiculo(String nombre) {
         int posicion = buscarVehiculo(nombre);
-        if(posicion < 0){
+        if (posicion < 0) {
             throw new ExcepcionGaraje("No existe un vehículo con el nombre \"" + nombre + "\"");
-        }else{
+        } else {
             return vehiculos.dato(posicion);
         }
     }
@@ -289,30 +337,28 @@ public class Garaje {
             bw.newLine();
 
             for (int i = 0; i < vehiculos.tamanio(); i++) {
-            Vehiculo v = vehiculos.dato(i);
+                Vehiculo v = vehiculos.dato(i);
 
-            bw.write(
-                v.getClass().getSimpleName() + ";" +
-                v.getNombre() + ";" +
-                v.getMarca() + ";" +
-                v.getPrecio() + ";" +
-                v.getCapacidadGasolina() + ";" +
-                v.getGasolinaActual() + ";" +
-                v.getKilometraje() + ";" +
-                v.getVelocidadMaxima() + ";" +
-                v.getRuedas()
-            );
-            bw.newLine();
-        }
+                bw.write(
+                        v.getClass().getSimpleName() + ";" +
+                                v.getNombre() + ";" +
+                                v.getMarca() + ";" +
+                                v.getPrecio() + ";" +
+                                v.getCapacidadGasolina() + ";" +
+                                v.getGasolinaActual() + ";" +
+                                v.getKilometraje() + ";" +
+                                v.getVelocidadMaxima() + ";" +
+                                v.getRuedas());
+                bw.newLine();
+            }
 
-        return true;
+            return true;
         } catch (Exception e) {
             System.out.println("Error al guardar garaje: " + e.getMessage());
             return false;
         }
     }
 
-    
     public boolean cargarDesdeCSV(String rutaArchivo) {
         try (BufferedReader br = new BufferedReader(new FileReader(rutaArchivo))) {
 
@@ -329,8 +375,8 @@ public class Garaje {
                 this.capacidadMaxVehiculos = Integer.parseInt(linea.split(";")[1]);
             }
 
-            br.readLine(); 
-            br.readLine(); 
+            br.readLine();
+            br.readLine();
 
             this.vehiculos = new Vector<>();
 

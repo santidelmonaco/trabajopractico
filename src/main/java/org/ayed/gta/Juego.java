@@ -185,8 +185,9 @@ public class Juego {
             System.out.println("2. Eliminar vehículo");
             System.out.println("3. Mejorar garaje");
             System.out.println("4. Cargar tanques al máximo");
-            System.out.println("5. Ver créditos y capacidad");
-            System.out.println("6. Volver al menú principal");
+            System.out.println("5. Cargar tanque individual");
+            System.out.println("6. Ver créditos y capacidad");
+            System.out.println("7. Volver al menú principal");
 
             int opcion = leerEntero("Seleccione una opción: ");
             Garaje garaje = jugador.getGaraje();
@@ -214,17 +215,27 @@ public class Juego {
                     break;
 
                 case 4:
-                    garaje.cargarTanquesMaximo();
+                    garaje.cargarTanquesMaximo(jugador);
                     break;
 
                 case 5:
+                    garaje.mostrarVehiculos();
+                    String nombre_2 = leerTexto("Elija el vehiculo al cual quiere cargarle combustible: ");
+                    int cantidad = leerEntero("Cantidad a cargar: ");
+                    try {
+                        garaje.cargarTanque(jugador, nombre_2, cantidad);
+                    } catch (ExcepcionGaraje e) {
+                        System.out.println(" " + e.getMessage());
+                    }
+                    break;
+                case 6:
                     System.out.println("Créditos: " + garaje.getCreditos());
                     System.out.println("Capacidad máxima: " + garaje.getCapacidadMaxVehiculos());
                     System.out.println("Valor total vehículos: " + garaje.obtenerValorTotal());
                     System.out.println("Costo de mantenimiento total: " + garaje.obtenerCostoMantenimiento());
                     break;
 
-                case 6:
+                case 7:
                     volver = true;
                     System.out.println("Volviendo al menú principal");
                     break;
