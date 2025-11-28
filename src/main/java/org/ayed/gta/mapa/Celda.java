@@ -120,4 +120,24 @@ public class Celda {
         }
         return tipo.getSimbolo();
     }
+
+    /** Dos celdas son iguales si están en la misma posición (misma fila y columna),
+     * independientemente de su tipo o contenido.
+     * */
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null || getClass() != obj.getClass()) {
+            return false;
+        }
+        Celda otraCelda = (Celda) obj;
+        return fila == otraCelda.fila && columna == otraCelda.columna;
+    }
+
+    @Override
+    public int hashCode() {
+        return fila * 31 + columna;
+    }
 }

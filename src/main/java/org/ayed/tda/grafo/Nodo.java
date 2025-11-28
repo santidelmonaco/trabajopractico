@@ -101,4 +101,25 @@ public class Nodo<T> {
         this.siguiente = primero;
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null || getClass() != obj.getClass()) {
+            return false;
+        }
+        Nodo<T> otroNodo = (Nodo<T>) obj;
+        // Dos nodos son iguales si contienen el mismo dato (la misma Celda)
+        if (dato == null) {
+            return otroNodo.dato == null;
+        }
+        return dato.equals(otroNodo.dato);
+    }
+
+    @Override
+    public int hashCode() {
+        return dato != null ? dato.hashCode() : 0;
+    }
+
 }
