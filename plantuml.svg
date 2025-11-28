@@ -1,0 +1,914 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" height="2293px" preserveAspectRatio="none" style="width:3403px;height:2293px;background:#FFFFFF;" version="1.1" viewBox="0 0 3403 2293" width="3403px" zoomAndPan="magnify"><defs/><g><!--MD5=[84718776d214be480e4c259efcb737fc]
+class Main--><g id="elem_Main"><rect codeLine="5" fill="#F1F1F1" height="64.2969" id="Main" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="192" x="1062.5" y="31.5"/><ellipse cx="1138.25" cy="47.5" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M1141.2188,53.1406 Q1140.6406,53.4375 1140,53.5781 Q1139.3594,53.7344 1138.6563,53.7344 Q1136.1563,53.7344 1134.8281,52.0938 Q1133.5156,50.4375 1133.5156,47.3125 Q1133.5156,44.1875 1134.8281,42.5313 Q1136.1563,40.875 1138.6563,40.875 Q1139.3594,40.875 1140,41.0313 Q1140.6563,41.1875 1141.2188,41.4844 L1141.2188,44.2031 Q1140.5938,43.625 1140,43.3594 Q1139.4063,43.0781 1138.7813,43.0781 Q1137.4375,43.0781 1136.75,44.1563 Q1136.0625,45.2188 1136.0625,47.3125 Q1136.0625,49.4063 1136.75,50.4844 Q1137.4375,51.5469 1138.7813,51.5469 Q1139.4063,51.5469 1140,51.2813 Q1140.5938,51 1141.2188,50.4219 L1141.2188,53.1406 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="32" x="1158.75" y="52.3467">Main</text><line style="stroke:#181818;stroke-width:0.5;" x1="1063.5" x2="1253.5" y1="63.5" y2="63.5"/><line style="stroke:#181818;stroke-width:0.5;" x1="1063.5" x2="1253.5" y1="71.5" y2="71.5"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="180" x="1068.5" y="88.4951">+main(String[] args) : void</text></g><!--MD5=[542f7b1477873529a2859eba941f2ef6]
+class Juego--><g id="elem_Juego"><rect codeLine="9" fill="#F1F1F1" height="292.4531" id="Juego" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="221" x="1048" y="197"/><ellipse cx="1134.75" cy="213" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M1137.7188,218.6406 Q1137.1406,218.9375 1136.5,219.0781 Q1135.8594,219.2344 1135.1563,219.2344 Q1132.6563,219.2344 1131.3281,217.5938 Q1130.0156,215.9375 1130.0156,212.8125 Q1130.0156,209.6875 1131.3281,208.0313 Q1132.6563,206.375 1135.1563,206.375 Q1135.8594,206.375 1136.5,206.5313 Q1137.1563,206.6875 1137.7188,206.9844 L1137.7188,209.7031 Q1137.0938,209.125 1136.5,208.8594 Q1135.9063,208.5781 1135.2813,208.5781 Q1133.9375,208.5781 1133.25,209.6563 Q1132.5625,210.7188 1132.5625,212.8125 Q1132.5625,214.9063 1133.25,215.9844 Q1133.9375,217.0469 1135.2813,217.0469 Q1135.9063,217.0469 1136.5,216.7813 Q1137.0938,216.5 1137.7188,215.9219 L1137.7188,218.6406 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="39" x="1155.25" y="217.8467">Juego</text><line style="stroke:#181818;stroke-width:0.5;" x1="1049" x2="1268" y1="229" y2="229"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="113" x="1054" y="245.9951">-Jugador jugador</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="205" x="1054" y="262.292">-Concesionario concesionario</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="84" x="1054" y="278.5889">-Mapa mapa</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="151" x="1054" y="294.8857">-ControlMision control</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="145" x="1054" y="311.1826">-boolean juegoActivo</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="82" x="1054" y="327.4795">-Scanner sc</text><line style="stroke:#181818;stroke-width:0.5;" x1="1049" x2="1268" y1="334.7813" y2="334.7813"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="119" x="1054" y="351.7764">+ejecutar() : void</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="205" x="1054" y="368.0732">-mostrarMenuPrincipal() : void</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="209" x="1054" y="384.3701">-mostrarEstadoJugador() : void</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="175" x="1054" y="400.667">-irAlConcesionario() : void</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="176" x="1054" y="416.9639">-administrarGaraje() : void</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="139" x="1054" y="433.2607">-iniciarMision() : void</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="156" x="1054" y="449.5576">-guardarPartida() : void</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="173" x="1054" y="465.8545">-leerTexto(String) : String</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="157" x="1054" y="482.1514">-leerEntero(String) : int</text></g><!--MD5=[e570de1d41a3b8125e1c820568fd7a6a]
+class Jugador--><g id="elem_Jugador"><rect codeLine="27" fill="#F1F1F1" height="259.8594" id="Jugador" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="303" x="928" y="887"/><ellipse cx="1049.25" cy="903" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M1052.2188,908.6406 Q1051.6406,908.9375 1051,909.0781 Q1050.3594,909.2344 1049.6563,909.2344 Q1047.1563,909.2344 1045.8281,907.5938 Q1044.5156,905.9375 1044.5156,902.8125 Q1044.5156,899.6875 1045.8281,898.0313 Q1047.1563,896.375 1049.6563,896.375 Q1050.3594,896.375 1051,896.5313 Q1051.6563,896.6875 1052.2188,896.9844 L1052.2188,899.7031 Q1051.5938,899.125 1051,898.8594 Q1050.4063,898.5781 1049.7813,898.5781 Q1048.4375,898.5781 1047.75,899.6563 Q1047.0625,900.7188 1047.0625,902.8125 Q1047.0625,904.9063 1047.75,905.9844 Q1048.4375,907.0469 1049.7813,907.0469 Q1050.4063,907.0469 1051,906.7813 Q1051.5938,906.5 1052.2188,905.9219 L1052.2188,908.6406 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="52" x="1069.75" y="907.8467">Jugador</text><line style="stroke:#181818;stroke-width:0.5;" x1="929" x2="1230" y1="919" y2="919"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="103" x="934" y="935.9951">-String nombre</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="101" x="934" y="952.292">-double dinero</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="95" x="934" y="968.5889">-Garaje garaje</text><line style="stroke:#181818;stroke-width:0.5;" x1="929" x2="1230" y1="975.8906" y2="975.8906"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="222" x="934" y="992.8857">+Jugador(String, double, Garaje)</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="153" x="934" y="1009.1826">+getNombre() : String</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="152" x="934" y="1025.4795">+getDinero() : double</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="146" x="934" y="1041.7764">+getGaraje() : Garaje</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="200" x="934" y="1058.0732">+sumarDinero(double) : void</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="225" x="934" y="1074.3701">+restarDinero(double) : boolean</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="234" x="934" y="1090.667">+agregarVehiculo(Vehiculo) : void</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="291" x="934" y="1106.9639">+aplicarResultado(ResultadoMision) : void</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="231" x="934" y="1123.2607">+guardarPartida(String) : boolean</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="221" x="934" y="1139.5576">+cargarPartida(String) : boolean</text></g><!--MD5=[fa5da81b1023b5910d396b48bf81e6b5]
+class Garaje--><g id="elem_Garaje"><rect codeLine="43" fill="#F1F1F1" height="276.1563" id="Garaje" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="296" x="1006.5" y="1426"/><ellipse cx="1128.25" cy="1442" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M1131.2188,1447.6406 Q1130.6406,1447.9375 1130,1448.0781 Q1129.3594,1448.2344 1128.6563,1448.2344 Q1126.1563,1448.2344 1124.8281,1446.5938 Q1123.5156,1444.9375 1123.5156,1441.8125 Q1123.5156,1438.6875 1124.8281,1437.0313 Q1126.1563,1435.375 1128.6563,1435.375 Q1129.3594,1435.375 1130,1435.5313 Q1130.6563,1435.6875 1131.2188,1435.9844 L1131.2188,1438.7031 Q1130.5938,1438.125 1130,1437.8594 Q1129.4063,1437.5781 1128.7813,1437.5781 Q1127.4375,1437.5781 1126.75,1438.6563 Q1126.0625,1439.7188 1126.0625,1441.8125 Q1126.0625,1443.9063 1126.75,1444.9844 Q1127.4375,1446.0469 1128.7813,1446.0469 Q1129.4063,1446.0469 1130,1445.7813 Q1130.5938,1445.5 1131.2188,1444.9219 L1131.2188,1447.6406 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="44" x="1148.75" y="1446.8467">Garaje</text><line style="stroke:#181818;stroke-width:0.5;" x1="1007.5" x2="1301.5" y1="1458" y2="1458"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="202" x="1012.5" y="1474.9951">-Vector&lt;Vehiculo&gt; vehiculos</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="82" x="1012.5" y="1491.292">-int creditos</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="190" x="1012.5" y="1507.5889">-int capacidadMaxVehiculos</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="224" x="1012.5" y="1523.8857">-Cola&lt;Vehiculo&gt; zonaDeEspera</text><line style="stroke:#181818;stroke-width:0.5;" x1="1007.5" x2="1301.5" y1="1531.1875" y2="1531.1875"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="66" x="1012.5" y="1548.1826">+Garaje()</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="234" x="1012.5" y="1564.4795">+agregarVehiculo(Vehiculo) : void</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="215" x="1012.5" y="1580.7764">+eliminarVehiculo(String) : void</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="191" x="1012.5" y="1597.0732">+agregarCreditos(int) : void</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="159" x="1012.5" y="1613.3701">+mejorarGaraje() : void</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="271" x="1012.5" y="1629.667">+cargarTanquesMaximo(Jugador) : void</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="284" x="1012.5" y="1645.9639">+cargarTanque(Jugador, String, int) : void</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="243" x="1012.5" y="1662.2607">+asignarVehiculo(String) : Vehiculo</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="230" x="1012.5" y="1678.5576">+guardarEnCSV(String) : boolean</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="248" x="1012.5" y="1694.8545">+cargarDesdeCSV(String) : boolean</text></g><!--MD5=[1d6438b19b75334de94d74596f8416e5]
+class Vehiculo--><g id="elem_Vehiculo"><rect codeLine="62" fill="#F1F1F1" height="259.8594" id="Vehiculo" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="260" x="682.5" y="1771"/><ellipse cx="778.75" cy="1787" fill="#A9DCDF" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M778.8594,1782.3438 L777.7031,1787.4219 L780.0313,1787.4219 L778.8594,1782.3438 Z M777.375,1780.1094 L780.3594,1780.1094 L783.7188,1792.5 L781.2656,1792.5 L780.5,1789.4375 L777.2188,1789.4375 L776.4688,1792.5 L774.0313,1792.5 L777.375,1780.1094 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" font-style="italic" lengthAdjust="spacing" textLength="59" x="799.25" y="1791.8467">Vehiculo</text><line style="stroke:#181818;stroke-width:0.5;" x1="683.5" x2="941.5" y1="1803" y2="1803"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="110" x="688.5" y="1819.9951">#String nombre</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="98" x="688.5" y="1836.292">#String marca</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="76" x="688.5" y="1852.5889">#int precio</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="162" x="688.5" y="1868.8857">#int capacidadGasolina</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="132" x="688.5" y="1885.1826">#int gasolinaActual</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="108" x="688.5" y="1901.4795">#int kilometraje</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="149" x="688.5" y="1917.7764">#int velocidadMaxima</text><line style="stroke:#181818;stroke-width:0.5;" x1="683.5" x2="941.5" y1="1925.0781" y2="1925.0781"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="244" x="688.5" y="1942.0732">+Vehiculo(String, String, int, int, int)</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="182" x="688.5" y="1958.3701">+cargarGasolina(int) : void</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="203" x="688.5" y="1974.667">+consumirGasolina(int) : void</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="199" x="688.5" y="1990.9639">+sumarKilometraje(int) : void</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="248" x="688.5" y="2007.2607">+calcularCostoMantenimiento() : int</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="128" x="688.5" y="2023.5576">+getRuedas() : int</text></g><!--MD5=[1dff292a6849a6db4d2021d5ff588741]
+class Auto--><g id="elem_Auto"><rect codeLine="78" fill="#F1F1F1" height="129.4844" id="Auto" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="260" x="682.5" y="2125"/><ellipse cx="792.25" cy="2141" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M795.2188,2146.6406 Q794.6406,2146.9375 794,2147.0781 Q793.3594,2147.2344 792.6563,2147.2344 Q790.1563,2147.2344 788.8281,2145.5938 Q787.5156,2143.9375 787.5156,2140.8125 Q787.5156,2137.6875 788.8281,2136.0313 Q790.1563,2134.375 792.6563,2134.375 Q793.3594,2134.375 794,2134.5313 Q794.6563,2134.6875 795.2188,2134.9844 L795.2188,2137.7031 Q794.5938,2137.125 794,2136.8594 Q793.4063,2136.5781 792.7813,2136.5781 Q791.4375,2136.5781 790.75,2137.6563 Q790.0625,2138.7188 790.0625,2140.8125 Q790.0625,2142.9063 790.75,2143.9844 Q791.4375,2145.0469 792.7813,2145.0469 Q793.4063,2145.0469 794,2144.7813 Q794.5938,2144.5 795.2188,2143.9219 L795.2188,2146.6406 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="32" x="812.75" y="2145.8467">Auto</text><line style="stroke:#181818;stroke-width:0.5;" x1="683.5" x2="941.5" y1="2157" y2="2157"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="84" x="688.5" y="2173.9951">-int RUEDAS</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="132" x="688.5" y="2190.292">-int COSTO_RUEDA</text><line style="stroke:#181818;stroke-width:0.5;" x1="683.5" x2="941.5" y1="2197.5938" y2="2197.5938"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="217" x="688.5" y="2214.5889">+Auto(String, String, int, int, int)</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="248" x="688.5" y="2230.8857">+calcularCostoMantenimiento() : int</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="128" x="688.5" y="2247.1826">+getRuedas() : int</text></g><!--MD5=[2b79b7536f4e96f5c913208b633bce6d]
+class Moto--><g id="elem_Moto"><rect codeLine="86" fill="#F1F1F1" height="129.4844" id="Moto" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="260" x="977.5" y="2125"/><ellipse cx="1085.75" cy="2141" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M1088.7188,2146.6406 Q1088.1406,2146.9375 1087.5,2147.0781 Q1086.8594,2147.2344 1086.1563,2147.2344 Q1083.6563,2147.2344 1082.3281,2145.5938 Q1081.0156,2143.9375 1081.0156,2140.8125 Q1081.0156,2137.6875 1082.3281,2136.0313 Q1083.6563,2134.375 1086.1563,2134.375 Q1086.8594,2134.375 1087.5,2134.5313 Q1088.1563,2134.6875 1088.7188,2134.9844 L1088.7188,2137.7031 Q1088.0938,2137.125 1087.5,2136.8594 Q1086.9063,2136.5781 1086.2813,2136.5781 Q1084.9375,2136.5781 1084.25,2137.6563 Q1083.5625,2138.7188 1083.5625,2140.8125 Q1083.5625,2142.9063 1084.25,2143.9844 Q1084.9375,2145.0469 1086.2813,2145.0469 Q1086.9063,2145.0469 1087.5,2144.7813 Q1088.0938,2144.5 1088.7188,2143.9219 L1088.7188,2146.6406 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="35" x="1106.25" y="2145.8467">Moto</text><line style="stroke:#181818;stroke-width:0.5;" x1="978.5" x2="1236.5" y1="2157" y2="2157"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="84" x="983.5" y="2173.9951">-int RUEDAS</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="132" x="983.5" y="2190.292">-int COSTO_RUEDA</text><line style="stroke:#181818;stroke-width:0.5;" x1="978.5" x2="1236.5" y1="2197.5938" y2="2197.5938"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="220" x="983.5" y="2214.5889">+Moto(String, String, int, int, int)</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="248" x="983.5" y="2230.8857">+calcularCostoMantenimiento() : int</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="128" x="983.5" y="2247.1826">+getRuedas() : int</text></g><!--MD5=[84e8de5e1e588bbf130426235397bc98]
+class Exotico--><g id="elem_Exotico"><rect codeLine="94" fill="#F1F1F1" height="129.4844" id="Exotico" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="260" x="387.5" y="2125"/><ellipse cx="488.25" cy="2141" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M491.2188,2146.6406 Q490.6406,2146.9375 490,2147.0781 Q489.3594,2147.2344 488.6563,2147.2344 Q486.1563,2147.2344 484.8281,2145.5938 Q483.5156,2143.9375 483.5156,2140.8125 Q483.5156,2137.6875 484.8281,2136.0313 Q486.1563,2134.375 488.6563,2134.375 Q489.3594,2134.375 490,2134.5313 Q490.6563,2134.6875 491.2188,2134.9844 L491.2188,2137.7031 Q490.5938,2137.125 490,2136.8594 Q489.4063,2136.5781 488.7813,2136.5781 Q487.4375,2136.5781 486.75,2137.6563 Q486.0625,2138.7188 486.0625,2140.8125 Q486.0625,2142.9063 486.75,2143.9844 Q487.4375,2145.0469 488.7813,2145.0469 Q489.4063,2145.0469 490,2144.7813 Q490.5938,2144.5 491.2188,2143.9219 L491.2188,2146.6406 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="50" x="508.75" y="2145.8467">Exotico</text><line style="stroke:#181818;stroke-width:0.5;" x1="388.5" x2="646.5" y1="2157" y2="2157"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="74" x="393.5" y="2173.9951">-int ruedas</text><line style="stroke:#181818;stroke-width:0.5;" x1="388.5" x2="646.5" y1="2181.2969" y2="2181.2969"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="212" x="393.5" y="2198.292">+Exotico(String, int, int, int, int)</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="248" x="393.5" y="2214.5889">+calcularCostoMantenimiento() : int</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="128" x="393.5" y="2230.8857">+getRuedas() : int</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="155" x="393.5" y="2247.1826">+setRuedas(int) : void</text></g><!--MD5=[b93bea437f4c561ca20d8eb4bd12f46a]
+class Concesionario--><g id="elem_Concesionario"><rect codeLine="102" fill="#F1F1F1" height="178.375" id="Concesionario" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="320" x="169.5" y="1475"/><ellipse cx="275.75" cy="1491" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M278.7188,1496.6406 Q278.1406,1496.9375 277.5,1497.0781 Q276.8594,1497.2344 276.1563,1497.2344 Q273.6563,1497.2344 272.3281,1495.5938 Q271.0156,1493.9375 271.0156,1490.8125 Q271.0156,1487.6875 272.3281,1486.0313 Q273.6563,1484.375 276.1563,1484.375 Q276.8594,1484.375 277.5,1484.5313 Q278.1563,1484.6875 278.7188,1484.9844 L278.7188,1487.7031 Q278.0938,1487.125 277.5,1486.8594 Q276.9063,1486.5781 276.2813,1486.5781 Q274.9375,1486.5781 274.25,1487.6563 Q273.5625,1488.7188 273.5625,1490.8125 Q273.5625,1492.9063 274.25,1493.9844 Q274.9375,1495.0469 276.2813,1495.0469 Q276.9063,1495.0469 277.5,1494.7813 Q278.0938,1494.5 278.7188,1493.9219 L278.7188,1496.6406 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="99" x="296.25" y="1495.8467">Concesionario</text><line style="stroke:#181818;stroke-width:0.5;" x1="170.5" x2="488.5" y1="1507" y2="1507"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="145" x="175.5" y="1523.9951">-Vehiculo[] inventario</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="85" x="175.5" y="1540.292">-int cantidad</text><line style="stroke:#181818;stroke-width:0.5;" x1="170.5" x2="488.5" y1="1547.5938" y2="1547.5938"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="121" x="175.5" y="1564.5889">+Concesionario()</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="234" x="175.5" y="1580.8857">+agregarVehiculo(Vehiculo) : void</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="269" x="175.5" y="1597.1826">+buscarPorNombre(String) : Vehiculo[]</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="255" x="175.5" y="1613.4795">+buscarPorMarca(String) : Vehiculo[]</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="250" x="175.5" y="1629.7764">+comprarVehiculo(String) : Vehiculo</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="308" x="175.5" y="1646.0732">+pasarVehiculoAlGaraje(String, Garaje) : void</text></g><!--MD5=[f16fb53b54a25ff612eee869ea10edf6]
+class CatalogoVehiculos--><g id="elem_CatalogoVehiculos"><rect codeLine="113" fill="#F1F1F1" height="113.1875" id="CatalogoVehiculos" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="347" x="7" y="960.5"/><ellipse cx="112.25" cy="976.5" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M115.2188,982.1406 Q114.6406,982.4375 114,982.5781 Q113.3594,982.7344 112.6563,982.7344 Q110.1563,982.7344 108.8281,981.0938 Q107.5156,979.4375 107.5156,976.3125 Q107.5156,973.1875 108.8281,971.5313 Q110.1563,969.875 112.6563,969.875 Q113.3594,969.875 114,970.0313 Q114.6563,970.1875 115.2188,970.4844 L115.2188,973.2031 Q114.5938,972.625 114,972.3594 Q113.4063,972.0781 112.7813,972.0781 Q111.4375,972.0781 110.75,973.1563 Q110.0625,974.2188 110.0625,976.3125 Q110.0625,978.4063 110.75,979.4844 Q111.4375,980.5469 112.7813,980.5469 Q113.4063,980.5469 114,980.2813 Q114.5938,980 115.2188,979.4219 L115.2188,982.1406 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="128" x="132.75" y="981.3467">CatalogoVehiculos</text><line style="stroke:#181818;stroke-width:0.5;" x1="8" x2="353" y1="992.5" y2="992.5"/><line style="stroke:#181818;stroke-width:0.5;" x1="8" x2="353" y1="1000.5" y2="1000.5"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="240" x="13" y="1017.4951">+crearCatalogoAutos() : Vehiculo[]</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="243" x="13" y="1033.792">+crearCatalogoMotos() : Vehiculo[]</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="229" x="13" y="1050.0889">+crearVehiculoExotico() : Exotico</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="335" x="13" y="1066.3857">+crearConcesionarioCompleto() : Concesionario</text></g><!--MD5=[c18cdabf1eb0f0622b5139745750afb3]
+class Mision--><g id="elem_Mision"><rect codeLine="122" fill="#F1F1F1" height="210.9688" id="Mision" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="256" x="838.5" y="1177"/><ellipse cx="940.25" cy="1193" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M943.2188,1198.6406 Q942.6406,1198.9375 942,1199.0781 Q941.3594,1199.2344 940.6563,1199.2344 Q938.1563,1199.2344 936.8281,1197.5938 Q935.5156,1195.9375 935.5156,1192.8125 Q935.5156,1189.6875 936.8281,1188.0313 Q938.1563,1186.375 940.6563,1186.375 Q941.3594,1186.375 942,1186.5313 Q942.6563,1186.6875 943.2188,1186.9844 L943.2188,1189.7031 Q942.5938,1189.125 942,1188.8594 Q941.4063,1188.5781 940.7813,1188.5781 Q939.4375,1188.5781 938.75,1189.6563 Q938.0625,1190.7188 938.0625,1192.8125 Q938.0625,1194.9063 938.75,1195.9844 Q939.4375,1197.0469 940.7813,1197.0469 Q941.4063,1197.0469 942,1196.7813 Q942.5938,1196.5 943.2188,1195.9219 L943.2188,1198.6406 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="44" x="960.75" y="1197.8467">Mision</text><line style="stroke:#181818;stroke-width:0.5;" x1="839.5" x2="1093.5" y1="1209" y2="1209"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="114" x="844.5" y="1225.9951">-int tiempoLimite</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="159" x="844.5" y="1242.292">-int recompensaDinero</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="171" x="844.5" y="1258.5889">-int recompensaCreditos</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="189" x="844.5" y="1274.8857">-Vehiculo vehiculoAsignado</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="110" x="844.5" y="1291.1826">-String dificultad</text><line style="stroke:#181818;stroke-width:0.5;" x1="839.5" x2="1093.5" y1="1298.4844" y2="1298.4844"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="200" x="844.5" y="1315.4795">+Mision(int, int, int, Vehiculo)</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="207" x="844.5" y="1331.7764">+generarMisionFacil() : Mision</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="218" x="844.5" y="1348.0732">+generarMisionMedia() : Mision</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="212" x="844.5" y="1364.3701">+generarMisionDificil() : Mision</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="244" x="844.5" y="1380.667">+asignarVehiculo(Garaje) : boolean</text></g><!--MD5=[7f9684bd97358e307d881f30b2298834]
+class ControlMision--><g id="elem_ControlMision"><rect codeLine="135" fill="#F1F1F1" height="276.1563" id="ControlMision" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="380" x="1149.5" y="550"/><ellipse cx="1288.25" cy="566" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M1291.2188,571.6406 Q1290.6406,571.9375 1290,572.0781 Q1289.3594,572.2344 1288.6563,572.2344 Q1286.1563,572.2344 1284.8281,570.5938 Q1283.5156,568.9375 1283.5156,565.8125 Q1283.5156,562.6875 1284.8281,561.0313 Q1286.1563,559.375 1288.6563,559.375 Q1289.3594,559.375 1290,559.5313 Q1290.6563,559.6875 1291.2188,559.9844 L1291.2188,562.7031 Q1290.5938,562.125 1290,561.8594 Q1289.4063,561.5781 1288.7813,561.5781 Q1287.4375,561.5781 1286.75,562.6563 Q1286.0625,563.7188 1286.0625,565.8125 Q1286.0625,567.9063 1286.75,568.9844 Q1287.4375,570.0469 1288.7813,570.0469 Q1289.4063,570.0469 1290,569.7813 Q1290.5938,569.5 1291.2188,568.9219 L1291.2188,571.6406 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="94" x="1308.75" y="570.8467">ControlMision</text><line style="stroke:#181818;stroke-width:0.5;" x1="1150.5" x2="1528.5" y1="582" y2="582"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="125" x="1155.5" y="598.9951">-Vehiculo vehiculo</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="113" x="1155.5" y="615.292">-Jugador jugador</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="84" x="1155.5" y="631.5889">-Mapa mapa</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="98" x="1155.5" y="647.8857">-Mision mision</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="168" x="1155.5" y="664.1826">-double tiempoRestante</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="124" x="1155.5" y="680.4795">-boolean enCurso</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="146" x="1155.5" y="696.7764">-boolean completada</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="232" x="1155.5" y="713.0732">-ResultadoMision resultadoMision</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="63" x="1155.5" y="729.3701">-Gps gps</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="195" x="1155.5" y="745.667">-Lista&lt;Celda&gt; caminoActual</text><line style="stroke:#181818;stroke-width:0.5;" x1="1150.5" x2="1528.5" y1="752.9688" y2="752.9688"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="368" x="1155.5" y="769.9639">+ControlMision(Vehiculo, Jugador, Mapa, Mision, Gps)</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="146" x="1155.5" y="786.2607">+iniciarMision() : void</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="205" x="1155.5" y="802.5576">+moverVehiculo(String) : void</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="242" x="1155.5" y="818.8545">+getResultado() : ResultadoMision</text></g><!--MD5=[ac68847b138e05b5a41550b9a6435d45]
+class ResultadoMision--><g id="elem_ResultadoMision"><rect codeLine="152" fill="#F1F1F1" height="178.375" id="ResultadoMision" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="376" x="524.5" y="1475"/><ellipse cx="651.25" cy="1491" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M654.2188,1496.6406 Q653.6406,1496.9375 653,1497.0781 Q652.3594,1497.2344 651.6563,1497.2344 Q649.1563,1497.2344 647.8281,1495.5938 Q646.5156,1493.9375 646.5156,1490.8125 Q646.5156,1487.6875 647.8281,1486.0313 Q649.1563,1484.375 651.6563,1484.375 Q652.3594,1484.375 653,1484.5313 Q653.6563,1484.6875 654.2188,1484.9844 L654.2188,1487.7031 Q653.5938,1487.125 653,1486.8594 Q652.4063,1486.5781 651.7813,1486.5781 Q650.4375,1486.5781 649.75,1487.6563 Q649.0625,1488.7188 649.0625,1490.8125 Q649.0625,1492.9063 649.75,1493.9844 Q650.4375,1495.0469 651.7813,1495.0469 Q652.4063,1495.0469 653,1494.7813 Q653.5938,1494.5 654.2188,1493.9219 L654.2188,1496.6406 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="114" x="671.75" y="1495.8467">ResultadoMision</text><line style="stroke:#181818;stroke-width:0.5;" x1="525.5" x2="899.5" y1="1507" y2="1507"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="146" x="530.5" y="1523.9951">-boolean completada</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="124" x="530.5" y="1540.292">-int dineroGanado</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="144" x="530.5" y="1556.5889">-int creditosGanados</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="172" x="530.5" y="1572.8857">-boolean vehiculoExotico</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="105" x="530.5" y="1589.1826">-Estado estado</text><line style="stroke:#181818;stroke-width:0.5;" x1="525.5" x2="899.5" y1="1596.4844" y2="1596.4844"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="364" x="530.5" y="1613.4795">+ResultadoMision(Mision, boolean, boolean, Estado)</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="204" x="530.5" y="1629.7764">+estaCompletada() : boolean</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="175" x="530.5" y="1646.0732">+getDineroGanado() : int</text></g><!--MD5=[d8933eb2ae217ae3c21bf6e2973c277f]
+class Estado--><g id="elem_Estado"><rect codeLine="163" fill="#F1F1F1" height="48" id="Estado" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="80" x="728.5" y="39.5"/><ellipse cx="743.5" cy="55.5" fill="#EB937F" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M747.6094,61.5 L739.8906,61.5 L739.8906,49.1094 L747.6094,49.1094 L747.6094,51.2656 L742.3438,51.2656 L742.3438,53.9375 L747.1094,53.9375 L747.1094,56.0938 L742.3438,56.0938 L742.3438,59.3438 L747.6094,59.3438 L747.6094,61.5 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="48" x="757.5" y="60.3467">Estado</text><line style="stroke:#181818;stroke-width:0.5;" x1="729.5" x2="807.5" y1="71.5" y2="71.5"/><line style="stroke:#181818;stroke-width:0.5;" x1="729.5" x2="807.5" y1="79.5" y2="79.5"/></g><!--MD5=[e133c6dab9d5017259a2ddc623cd2e48]
+class Gps--><g id="elem_Gps"><rect codeLine="168" fill="#F1F1F1" height="178.375" id="Gps" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="338" x="1663.5" y="928"/><ellipse cx="1814.25" cy="944" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M1817.2188,949.6406 Q1816.6406,949.9375 1816,950.0781 Q1815.3594,950.2344 1814.6563,950.2344 Q1812.1563,950.2344 1810.8281,948.5938 Q1809.5156,946.9375 1809.5156,943.8125 Q1809.5156,940.6875 1810.8281,939.0313 Q1812.1563,937.375 1814.6563,937.375 Q1815.3594,937.375 1816,937.5313 Q1816.6563,937.6875 1817.2188,937.9844 L1817.2188,940.7031 Q1816.5938,940.125 1816,939.8594 Q1815.4063,939.5781 1814.7813,939.5781 Q1813.4375,939.5781 1812.75,940.6563 Q1812.0625,941.7188 1812.0625,943.8125 Q1812.0625,945.9063 1812.75,946.9844 Q1813.4375,948.0469 1814.7813,948.0469 Q1815.4063,948.0469 1816,947.7813 Q1816.5938,947.5 1817.2188,946.9219 L1817.2188,949.6406 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="28" x="1834.75" y="948.8467">Gps</text><line style="stroke:#181818;stroke-width:0.5;" x1="1664.5" x2="2000.5" y1="960" y2="960"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="84" x="1669.5" y="976.9951">-Mapa mapa</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="144" x="1669.5" y="993.292">-Grafo&lt;Celda&gt; grafo</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="210" x="1669.5" y="1009.5889">-TipoAlgoritmo algoritmoActual</text><line style="stroke:#181818;stroke-width:0.5;" x1="1664.5" x2="2000.5" y1="1016.8906" y2="1016.8906"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="87" x="1669.5" y="1033.8857">+Gps(Mapa)</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="147" x="1669.5" y="1050.1826">+mapaAGrafo() : void</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="319" x="1669.5" y="1066.4795">+calcularCamino(Celda, Celda) : Lista&lt;Celda&gt;</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="326" x="1669.5" y="1082.7764">+visualizarCaminoEnMapa(Lista&lt;Celda&gt;) : void</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="322" x="1669.5" y="1099.0732">+calcularCostoCamino(Lista&lt;Celda&gt;) : double</text></g><!--MD5=[33320c4ad8405f745c1270cb5bc22eba]
+class TipoAlgoritmo--><g id="elem_TipoAlgoritmo"><rect codeLine="179" fill="#F1F1F1" height="80.5938" id="TipoAlgoritmo" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="127" x="1538" y="1523.5"/><ellipse cx="1553" cy="1539.5" fill="#EB937F" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M1557.1094,1545.5 L1549.3906,1545.5 L1549.3906,1533.1094 L1557.1094,1533.1094 L1557.1094,1535.2656 L1551.8438,1535.2656 L1551.8438,1537.9375 L1556.6094,1537.9375 L1556.6094,1540.0938 L1551.8438,1540.0938 L1551.8438,1543.3438 L1557.1094,1543.3438 L1557.1094,1545.5 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="95" x="1567" y="1544.3467">TipoAlgoritmo</text><line style="stroke:#181818;stroke-width:0.5;" x1="1539" x2="1664" y1="1555.5" y2="1555.5"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="85" x="1544" y="1572.4951">A_ESTRELLA</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="27" x="1544" y="1588.792">BFS</text><line style="stroke:#181818;stroke-width:0.5;" x1="1539" x2="1664" y1="1596.0938" y2="1596.0938"/></g><!--MD5=[3858b4c47ad31b7fe669860596063bee]
+class Mapa--><g id="elem_Mapa"><rect codeLine="186" fill="#F1F1F1" height="292.4531" id="Mapa" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="273" x="2933" y="1418"/><ellipse cx="3046.75" cy="1434" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M3049.7188,1439.6406 Q3049.1406,1439.9375 3048.5,1440.0781 Q3047.8594,1440.2344 3047.1563,1440.2344 Q3044.6563,1440.2344 3043.3281,1438.5938 Q3042.0156,1436.9375 3042.0156,1433.8125 Q3042.0156,1430.6875 3043.3281,1429.0313 Q3044.6563,1427.375 3047.1563,1427.375 Q3047.8594,1427.375 3048.5,1427.5313 Q3049.1563,1427.6875 3049.7188,1427.9844 L3049.7188,1430.7031 Q3049.0938,1430.125 3048.5,1429.8594 Q3047.9063,1429.5781 3047.2813,1429.5781 Q3045.9375,1429.5781 3045.25,1430.6563 Q3044.5625,1431.7188 3044.5625,1433.8125 Q3044.5625,1435.9063 3045.25,1436.9844 Q3045.9375,1438.0469 3047.2813,1438.0469 Q3047.9063,1438.0469 3048.5,1437.7813 Q3049.0938,1437.5 3049.7188,1436.9219 L3049.7188,1439.6406 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="37" x="3067.25" y="1438.8467">Mapa</text><line style="stroke:#181818;stroke-width:0.5;" x1="2934" x2="3205" y1="1450" y2="1450"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="113" x="2939" y="1466.9951">-Celda[][] celdas</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="52" x="2939" y="1483.292">-int filas</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="93" x="2939" y="1499.5889">-int columnas</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="125" x="2939" y="1515.8857">-Celda celdaSalida</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="139" x="2939" y="1532.1826">-Celda celdaDestino</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="96" x="2939" y="1548.4795">-int filaJugador</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="137" x="2939" y="1564.7764">-int columnaJugador</text><line style="stroke:#181818;stroke-width:0.5;" x1="2934" x2="3205" y1="1572.0781" y2="1572.0781"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="59" x="2939" y="1589.0732">+Mapa()</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="101" x="2939" y="1605.3701">+Mapa(int, int)</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="178" x="2939" y="1621.667">+getCelda(int, int) : Celda</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="177" x="2939" y="1637.9639">+generarAleatorio() : void</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="251" x="2939" y="1654.2607">+cargarDesdeArchivo(String) : Mapa</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="224" x="2939" y="1670.5576">+guardarEnArchivo(String) : void</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="154" x="2939" y="1686.8545">+imprimirMapa() : void</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="261" x="2939" y="1703.1514">+movimientoExitoso(String) : boolean</text></g><!--MD5=[adf40df5d88e8c7536c3fcba6ac92691]
+class Celda--><g id="elem_Celda"><rect codeLine="204" fill="#F1F1F1" height="210.9688" id="Celda" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="250" x="3072.5" y="1795.5"/><ellipse cx="3173.75" cy="1811.5" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M3176.7188,1817.1406 Q3176.1406,1817.4375 3175.5,1817.5781 Q3174.8594,1817.7344 3174.1563,1817.7344 Q3171.6563,1817.7344 3170.3281,1816.0938 Q3169.0156,1814.4375 3169.0156,1811.3125 Q3169.0156,1808.1875 3170.3281,1806.5313 Q3171.6563,1804.875 3174.1563,1804.875 Q3174.8594,1804.875 3175.5,1805.0313 Q3176.1563,1805.1875 3176.7188,1805.4844 L3176.7188,1808.2031 Q3176.0938,1807.625 3175.5,1807.3594 Q3174.9063,1807.0781 3174.2813,1807.0781 Q3172.9375,1807.0781 3172.25,1808.1563 Q3171.5625,1809.2188 3171.5625,1811.3125 Q3171.5625,1813.4063 3172.25,1814.4844 Q3172.9375,1815.5469 3174.2813,1815.5469 Q3174.9063,1815.5469 3175.5,1815.2813 Q3176.0938,1815 3176.7188,1814.4219 L3176.7188,1817.1406 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="39" x="3194.25" y="1816.3467">Celda</text><line style="stroke:#181818;stroke-width:0.5;" x1="3073.5" x2="3321.5" y1="1827.5" y2="1827.5"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="44" x="3078.5" y="1844.4951">-int fila</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="85" x="3078.5" y="1860.792">-int columna</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="104" x="3078.5" y="1877.0889">-TipoCelda tipo</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="218" x="3078.5" y="1893.3857">-TipoRecompensa recompensa</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="238" x="3078.5" y="1909.6826">-boolean recompensaRecolectada</text><line style="stroke:#181818;stroke-width:0.5;" x1="3073.5" x2="3321.5" y1="1916.9844" y2="1916.9844"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="180" x="3078.5" y="1933.9795">+Celda(int, int, TipoCelda)</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="172" x="3078.5" y="1950.2764">+getCostoTransito() : int</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="184" x="3078.5" y="1966.5732">+esTransitable() : boolean</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="224" x="3078.5" y="1982.8701">+recolectarRecompensa() : void</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="182" x="3078.5" y="1999.167">+equals(Object) : boolean</text></g><!--MD5=[84b4ee2fa6fad317a945b3b3d11062ee]
+class TipoCelda--><g id="elem_TipoCelda"><rect codeLine="217" fill="#F1F1F1" height="178.375" id="TipoCelda" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="110" x="3286.5" y="2100.5"/><ellipse cx="3305.55" cy="2116.5" fill="#EB937F" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M3309.6594,2122.5 L3301.9406,2122.5 L3301.9406,2110.1094 L3309.6594,2110.1094 L3309.6594,2112.2656 L3304.3938,2112.2656 L3304.3938,2114.9375 L3309.1594,2114.9375 L3309.1594,2117.0938 L3304.3938,2117.0938 L3304.3938,2120.3438 L3309.6594,2120.3438 L3309.6594,2122.5 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="69" x="3320.45" y="2121.3467">TipoCelda</text><line style="stroke:#181818;stroke-width:0.5;" x1="3287.5" x2="3395.5" y1="2132.5" y2="2132.5"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="42" x="3292.5" y="2149.4951">CALLE</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="58" x="3292.5" y="2165.792">EDIFICIO</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="48" x="3292.5" y="2182.0889">SALIDA</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="62" x="3292.5" y="2198.3857">DESTINO</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="93" x="3292.5" y="2214.6826">CONGESTION</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="98" x="3292.5" y="2230.9795">RECOMPENSA</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="65" x="3292.5" y="2247.2764">JUGADOR</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="91" x="3292.5" y="2263.5732">CAMINO_GPS</text><line style="stroke:#181818;stroke-width:0.5;" x1="3287.5" x2="3395.5" y1="2270.875" y2="2270.875"/></g><!--MD5=[cce22740aa68c91c0f64af5f01493a59]
+class TipoRecompensa--><g id="elem_TipoRecompensa"><rect codeLine="228" fill="#F1F1F1" height="96.8906" id="TipoRecompensa" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="154" x="3097.5" y="2141"/><ellipse cx="3112.5" cy="2157" fill="#EB937F" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M3116.6094,2163 L3108.8906,2163 L3108.8906,2150.6094 L3116.6094,2150.6094 L3116.6094,2152.7656 L3111.3438,2152.7656 L3111.3438,2155.4375 L3116.1094,2155.4375 L3116.1094,2157.5938 L3111.3438,2157.5938 L3111.3438,2160.8438 L3116.6094,2160.8438 L3116.6094,2163 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="122" x="3126.5" y="2161.8467">TipoRecompensa</text><line style="stroke:#181818;stroke-width:0.5;" x1="3098.5" x2="3250.5" y1="2173" y2="2173"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="54" x="3103.5" y="2189.9951">DINERO</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="72" x="3103.5" y="2206.292">CREDITOS</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="138" x="3103.5" y="2222.5889">VEHICULO_EXOTICO</text><line style="stroke:#181818;stroke-width:0.5;" x1="3098.5" x2="3250.5" y1="2229.8906" y2="2229.8906"/></g><!--MD5=[b4e9ee30da514d82ed962c4ace96ef87]
+class CodigosANSI--><g id="elem_CodigosANSI"><rect codeLine="234" fill="#F1F1F1" height="113.1875" id="CodigosANSI" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="183" x="844" y="7"/><ellipse cx="887.35" cy="23" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M890.3188,28.6406 Q889.7406,28.9375 889.1,29.0781 Q888.4594,29.2344 887.7563,29.2344 Q885.2563,29.2344 883.9281,27.5938 Q882.6156,25.9375 882.6156,22.8125 Q882.6156,19.6875 883.9281,18.0313 Q885.2563,16.375 887.7563,16.375 Q888.4594,16.375 889.1,16.5313 Q889.7563,16.6875 890.3188,16.9844 L890.3188,19.7031 Q889.6938,19.125 889.1,18.8594 Q888.5063,18.5781 887.8813,18.5781 Q886.5375,18.5781 885.85,19.6563 Q885.1625,20.7188 885.1625,22.8125 Q885.1625,24.9063 885.85,25.9844 Q886.5375,27.0469 887.8813,27.0469 Q888.5063,27.0469 889.1,26.7813 Q889.6938,26.5 890.3188,25.9219 L890.3188,28.6406 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="88" x="907.65" y="27.8467">CodigosANSI</text><line style="stroke:#181818;stroke-width:0.5;" x1="845" x2="1026" y1="39" y2="39"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="111" x="850" y="55.9951">+RESET : String</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="154" x="850" y="72.292">+ROJO_TEXTO : String</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="171" x="850" y="88.5889">+VERDE_FONDO : String</text><line style="stroke:#181818;stroke-width:0.5;" x1="845" x2="1026" y1="95.8906" y2="95.8906"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="160" x="850" y="112.8857">+limpiarPantalla() : void</text></g><!--MD5=[e0b33c3f332c810d10d316644f413ce5]
+class Grafo--><g id="elem_Grafo"><rect codeLine="243" fill="#F1F1F1" height="178.375" id="Grafo" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="311" x="1228" y="1812"/><ellipse cx="1355.25" cy="1828" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M1358.2188,1833.6406 Q1357.6406,1833.9375 1357,1834.0781 Q1356.3594,1834.2344 1355.6563,1834.2344 Q1353.1563,1834.2344 1351.8281,1832.5938 Q1350.5156,1830.9375 1350.5156,1827.8125 Q1350.5156,1824.6875 1351.8281,1823.0313 Q1353.1563,1821.375 1355.6563,1821.375 Q1356.3594,1821.375 1357,1821.5313 Q1357.6563,1821.6875 1358.2188,1821.9844 L1358.2188,1824.7031 Q1357.5938,1824.125 1357,1823.8594 Q1356.4063,1823.5781 1355.7813,1823.5781 Q1354.4375,1823.5781 1353.75,1824.6563 Q1353.0625,1825.7188 1353.0625,1827.8125 Q1353.0625,1829.9063 1353.75,1830.9844 Q1354.4375,1832.0469 1355.7813,1832.0469 Q1356.4063,1832.0469 1357,1831.7813 Q1357.5938,1831.5 1358.2188,1830.9219 L1358.2188,1833.6406 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="37" x="1375.75" y="1832.8467">Grafo</text><rect fill="#FFFFFF" height="15.9688" style="stroke:#181818;stroke-width:1.0;stroke-dasharray:2.0,2.0;" width="9" x="1533" y="1809"/><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="7" x="1534" y="1821.1387">T</text><line style="stroke:#181818;stroke-width:0.5;" x1="1229" x2="1538" y1="1844" y2="1844"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="290" x="1234" y="1860.9951">#Map&lt;T, Map&lt;T, Integer&gt;&gt; adyacencias</text><line style="stroke:#181818;stroke-width:0.5;" x1="1229" x2="1538" y1="1868.2969" y2="1868.2969"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="59" x="1234" y="1885.292">+Grafo()</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="173" x="1234" y="1901.5889">+agregarVertice(T) : void</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="205" x="1234" y="1917.8857">+agregarArista(T, T, int) : void</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="173" x="1234" y="1934.1826">+eliminarVertice(T) : void</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="180" x="1234" y="1950.4795">+eliminarArista(T, T) : void</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="171" x="1234" y="1966.7764">+obtenerArista(T, T) : int</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="299" x="1234" y="1983.0732">+obtenerAdyacentes(T) : Map&lt;T, Integer&gt;</text></g><!--MD5=[51d01b056e41854a49db00f516bbe598]
+class Nodo--><g id="elem_Nodo"><rect codeLine="254" fill="#F1F1F1" height="194.6719" id="Nodo" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="352" x="1574.5" y="1803.5"/><ellipse cx="1722.25" cy="1819.5" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M1725.2188,1825.1406 Q1724.6406,1825.4375 1724,1825.5781 Q1723.3594,1825.7344 1722.6563,1825.7344 Q1720.1563,1825.7344 1718.8281,1824.0938 Q1717.5156,1822.4375 1717.5156,1819.3125 Q1717.5156,1816.1875 1718.8281,1814.5313 Q1720.1563,1812.875 1722.6563,1812.875 Q1723.3594,1812.875 1724,1813.0313 Q1724.6563,1813.1875 1725.2188,1813.4844 L1725.2188,1816.2031 Q1724.5938,1815.625 1724,1815.3594 Q1723.4063,1815.0781 1722.7813,1815.0781 Q1721.4375,1815.0781 1720.75,1816.1563 Q1720.0625,1817.2188 1720.0625,1819.3125 Q1720.0625,1821.4063 1720.75,1822.4844 Q1721.4375,1823.5469 1722.7813,1823.5469 Q1723.4063,1823.5469 1724,1823.2813 Q1724.5938,1823 1725.2188,1822.4219 L1725.2188,1825.1406 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="37" x="1742.75" y="1824.3467">Nodo</text><rect fill="#FFFFFF" height="15.9688" style="stroke:#181818;stroke-width:1.0;stroke-dasharray:2.0,2.0;" width="9" x="1920.5" y="1800.5"/><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="7" x="1921.5" y="1812.6387">T</text><line style="stroke:#181818;stroke-width:0.5;" x1="1575.5" x2="1925.5" y1="1835.5" y2="1835.5"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="49" x="1580.5" y="1852.4951">-T dato</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="173" x="1580.5" y="1868.792">-double costoAcumulado</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="124" x="1580.5" y="1885.0889">-double heuristica</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="159" x="1580.5" y="1901.3857">-Nodo&lt;T&gt; predecesor</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="117" x="1580.5" y="1917.6826">-boolean visitado</text><line style="stroke:#181818;stroke-width:0.5;" x1="1575.5" x2="1925.5" y1="1924.9844" y2="1924.9844"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="68" x="1580.5" y="1941.9795">+Nodo(T)</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="190" x="1580.5" y="1958.2764">+evaluacionTotal() : double</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="340" x="1580.5" y="1974.5732">+obtenerVecinos(Grafo&lt;T&gt;) : Lista&lt;Nodo&lt;T&gt;&gt;</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="182" x="1580.5" y="1990.8701">+equals(Object) : boolean</text></g><!--MD5=[d5a98e8f9454fd5aa4b28650c1549a08]
+class AEstrella--><g id="elem_AEstrella"><rect codeLine="266" fill="#F1F1F1" height="178.375" id="AEstrella" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="521" x="1822" y="1475"/><ellipse cx="2043.25" cy="1491" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M2046.2188,1496.6406 Q2045.6406,1496.9375 2045,1497.0781 Q2044.3594,1497.2344 2043.6563,1497.2344 Q2041.1563,1497.2344 2039.8281,1495.5938 Q2038.5156,1493.9375 2038.5156,1490.8125 Q2038.5156,1487.6875 2039.8281,1486.0313 Q2041.1563,1484.375 2043.6563,1484.375 Q2044.3594,1484.375 2045,1484.5313 Q2045.6563,1484.6875 2046.2188,1484.9844 L2046.2188,1487.7031 Q2045.5938,1487.125 2045,1486.8594 Q2044.4063,1486.5781 2043.7813,1486.5781 Q2042.4375,1486.5781 2041.75,1487.6563 Q2041.0625,1488.7188 2041.0625,1490.8125 Q2041.0625,1492.9063 2041.75,1493.9844 Q2042.4375,1495.0469 2043.7813,1495.0469 Q2044.4063,1495.0469 2045,1494.7813 Q2045.5938,1494.5 2046.2188,1493.9219 L2046.2188,1496.6406 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="59" x="2063.75" y="1495.8467">AEstrella</text><rect fill="#FFFFFF" height="15.9688" style="stroke:#181818;stroke-width:1.0;stroke-dasharray:2.0,2.0;" width="9" x="2337" y="1472"/><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="7" x="2338" y="1484.1387">T</text><line style="stroke:#181818;stroke-width:0.5;" x1="1823" x2="2342" y1="1507" y2="1507"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="209" x="1828" y="1523.9951">-ColaPrioridad&lt;Nodo&lt;T&gt;&gt; sa</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="150" x="1828" y="1540.292">-Lista&lt;Nodo&lt;T&gt;&gt; sc</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="152" x="1828" y="1556.5889">-Nodo&lt;T&gt; nodoInicial</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="171" x="1828" y="1572.8857">-Nodo&lt;T&gt; nodoObjetivo</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="114" x="1828" y="1589.1826">-Grafo&lt;T&gt; grafo</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="177" x="1828" y="1605.4795">-Heuristica&lt;T&gt; heuristica</text><line style="stroke:#181818;stroke-width:0.5;" x1="1823" x2="2342" y1="1612.7813" y2="1612.7813"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="509" x="1828" y="1629.7764">+AEstrella(Nodo&lt;T&gt;, Nodo&lt;T&gt;, Comparador, Grafo&lt;T&gt;, Heuristica&lt;T&gt;)</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="154" x="1828" y="1646.0732">+recorrer() : Lista&lt;T&gt;</text></g><!--MD5=[389b8ef07154d75d360739910f43805d]
+class Heuristica--><g id="elem_Heuristica"><rect codeLine="277" fill="#F1F1F1" height="64.2969" id="Heuristica" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="194" x="2622.5" y="1869"/><ellipse cx="2675.75" cy="1885" fill="#B4A7E5" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M2671.6719,1880.7656 L2671.6719,1878.6094 L2679.0625,1878.6094 L2679.0625,1880.7656 L2676.5938,1880.7656 L2676.5938,1888.8438 L2679.0625,1888.8438 L2679.0625,1891 L2671.6719,1891 L2671.6719,1888.8438 L2674.1406,1888.8438 L2674.1406,1880.7656 L2671.6719,1880.7656 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" font-style="italic" lengthAdjust="spacing" textLength="68" x="2696.25" y="1889.8467">Heuristica</text><rect fill="#FFFFFF" height="15.9688" style="stroke:#181818;stroke-width:1.0;stroke-dasharray:2.0,2.0;" width="9" x="2810.5" y="1866"/><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="7" x="2811.5" y="1878.1387">T</text><line style="stroke:#181818;stroke-width:0.5;" x1="2623.5" x2="2815.5" y1="1901" y2="1901"/><line style="stroke:#181818;stroke-width:0.5;" x1="2623.5" x2="2815.5" y1="1909" y2="1909"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="182" x="2628.5" y="1925.9951">+calcularPuntaje(T, T) : int</text></g><!--MD5=[4e64e45f1bad38de5fb9f9346d769474]
+class HeuristicaSinDiagonales--><g id="elem_HeuristicaSinDiagonales"><rect codeLine="281" fill="#F1F1F1" height="64.2969" id="HeuristicaSinDiagonales" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="254" x="2490.5" y="1532"/><ellipse cx="2530.7" cy="1548" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M2533.6688,1553.6406 Q2533.0906,1553.9375 2532.45,1554.0781 Q2531.8094,1554.2344 2531.1063,1554.2344 Q2528.6063,1554.2344 2527.2781,1552.5938 Q2525.9656,1550.9375 2525.9656,1547.8125 Q2525.9656,1544.6875 2527.2781,1543.0313 Q2528.6063,1541.375 2531.1063,1541.375 Q2531.8094,1541.375 2532.45,1541.5313 Q2533.1063,1541.6875 2533.6688,1541.9844 L2533.6688,1544.7031 Q2533.0438,1544.125 2532.45,1543.8594 Q2531.8563,1543.5781 2531.2313,1543.5781 Q2529.8875,1543.5781 2529.2,1544.6563 Q2528.5125,1545.7188 2528.5125,1547.8125 Q2528.5125,1549.9063 2529.2,1550.9844 Q2529.8875,1552.0469 2531.2313,1552.0469 Q2531.8563,1552.0469 2532.45,1551.7813 Q2533.0438,1551.5 2533.6688,1550.9219 L2533.6688,1553.6406 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="166" x="2550.3" y="1552.8467">HeuristicaSinDiagonales</text><line style="stroke:#181818;stroke-width:0.5;" x1="2491.5" x2="2743.5" y1="1564" y2="1564"/><line style="stroke:#181818;stroke-width:0.5;" x1="2491.5" x2="2743.5" y1="1572" y2="1572"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="242" x="2496.5" y="1588.9951">+calcularPuntaje(Celda, Celda) : int</text></g><!--MD5=[009ff5a6cdd31b74bfa5609828f8b847]
+class ComparadorNodoAEstrella--><g id="elem_ComparadorNodoAEstrella"><rect codeLine="285" fill="#F1F1F1" height="64.2969" id="ComparadorNodoAEstrella" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="277" x="2239" y="1869"/><ellipse cx="2277.85" cy="1885" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M2280.8188,1890.6406 Q2280.2406,1890.9375 2279.6,1891.0781 Q2278.9594,1891.2344 2278.2563,1891.2344 Q2275.7563,1891.2344 2274.4281,1889.5938 Q2273.1156,1887.9375 2273.1156,1884.8125 Q2273.1156,1881.6875 2274.4281,1880.0313 Q2275.7563,1878.375 2278.2563,1878.375 Q2278.9594,1878.375 2279.6,1878.5313 Q2280.2563,1878.6875 2280.8188,1878.9844 L2280.8188,1881.7031 Q2280.1938,1881.125 2279.6,1880.8594 Q2279.0063,1880.5781 2278.3813,1880.5781 Q2277.0375,1880.5781 2276.35,1881.6563 Q2275.6625,1882.7188 2275.6625,1884.8125 Q2275.6625,1886.9063 2276.35,1887.9844 Q2277.0375,1889.0469 2278.3813,1889.0469 Q2279.0063,1889.0469 2279.6,1888.7813 Q2280.1938,1888.5 2280.8188,1887.9219 L2280.8188,1890.6406 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="181" x="2297.15" y="1889.8467">ComparadorNodoAEstrella</text><rect fill="#FFFFFF" height="15.9688" style="stroke:#181818;stroke-width:1.0;stroke-dasharray:2.0,2.0;" width="9" x="2510" y="1866"/><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="7" x="2511" y="1878.1387">T</text><line style="stroke:#181818;stroke-width:0.5;" x1="2240" x2="2515" y1="1901" y2="1901"/><line style="stroke:#181818;stroke-width:0.5;" x1="2240" x2="2515" y1="1909" y2="1909"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="265" x="2245" y="1925.9951">+comparar(Nodo&lt;T&gt;, Nodo&lt;T&gt;) : int</text></g><!--MD5=[ea775af43a0da7cb543d6bee4ab62c40]
+class Vector--><g id="elem_Vector"><rect codeLine="291" fill="#F1F1F1" height="194.6719" id="Vector" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="138" x="1458.5" y="2092"/><ellipse cx="1496" cy="2108" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M1498.9688,2113.6406 Q1498.3906,2113.9375 1497.75,2114.0781 Q1497.1094,2114.2344 1496.4063,2114.2344 Q1493.9063,2114.2344 1492.5781,2112.5938 Q1491.2656,2110.9375 1491.2656,2107.8125 Q1491.2656,2104.6875 1492.5781,2103.0313 Q1493.9063,2101.375 1496.4063,2101.375 Q1497.1094,2101.375 1497.75,2101.5313 Q1498.4063,2101.6875 1498.9688,2101.9844 L1498.9688,2104.7031 Q1498.3438,2104.125 1497.75,2103.8594 Q1497.1563,2103.5781 1496.5313,2103.5781 Q1495.1875,2103.5781 1494.5,2104.6563 Q1493.8125,2105.7188 1493.8125,2107.8125 Q1493.8125,2109.9063 1494.5,2110.9844 Q1495.1875,2112.0469 1496.5313,2112.0469 Q1497.1563,2112.0469 1497.75,2111.7813 Q1498.3438,2111.5 1498.9688,2110.9219 L1498.9688,2113.6406 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="45" x="1515" y="2112.8467">Vector</text><rect fill="#FFFFFF" height="15.9688" style="stroke:#181818;stroke-width:1.0;stroke-dasharray:2.0,2.0;" width="9" x="1590.5" y="2089"/><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="7" x="1591.5" y="2101.1387">T</text><line style="stroke:#181818;stroke-width:0.5;" x1="1459.5" x2="1595.5" y1="2124" y2="2124"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="67" x="1464.5" y="2140.9951">-T[] datos</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="120" x="1464.5" y="2157.292">-int tamanioFisico</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="126" x="1464.5" y="2173.5889">-int tamanioLogico</text><line style="stroke:#181818;stroke-width:0.5;" x1="1459.5" x2="1595.5" y1="2180.8906" y2="2180.8906"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="67" x="1464.5" y="2197.8857">+Vector()</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="125" x="1464.5" y="2214.1826">+agregar(T) : void</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="97" x="1464.5" y="2230.4795">+eliminar() : T</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="92" x="1464.5" y="2246.7764">+dato(int) : T</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="107" x="1464.5" y="2263.0732">+tamanio() : int</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="126" x="1464.5" y="2279.3701">+vacio() : boolean</text></g><!--MD5=[abceb2bb61d296a097e5b23663675653]
+class Lista--><g id="elem_Lista"><rect codeLine="303" fill="#F1F1F1" height="194.6719" id="Lista" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="186" x="2851.5" y="1803.5"/><ellipse cx="2919.25" cy="1819.5" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M2922.2188,1825.1406 Q2921.6406,1825.4375 2921,1825.5781 Q2920.3594,1825.7344 2919.6563,1825.7344 Q2917.1563,1825.7344 2915.8281,1824.0938 Q2914.5156,1822.4375 2914.5156,1819.3125 Q2914.5156,1816.1875 2915.8281,1814.5313 Q2917.1563,1812.875 2919.6563,1812.875 Q2920.3594,1812.875 2921,1813.0313 Q2921.6563,1813.1875 2922.2188,1813.4844 L2922.2188,1816.2031 Q2921.5938,1815.625 2921,1815.3594 Q2920.4063,1815.0781 2919.7813,1815.0781 Q2918.4375,1815.0781 2917.75,1816.1563 Q2917.0625,1817.2188 2917.0625,1819.3125 Q2917.0625,1821.4063 2917.75,1822.4844 Q2918.4375,1823.5469 2919.7813,1823.5469 Q2920.4063,1823.5469 2921,1823.2813 Q2921.5938,1823 2922.2188,1822.4219 L2922.2188,1825.1406 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="31" x="2939.75" y="1824.3467">Lista</text><rect fill="#FFFFFF" height="15.9688" style="stroke:#181818;stroke-width:1.0;stroke-dasharray:2.0,2.0;" width="9" x="3031.5" y="1800.5"/><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="7" x="3032.5" y="1812.6387">T</text><line style="stroke:#181818;stroke-width:0.5;" x1="2852.5" x2="3036.5" y1="1835.5" y2="1835.5"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="132" x="2857.5" y="1852.4951">-Nodo&lt;T&gt; primero</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="121" x="2857.5" y="1868.792">-Nodo&lt;T&gt; ultimo</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="126" x="2857.5" y="1885.0889">-int cantidadDatos</text><line style="stroke:#181818;stroke-width:0.5;" x1="2852.5" x2="3036.5" y1="1892.3906" y2="1892.3906"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="53" x="2857.5" y="1909.3857">+Lista()</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="125" x="2857.5" y="1925.6826">+agregar(T) : void</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="97" x="2857.5" y="1941.9795">+eliminar() : T</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="92" x="2857.5" y="1958.2764">+dato(int) : T</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="174" x="2857.5" y="1974.5732">+iterador() : Iterador&lt;T&gt;</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="107" x="2857.5" y="1990.8701">+tamanio() : int</text></g><!--MD5=[1919ef7aecc5209ad78f9ad723215264]
+class Cola--><g id="elem_Cola"><rect codeLine="315" fill="#F1F1F1" height="178.375" id="Cola" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="144" x="977.5" y="1812"/><ellipse cx="1024.75" cy="1828" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M1027.7188,1833.6406 Q1027.1406,1833.9375 1026.5,1834.0781 Q1025.8594,1834.2344 1025.1563,1834.2344 Q1022.6563,1834.2344 1021.3281,1832.5938 Q1020.0156,1830.9375 1020.0156,1827.8125 Q1020.0156,1824.6875 1021.3281,1823.0313 Q1022.6563,1821.375 1025.1563,1821.375 Q1025.8594,1821.375 1026.5,1821.5313 Q1027.1563,1821.6875 1027.7188,1821.9844 L1027.7188,1824.7031 Q1027.0938,1824.125 1026.5,1823.8594 Q1025.9063,1823.5781 1025.2813,1823.5781 Q1023.9375,1823.5781 1023.25,1824.6563 Q1022.5625,1825.7188 1022.5625,1827.8125 Q1022.5625,1829.9063 1023.25,1830.9844 Q1023.9375,1832.0469 1025.2813,1832.0469 Q1025.9063,1832.0469 1026.5,1831.7813 Q1027.0938,1831.5 1027.7188,1830.9219 L1027.7188,1833.6406 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="30" x="1045.25" y="1832.8467">Cola</text><rect fill="#FFFFFF" height="15.9688" style="stroke:#181818;stroke-width:1.0;stroke-dasharray:2.0,2.0;" width="9" x="1115.5" y="1809"/><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="7" x="1116.5" y="1821.1387">T</text><line style="stroke:#181818;stroke-width:0.5;" x1="978.5" x2="1120.5" y1="1844" y2="1844"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="132" x="983.5" y="1860.9951">-Nodo&lt;T&gt; primero</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="121" x="983.5" y="1877.292">-Nodo&lt;T&gt; ultimo</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="126" x="983.5" y="1893.5889">-int cantidadDatos</text><line style="stroke:#181818;stroke-width:0.5;" x1="978.5" x2="1120.5" y1="1900.8906" y2="1900.8906"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="52" x="983.5" y="1917.8857">+Cola()</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="125" x="983.5" y="1934.1826">+agregar(T) : void</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="97" x="983.5" y="1950.4795">+eliminar() : T</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="108" x="983.5" y="1966.7764">+siguiente() : T</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="126" x="983.5" y="1983.0732">+vacio() : boolean</text></g><!--MD5=[14025420cc632b0b6e355bbb0aa0966b]
+class ColaPrioridad--><g id="elem_ColaPrioridad"><rect codeLine="326" fill="#F1F1F1" height="162.0781" id="ColaPrioridad" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="242" x="1961.5" y="1820"/><ellipse cx="2027.75" cy="1836" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M2030.7188,1841.6406 Q2030.1406,1841.9375 2029.5,1842.0781 Q2028.8594,1842.2344 2028.1563,1842.2344 Q2025.6563,1842.2344 2024.3281,1840.5938 Q2023.0156,1838.9375 2023.0156,1835.8125 Q2023.0156,1832.6875 2024.3281,1831.0313 Q2025.6563,1829.375 2028.1563,1829.375 Q2028.8594,1829.375 2029.5,1829.5313 Q2030.1563,1829.6875 2030.7188,1829.9844 L2030.7188,1832.7031 Q2030.0938,1832.125 2029.5,1831.8594 Q2028.9063,1831.5781 2028.2813,1831.5781 Q2026.9375,1831.5781 2026.25,1832.6563 Q2025.5625,1833.7188 2025.5625,1835.8125 Q2025.5625,1837.9063 2026.25,1838.9844 Q2026.9375,1840.0469 2028.2813,1840.0469 Q2028.9063,1840.0469 2029.5,1839.7813 Q2030.0938,1839.5 2030.7188,1838.9219 L2030.7188,1841.6406 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="90" x="2048.25" y="1840.8467">ColaPrioridad</text><rect fill="#FFFFFF" height="15.9688" style="stroke:#181818;stroke-width:1.0;stroke-dasharray:2.0,2.0;" width="9" x="2197.5" y="1817"/><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="7" x="2198.5" y="1829.1387">T</text><line style="stroke:#181818;stroke-width:0.5;" x1="1962.5" x2="2202.5" y1="1852" y2="1852"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="126" x="1967.5" y="1868.9951">-Vector&lt;T&gt; datos</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="210" x="1967.5" y="1885.292">-Comparador&lt;T&gt; comparador</text><line style="stroke:#181818;stroke-width:0.5;" x1="1962.5" x2="2202.5" y1="1892.5938" y2="1892.5938"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="230" x="1967.5" y="1909.5889">+ColaPrioridad(Comparador&lt;T&gt;)</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="125" x="1967.5" y="1925.8857">+agregar(T) : void</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="97" x="1967.5" y="1942.1826">+eliminar() : T</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="108" x="1967.5" y="1958.4795">+siguiente() : T</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="161" x="1967.5" y="1974.7764">+contiene(T) : boolean</text></g><!--MD5=[5ce68c664eacfa97b906eced75bf6dee]
+class Diccionario--><g id="elem_Diccionario"><rect codeLine="336" fill="#F1F1F1" height="162.0781" id="Diccionario" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="324" x="606.5" y="262"/><ellipse cx="714.25" cy="278" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M717.2188,283.6406 Q716.6406,283.9375 716,284.0781 Q715.3594,284.2344 714.6563,284.2344 Q712.1563,284.2344 710.8281,282.5938 Q709.5156,280.9375 709.5156,277.8125 Q709.5156,274.6875 710.8281,273.0313 Q712.1563,271.375 714.6563,271.375 Q715.3594,271.375 716,271.5313 Q716.6563,271.6875 717.2188,271.9844 L717.2188,274.7031 Q716.5938,274.125 716,273.8594 Q715.4063,273.5781 714.7813,273.5781 Q713.4375,273.5781 712.75,274.6563 Q712.0625,275.7188 712.0625,277.8125 Q712.0625,279.9063 712.75,280.9844 Q713.4375,282.0469 714.7813,282.0469 Q715.4063,282.0469 716,281.7813 Q716.5938,281.5 717.2188,280.9219 L717.2188,283.6406 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="76" x="734.75" y="282.8467">Diccionario</text><rect fill="#FFFFFF" height="15.9688" style="stroke:#181818;stroke-width:1.0;stroke-dasharray:2.0,2.0;" width="22" x="911.5" y="259"/><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="20" x="912.5" y="271.1387">C,V</text><line style="stroke:#181818;stroke-width:0.5;" x1="607.5" x2="929.5" y1="294" y2="294"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="312" x="612.5" y="310.9951">-VectorEstatico&lt;Lista&lt;Tupla&lt;C,V&gt;&gt;&gt; datos</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="156" x="612.5" y="327.292">-double factorDeCarga</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="118" x="612.5" y="343.5889">-int tamanioTabla</text><line style="stroke:#181818;stroke-width:0.5;" x1="607.5" x2="929.5" y1="350.8906" y2="350.8906"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="171" x="612.5" y="367.8857">+Diccionario(int, double)</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="124" x="612.5" y="384.1826">+agregar(C, V) : V</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="107" x="612.5" y="400.4795">+eliminar(C) : V</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="143" x="612.5" y="416.7764">+obtenerValor(C) : V</text></g><!--MD5=[6e682d95f4c96ab671b4b69e059e6b45]
+class Comparador--><g id="elem_Comparador"><rect codeLine="346" fill="#F1F1F1" height="64.2969" id="Comparador" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="155" x="2300" y="2157.5"/><ellipse cx="2327.15" cy="2173.5" fill="#B4A7E5" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M2323.0719,2169.2656 L2323.0719,2167.1094 L2330.4625,2167.1094 L2330.4625,2169.2656 L2327.9938,2169.2656 L2327.9938,2177.3438 L2330.4625,2177.3438 L2330.4625,2179.5 L2323.0719,2179.5 L2323.0719,2177.3438 L2325.5406,2177.3438 L2325.5406,2169.2656 L2323.0719,2169.2656 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" font-style="italic" lengthAdjust="spacing" textLength="85" x="2343.85" y="2178.3467">Comparador</text><rect fill="#FFFFFF" height="15.9688" style="stroke:#181818;stroke-width:1.0;stroke-dasharray:2.0,2.0;" width="9" x="2449" y="2154.5"/><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="7" x="2450" y="2166.6387">T</text><line style="stroke:#181818;stroke-width:0.5;" x1="2301" x2="2454" y1="2189.5" y2="2189.5"/><line style="stroke:#181818;stroke-width:0.5;" x1="2301" x2="2454" y1="2197.5" y2="2197.5"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="143" x="2306" y="2214.4951">+comparar(T, T) : int</text></g><!--MD5=[870fcb23932f3a8be3203580020f5f14]
+class Iterador--><g id="elem_Iterador"><rect codeLine="350" fill="#F1F1F1" height="129.4844" id="Iterador" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="192" x="2848.5" y="2125"/><ellipse cx="2908.25" cy="2141" fill="#B4A7E5" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M2904.1719,2136.7656 L2904.1719,2134.6094 L2911.5625,2134.6094 L2911.5625,2136.7656 L2909.0938,2136.7656 L2909.0938,2144.8438 L2911.5625,2144.8438 L2911.5625,2147 L2904.1719,2147 L2904.1719,2144.8438 L2906.6406,2144.8438 L2906.6406,2136.7656 L2904.1719,2136.7656 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" font-style="italic" lengthAdjust="spacing" textLength="53" x="2928.75" y="2145.8467">Iterador</text><rect fill="#FFFFFF" height="15.9688" style="stroke:#181818;stroke-width:1.0;stroke-dasharray:2.0,2.0;" width="9" x="3034.5" y="2122"/><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="7" x="3035.5" y="2134.1387">T</text><line style="stroke:#181818;stroke-width:0.5;" x1="2849.5" x2="3039.5" y1="2157" y2="2157"/><line style="stroke:#181818;stroke-width:0.5;" x1="2849.5" x2="3039.5" y1="2165" y2="2165"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="75" x="2854.5" y="2181.9951">+dato() : T</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="180" x="2854.5" y="2198.292">+haySiguiente() : boolean</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="127" x="2854.5" y="2214.5889">+siguiente() : void</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="125" x="2854.5" y="2230.8857">+agregar(T) : void</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="97" x="2854.5" y="2247.1826">+eliminar() : T</text></g><!--MD5=[3c878b00f4dfa4b729c5d0946a1ae29f]
+link Main to Juego--><g id="link_Main_Juego"><path codeLine="360" d="M1158.5,95.53 C1158.5,119.65 1158.5,155.07 1158.5,191.57 " fill="none" id="Main-to-Juego" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="1158.5,196.96,1162.5,187.96,1158.5,191.96,1154.5,187.96,1158.5,196.96" style="stroke:#181818;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="47" x="1159.5" y="163.0669">ejecuta</text></g><!--MD5=[7a5bc3c4dfbbe0d6f33226ec244b7c79]
+link Juego to Jugador--><g id="link_Juego_Jugador"><path codeLine="362" d="M1139.12,489.14 C1136.5,509.57 1133.89,530.31 1131.5,550 C1117.96,661.63 1103.89,788.48 1093.81,881.61 " fill="none" id="Juego-to-Jugador" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="1093.24,886.86,1098.1691,878.3333,1093.7686,881.888,1090.214,877.4875,1093.24,886.86" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[6876db1acc2c144bc25f4d1634296804]
+link Juego to Concesionario--><g id="link_Juego_Concesionario"><path codeLine="363" d="M1047.86,480.59 C961.84,588.68 841.13,744.62 743.5,887 C604.67,1089.47 458.3,1338.01 382.31,1470.1 " fill="none" id="Juego-to-Concesionario" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="379.63,1474.75,387.5806,1468.9373,382.1199,1470.4141,380.6431,1464.9534,379.63,1474.75" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[0720ebbf7100fe6936551838a1aea96c]
+link Juego to Mapa--><g id="link_Juego_Mapa"><path codeLine="364" d="M1269.01,361.41 C1555.79,409.58 2342.43,561.01 2931.5,856 C3122.74,951.77 3120.05,1235.12 3097.19,1412.67 " fill="none" id="Juego-to-Mapa" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="3096.55,1417.63,3101.6742,1409.2192,3097.193,1412.6715,3093.7407,1408.1903,3096.55,1417.63" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[621703ee33dff85636684b9e7716837b]
+link Juego to ControlMision--><g id="link_Juego_ControlMision"><path codeLine="365" d="M1235.26,489.46 C1244.99,507.89 1254.93,526.74 1264.63,545.11 " fill="none" id="Juego-to-ControlMision" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="1267.09,549.77,1266.4171,539.9442,1264.7519,545.3504,1259.3457,543.6852,1267.09,549.77" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[adb59dcb9cf05413121a2a43c3dfd683]
+link Jugador to Garaje--><g id="link_Jugador_Garaje"><path codeLine="367" d="M1106.47,1147.13 C1108.28,1157.22 1109.98,1167.26 1111.5,1177 C1124.04,1257.35 1134.3,1347.66 1141.66,1420.72 " fill="none" id="Jugador-to-Garaje" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="1142.18,1425.95,1145.262,1416.5958,1141.6811,1420.975,1137.3019,1417.3941,1142.18,1425.95" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[92075f25eaaa3c913c152fe7f3296e3e]
+link Jugador to ResultadoMision--><g id="link_Jugador_ResultadoMision"><path codeLine="368" d="M927.75,1085.47 C888.04,1109.4 848.55,1139.83 820.5,1177 C785.77,1223.02 750.75,1371.18 730.37,1469.98 " fill="none" id="Jugador-to-ResultadoMision" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="729.35,1474.94,735.0913,1466.9376,730.3635,1470.0438,727.2573,1465.316,729.35,1474.94" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[490697565a6bb60ea2a4bb411d9bd149]
+link Garaje to Vector--><g id="link_Garaje_Vector"><path codeLine="370" d="M1156.8,1702.14 C1161.3,1820.23 1174.17,1979.53 1210.5,2031 C1267.69,2112.02 1378.74,2153.48 1453.03,2173.06 " fill="none" id="Garaje-to-Vector" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="1458.31,2174.43,1450.6038,2168.297,1453.4704,2173.1737,1448.5937,2176.0403,1458.31,2174.43" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[284d14bab30aeea819bc1c3a84d7e562]
+link Garaje to Cola--><g id="link_Garaje_Cola"><path codeLine="371" d="M1111.49,1702.22 C1100.47,1737.38 1088.87,1774.39 1078.73,1806.75 " fill="none" id="Garaje-to-Cola" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="1077.11,1811.91,1083.625,1804.5239,1078.6095,1807.1401,1075.9932,1802.1247,1077.11,1811.91" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[43db7ea0fc968663ff7e6652c55c69dc]
+link Garaje to Vehiculo--><g id="link_Garaje_Vehiculo"><path codeLine="372" d="M1018.72,1702.28 C1005.52,1715.42 992.28,1728.49 979.5,1741 C968.83,1751.44 957.73,1762.21 946.54,1773 " fill="none" id="Garaje-to-Vehiculo" style="stroke:#181818;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#181818" points="942.75,1776.65,952.0051,1773.2822,946.3492,1773.1793,946.4521,1767.5234,942.75,1776.65" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[5a04469950ace7975c1e071aaa74379d]
+reverse link Vehiculo to Auto--><g id="link_Vehiculo_Auto"><path codeLine="374" d="M812.5,2051.27 C812.5,2077.16 812.5,2102.78 812.5,2124.75 " fill="none" id="Vehiculo-backto-Auto" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="none" points="805.5,2051,812.5,2031,819.5,2051,805.5,2051" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[0881991697586410200a261a3c8efb5b]
+reverse link Vehiculo to Moto--><g id="link_Vehiculo_Moto"><path codeLine="375" d="M957.26,2042.59 C986.88,2071.36 1016.65,2100.27 1041.79,2124.68 " fill="none" id="Vehiculo-backto-Moto" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="none" points="952.22,2047.45,942.75,2028.5,961.97,2037.41,952.22,2047.45" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[f9ec4b84d27c8c1c30f150b2da385c1d]
+reverse link Vehiculo to Exotico--><g id="link_Vehiculo_Exotico"><path codeLine="376" d="M667.74,2042.59 C638.12,2071.36 608.35,2100.27 583.21,2124.68 " fill="none" id="Vehiculo-backto-Exotico" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="none" points="663.03,2037.41,682.25,2028.5,672.78,2047.45,663.03,2037.41" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[84e1689ee3d9c34bbd7f914deea40967]
+link Concesionario to Vehiculo--><g id="link_Concesionario_Vehiculo"><path codeLine="378" d="M432.55,1653.2 C456.37,1672.52 481.95,1692.43 506.5,1710 C561.04,1749.02 623.58,1788.69 677.85,1821.61 " fill="none" id="Concesionario-to-Vehiculo" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="682.4,1824.37,676.7722,1816.2874,678.1227,1821.7807,672.6294,1823.1311,682.4,1824.37" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[ef4e73db7de4c6c4ac3c3aecb1da067b]
+link CatalogoVehiculos to Vehiculo--><g id="link_CatalogoVehiculos_Vehiculo"><path codeLine="379" d="M156.74,1073.84 C106.65,1201.23 6.29,1517.17 151.5,1710 C214.62,1793.83 502.67,1852.11 677.02,1880.41 " fill="none" id="CatalogoVehiculos-to-Vehiculo" style="stroke:#181818;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#181818" points="682.14,1881.24,673.8796,1875.8767,677.202,1880.4551,672.6236,1883.7775,682.14,1881.24" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[ba55582861fd340083ac1311ae92bba0]
+link CatalogoVehiculos to Concesionario--><g id="link_CatalogoVehiculos_Concesionario"><path codeLine="380" d="M195.68,1073.51 C221.19,1166.82 272.92,1356.06 304.06,1469.96 " fill="none" id="CatalogoVehiculos-to-Concesionario" style="stroke:#181818;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#181818" points="305.44,1474.99,306.9359,1465.2554,304.1268,1470.1655,299.2167,1467.3565,305.44,1474.99" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[ee05b8173bc3eae311d0afb9e126b7a0]
+link ControlMision to Vehiculo--><g id="link_ControlMision_Vehiculo"><path codeLine="382" d="M1386.1,826.32 C1449.83,1042.38 1533.67,1462.49 1320.5,1710 C1214.31,1833.29 1106.45,1701.13 959.5,1771 C955.33,1772.98 951.2,1775.11 947.1,1777.38 " fill="none" id="ControlMision-to-Vehiculo" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="942.66,1779.89,952.4642,1778.9533,947.0152,1777.4339,948.5345,1771.9849,942.66,1779.89" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[d2648f8771a54645989c678651005405]
+link ControlMision to Jugador--><g id="link_ControlMision_Jugador"><path codeLine="383" d="M1230.37,826.26 C1215.51,844.94 1200.28,864.1 1185.48,882.71 " fill="none" id="ControlMision-to-Jugador" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="1182.13,886.93,1190.8636,882.3776,1185.243,883.0173,1184.6033,877.3967,1182.13,886.93" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[db07b7a06e9d2953a1566a85a07a6270]
+link ControlMision to Mapa--><g id="link_ControlMision_Mapa"><path codeLine="384" d="M1529.74,697.07 C1924.46,715.55 2804.25,766.38 2905.5,856 C2916.06,865.35 2992.14,1207.76 3036.87,1412.56 " fill="none" id="ControlMision-to-Mapa" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="3037.99,1417.67,3039.9693,1408.0221,3036.919,1412.7861,3032.155,1409.7357,3037.99,1417.67" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[44859bf11bc24453302e3c63ceacabb0]
+link ControlMision to Mision--><g id="link_ControlMision_Mision"><path codeLine="385" d="M1325.89,826 C1311.93,942.25 1286.79,1097.76 1248.5,1147 C1211.49,1194.59 1153.46,1226.21 1099.64,1246.76 " fill="none" id="ControlMision-to-Mision" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="1094.78,1248.59,1104.6135,1249.139,1099.4552,1246.8172,1101.777,1241.6588,1094.78,1248.59" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[123bb77bba81fb1fbf0671e622a2fa28]
+link ControlMision to ResultadoMision--><g id="link_ControlMision_ResultadoMision"><path codeLine="386" d="M1149.25,747.91 C1068.89,779.68 978.41,825.27 910.5,887 C800.11,987.34 785.77,1034.54 741.5,1177 C711.49,1273.55 706.74,1389.93 707.92,1469.49 " fill="none" id="ControlMision-to-ResultadoMision" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="708.01,1474.68,711.8551,1465.6128,707.9243,1469.6807,703.8563,1465.7499,708.01,1474.68" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[8372cbd4be4a8895aceb93ef2e1b9446]
+link ControlMision to Gps--><g id="link_ControlMision_Gps"><path codeLine="387" d="M1529.75,815.19 C1585,851.83 1644.22,891.12 1695.51,925.14 " fill="none" id="ControlMision-to-Gps" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="1699.81,927.99,1694.5272,919.6778,1695.6454,925.2231,1690.1001,926.3413,1699.81,927.99" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[d9c099cc1753fc9b94daf2309500e98f]
+link ControlMision to Lista--><g id="link_ControlMision_Lista"><path codeLine="388" d="M1529.72,727.74 C1792.5,788.48 2271.97,925.96 2606.5,1177 C2722.74,1264.23 2759.09,1289.78 2827.5,1418 C2862.26,1483.15 2902.95,1677.32 2926.03,1798.41 " fill="none" id="ControlMision-to-Lista" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="2926.98,1803.41,2929.2394,1793.8238,2926.0517,1798.4969,2921.3785,1795.3092,2926.98,1803.41" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[850002f8e9693660fe532dcc1deb34fc]
+link Mision to Vehiculo--><g id="link_Mision_Vehiculo"><path codeLine="390" d="M965.74,1388.42 C962.46,1476.25 951.45,1603.87 917.5,1710 C911.49,1728.78 903.55,1747.82 894.73,1766.23 " fill="none" id="Mision-to-Vehiculo" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="892.46,1770.89,899.9902,1764.542,894.6445,1766.3925,892.7941,1761.0468,892.46,1770.89" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[90b582a89e6bdc3c6564f8c81e014883]
+link Gps to Mapa--><g id="link_Gps_Mapa"><path codeLine="392" d="M2001.52,1028.55 C2246.64,1046.62 2685.79,1090.24 2816.5,1177 C2908.66,1238.17 2887.7,1295.59 2948.5,1388 C2954,1396.35 2959.68,1404.9 2965.46,1413.5 " fill="none" id="Gps-to-Mapa" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="2968.3,1417.72,2966.5974,1408.0194,2965.51,1413.5708,2959.9587,1412.4834,2968.3,1417.72" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[a356a5ab4dcf21766310d458858f11d0]
+link Gps to Grafo--><g id="link_Gps_Grafo"><path codeLine="393" d="M1823.02,1106.14 C1803.79,1270.74 1755.71,1616.66 1682.5,1710 C1644.35,1758.64 1610.33,1738.9 1557.5,1771 C1538.53,1782.53 1519.05,1795.6 1500.31,1808.89 " fill="none" id="Gps-to-Grafo" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="1496.08,1811.91,1505.7312,1809.9466,1500.1525,1809.0092,1501.0899,1803.4306,1496.08,1811.91" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[8739719f9537a7a4f1c128569419d21d]
+link Gps to TipoAlgoritmo--><g id="link_Gps_TipoAlgoritmo"><path codeLine="394" d="M1741.58,1106.02 C1723.11,1127.74 1705.41,1152 1692.5,1177 C1633.65,1290.95 1612.26,1443.45 1604.98,1518.06 " fill="none" id="Gps-to-TipoAlgoritmo" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="1604.48,1523.3,1609.3118,1514.7178,1604.952,1518.3223,1601.3475,1513.9626,1604.48,1523.3" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[d385a5235e47e78b6bdaf9458d94176d]
+link Gps to Lista--><g id="link_Gps_Lista"><path codeLine="395" d="M2001.91,1045.32 C2210.91,1087.94 2562.96,1190.32 2762.5,1418 C2860.8,1530.17 2795.8,1603.47 2853.5,1741 C2861.5,1760.06 2871.3,1779.69 2881.47,1798.38 " fill="none" id="Gps-to-Lista" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="2884.07,1803.1,2883.2585,1793.2846,2881.6697,1798.7138,2876.2406,1797.1251,2884.07,1803.1" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[7902d6e987b4e5cfda94233e102bdeb8]
+link Gps to AEstrella--><g id="link_Gps_AEstrella"><path codeLine="396" d="M1872.94,1106.17 C1918.79,1206.11 1993.2,1368.32 2039.91,1470.15 " fill="none" id="Gps-to-AEstrella" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="2042.11,1474.96,2041.99,1465.1119,2040.0238,1470.416,2034.7196,1468.4498,2042.11,1474.96" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[0f477b4a21b0f39dad293b5234e67d30]
+link Mapa to Celda--><g id="link_Mapa_Celda"><path codeLine="398" d="M3125.08,1710.47 C3135.37,1737.4 3145.96,1765.11 3155.75,1790.73 " fill="none" id="Mapa-to-Celda" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="3157.57,1795.49,3158.0927,1785.655,3155.7847,1790.8196,3150.6201,1788.5115,3157.57,1795.49" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[66d8730137b04af04427f4730cad4227]
+link Celda to TipoCelda--><g id="link_Celda_TipoCelda"><path codeLine="399" d="M3250.1,2006.65 C3264.74,2035.78 3280.54,2067.22 3294.82,2095.62 " fill="none" id="Celda-to-TipoCelda" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="3297.1,2100.15,3296.6276,2090.3125,3294.8525,2095.6836,3289.4814,2093.9085,3297.1,2100.15" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[62a1d88ce98f422ca5824ae49ec66f76]
+link Celda to TipoRecompensa--><g id="link_Celda_TipoRecompensa"><path codeLine="400" d="M3189.1,2006.65 C3185.58,2050.53 3181.63,2099.63 3178.74,2135.74 " fill="none" id="Celda-to-TipoRecompensa" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="3178.32,2140.97,3183.0269,2132.3187,3178.7199,2135.986,3175.0526,2131.6789,3178.32,2140.97" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[bc2ac887e7f5a81284e74400d2628c65]
+link AEstrella to Nodo--><g id="link_AEstrella_Nodo"><path codeLine="402" d="M1995.27,1653.02 C1950.61,1698.08 1896.05,1753.13 1849.79,1799.81 " fill="none" id="AEstrella-to-Nodo" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="1846.19,1803.44,1855.3752,1799.8859,1849.7184,1799.8973,1849.707,1794.2405,1846.19,1803.44" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[6406cb10fed873685168410194c2fda5]
+link AEstrella to ColaPrioridad--><g id="link_AEstrella_ColaPrioridad"><path codeLine="403" d="M2082.5,1653.02 C2082.5,1702.96 2082.5,1765.19 2082.5,1814.68 " fill="none" id="AEstrella-to-ColaPrioridad" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="2082.5,1819.74,2086.5,1810.74,2082.5,1814.74,2078.5,1810.74,2082.5,1819.74" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[342fedea23daf58e55e32e877ff78f96]
+link AEstrella to Lista--><g id="link_AEstrella_Lista"><path codeLine="404" d="M2297.83,1653.08 C2354.31,1673.9 2415.62,1694.53 2473.5,1710 C2630.7,1752.03 2692.97,1690.71 2834.5,1771 C2847.95,1778.63 2860.52,1788.57 2872,1799.54 " fill="none" id="AEstrella-to-Lista" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="2875.85,1803.3,2872.2031,1794.1512,2872.2718,1799.8077,2866.6154,1799.8764,2875.85,1803.3" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[a27c584dc53f023b272cf2d1fe921bb9]
+link AEstrella to Comparador--><g id="link_AEstrella_Comparador"><path codeLine="405" d="M2336.15,1653.11 C2424.76,1689.42 2508.46,1732.03 2533.5,1771 C2595.97,1868.21 2577.47,1924.14 2533.5,2031 C2512.31,2082.51 2465.22,2126.12 2428.29,2154.29 " fill="none" id="AEstrella-to-Comparador" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="2424.29,2157.31,2433.8811,2155.0716,2428.278,2154.294,2429.0555,2148.6909,2424.29,2157.31" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[dbddf41163f72614ff38bc5311e39c18]
+link AEstrella to Grafo--><g id="link_AEstrella_Grafo"><path codeLine="406" d="M1934.42,1653.16 C1874.97,1685.16 1804.71,1718.84 1737.5,1741 C1660.47,1766.39 1632.15,1739.3 1557.5,1771 C1534.3,1780.85 1511.32,1794.39 1490.03,1809.01 " fill="none" id="AEstrella-to-Grafo" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="1485.8,1811.94,1495.4752,1810.0989,1489.9089,1809.091,1490.9168,1803.5246,1485.8,1811.94" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[f444766e6e99e9397616be9cbc7eb978]
+link AEstrella to Heuristica--><g id="link_AEstrella_Heuristica"><path codeLine="407" d="M2308.09,1653.02 C2361.93,1672.82 2419.46,1692.98 2473.5,1710 C2523.88,1725.87 2544.03,1711.5 2588.5,1740 C2637.73,1771.55 2677.35,1827.72 2699.65,1864.41 " fill="none" id="AEstrella-to-Heuristica" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="2702.29,1868.79,2701.0656,1859.0175,2699.707,1864.5088,2694.2157,1863.1503,2702.29,1868.79" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[68b8515e23677d0c834db8330d1fb07b]
+link HeuristicaSinDiagonales to Heuristica--><g id="link_HeuristicaSinDiagonales_Heuristica"><path codeLine="409" d="M2627,1596.22 C2644.66,1654.19 2682.65,1778.97 2704.04,1849.23 " fill="none" id="HeuristicaSinDiagonales-to-Heuristica" style="stroke:#181818;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="none" points="2710.85,1847.57,2709.98,1868.74,2697.46,1851.65,2710.85,1847.57" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[e88446be8536ca283ce2e37893954b92]
+link ComparadorNodoAEstrella to Comparador--><g id="link_ComparadorNodoAEstrella_Comparador"><path codeLine="410" d="M2377.5,1933.21 C2377.5,1982.29 2377.5,2078.03 2377.5,2137.3 " fill="none" id="ComparadorNodoAEstrella-to-Comparador" style="stroke:#181818;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="none" points="2384.5,2137.33,2377.5,2157.33,2370.5,2137.33,2384.5,2137.33" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[3dd513d052dd697070c9059c2184b1fd]
+link ColaPrioridad to Vector--><g id="link_ColaPrioridad_Vector"><path codeLine="412" d="M2007.37,1982.1 C1988.06,1999.79 1966.5,2017.32 1944.5,2031 C1833.73,2099.9 1688.04,2146.35 1601.44,2170.04 " fill="none" id="ColaPrioridad-to-Vector" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="1596.59,2171.36,1606.3246,2172.8559,1601.4145,2170.0468,1604.2235,2165.1367,1596.59,2171.36" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[3b377df9113513c38b813252932ac90a]
+link ColaPrioridad to Comparador--><g id="link_ColaPrioridad_Comparador"><path codeLine="413" d="M2165.07,1982.19 C2223.26,2038.7 2298.3,2111.58 2341.84,2153.87 " fill="none" id="ColaPrioridad-to-Comparador" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="2345.44,2157.37,2341.7561,2148.2361,2341.8477,2153.8922,2336.1916,2153.9838,2345.44,2157.37" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[f3500b8cfbcfbb15fe78c07b3072a698]
+link Lista to Iterador--><g id="link_Lista_Iterador"><path codeLine="415" d="M2944.5,1998.6 C2944.5,2038.23 2944.5,2083.22 2944.5,2119.46 " fill="none" id="Lista-to-Iterador" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="2944.5,2124.74,2948.5,2115.74,2944.5,2119.74,2940.5,2115.74,2944.5,2124.74" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[a80183324aa8ab6a7f0367b54dbec1f4]
+@startuml
+skinparam classAttributeIconSize 0
+
+' ===================== CAPA DE JUEGO =====================
+
+class Main {
+    +main(String[] args) : void
+}
+
+class Juego {
+    -Jugador jugador
+    -Concesionario concesionario
+    -Mapa mapa
+    -ControlMision control
+    -boolean juegoActivo
+    -Scanner sc
+    +ejecutar() : void
+    -mostrarMenuPrincipal() : void
+    -mostrarEstadoJugador() : void
+    -irAlConcesionario() : void
+    -administrarGaraje() : void
+    -iniciarMision() : void
+    -guardarPartida() : void
+    -leerTexto(String) : String
+    -leerEntero(String) : int
+}
+
+class Jugador {
+    -String nombre
+    -double dinero
+    -Garaje garaje
+    +Jugador(String, double, Garaje)
+    +getNombre() : String
+    +getDinero() : double
+    +getGaraje() : Garaje
+    +sumarDinero(double) : void
+    +restarDinero(double) : boolean
+    +agregarVehiculo(Vehiculo) : void
+    +aplicarResultado(ResultadoMision) : void
+    +guardarPartida(String) : boolean
+    +cargarPartida(String) : boolean
+}
+
+class Garaje {
+    -Vector<Vehiculo> vehiculos
+    -int creditos
+    -int capacidadMaxVehiculos
+    -Cola<Vehiculo> zonaDeEspera
+    +Garaje()
+    +agregarVehiculo(Vehiculo) : void
+    +eliminarVehiculo(String) : void
+    +agregarCreditos(int) : void
+    +mejorarGaraje() : void
+    +cargarTanquesMaximo(Jugador) : void
+    +cargarTanque(Jugador, String, int) : void
+    +asignarVehiculo(String) : Vehiculo
+    +guardarEnCSV(String) : boolean
+    +cargarDesdeCSV(String) : boolean
+}
+
+' ===================== Vehículos =====================
+
+abstract class Vehiculo {
+    #String nombre
+    #String marca
+    #int precio
+    #int capacidadGasolina
+    #int gasolinaActual
+    #int kilometraje
+    #int velocidadMaxima
+    +Vehiculo(String, String, int, int, int)
+    +cargarGasolina(int) : void
+    +consumirGasolina(int) : void
+    +sumarKilometraje(int) : void
+    +calcularCostoMantenimiento() : int
+    +getRuedas() : int
+}
+
+class Auto {
+    -int RUEDAS
+    -int COSTO_RUEDA
+    +Auto(String, String, int, int, int)
+    +calcularCostoMantenimiento() : int
+    +getRuedas() : int
+}
+
+class Moto {
+    -int RUEDAS
+    -int COSTO_RUEDA
+    +Moto(String, String, int, int, int)
+    +calcularCostoMantenimiento() : int
+    +getRuedas() : int
+}
+
+class Exotico {
+    -int ruedas
+    +Exotico(String, int, int, int, int)
+    +calcularCostoMantenimiento() : int
+    +getRuedas() : int
+    +setRuedas(int) : void
+}
+
+class Concesionario {
+    -Vehiculo[] inventario
+    -int cantidad
+    +Concesionario()
+    +agregarVehiculo(Vehiculo) : void
+    +buscarPorNombre(String) : Vehiculo[]
+    +buscarPorMarca(String) : Vehiculo[]
+    +comprarVehiculo(String) : Vehiculo
+    +pasarVehiculoAlGaraje(String, Garaje) : void
+}
+
+class CatalogoVehiculos {
+    +crearCatalogoAutos() : Vehiculo[]
+    +crearCatalogoMotos() : Vehiculo[]
+    +crearVehiculoExotico() : Exotico
+    +crearConcesionarioCompleto() : Concesionario
+}
+
+' ===================== MISIÓN =====================
+
+class Mision {
+    -int tiempoLimite
+    -int recompensaDinero
+    -int recompensaCreditos
+    -Vehiculo vehiculoAsignado
+    -String dificultad
+    +Mision(int, int, int, Vehiculo)
+    +generarMisionFacil() : Mision
+    +generarMisionMedia() : Mision
+    +generarMisionDificil() : Mision
+    +asignarVehiculo(Garaje) : boolean
+}
+
+class ControlMision {
+    -Vehiculo vehiculo
+    -Jugador jugador
+    -Mapa mapa
+    -Mision mision
+    -double tiempoRestante
+    -boolean enCurso
+    -boolean completada
+    -ResultadoMision resultadoMision
+    -Gps gps
+    -Lista<Celda> caminoActual
+    +ControlMision(Vehiculo, Jugador, Mapa, Mision, Gps)
+    +iniciarMision() : void
+    +moverVehiculo(String) : void
+    +getResultado() : ResultadoMision
+}
+
+class ResultadoMision {
+    -boolean completada
+    -int dineroGanado
+    -int creditosGanados
+    -boolean vehiculoExotico
+    -Estado estado
+    +ResultadoMision(Mision, boolean, boolean, Estado)
+    +estaCompletada() : boolean
+    +getDineroGanado() : int
+}
+
+enum Estado {
+}
+
+' ===================== GPS =====================
+
+class Gps {
+    -Mapa mapa
+    -Grafo<Celda> grafo
+    -TipoAlgoritmo algoritmoActual
+    +Gps(Mapa)
+    +mapaAGrafo() : void
+    +calcularCamino(Celda, Celda) : Lista<Celda>
+    +visualizarCaminoEnMapa(Lista<Celda>) : void
+    +calcularCostoCamino(Lista<Celda>) : double
+}
+
+enum TipoAlgoritmo {
+    A_ESTRELLA
+    BFS
+}
+
+' ===================== CAPA DE MAPA =====================
+
+class Mapa {
+    -Celda[][] celdas
+    -int filas
+    -int columnas
+    -Celda celdaSalida
+    -Celda celdaDestino
+    -int filaJugador
+    -int columnaJugador
+    +Mapa()
+    +Mapa(int, int)
+    +getCelda(int, int) : Celda
+    +generarAleatorio() : void
+    +cargarDesdeArchivo(String) : Mapa
+    +guardarEnArchivo(String) : void
+    +imprimirMapa() : void
+    +movimientoExitoso(String) : boolean
+}
+
+class Celda {
+    -int fila
+    -int columna
+    -TipoCelda tipo
+    -TipoRecompensa recompensa
+    -boolean recompensaRecolectada
+    +Celda(int, int, TipoCelda)
+    +getCostoTransito() : int
+    +esTransitable() : boolean
+    +recolectarRecompensa() : void
+    +equals(Object) : boolean
+}
+
+enum TipoCelda {
+    CALLE
+    EDIFICIO
+    SALIDA
+    DESTINO
+    CONGESTION
+    RECOMPENSA
+    JUGADOR
+    CAMINO_GPS
+}
+
+enum TipoRecompensa {
+    DINERO
+    CREDITOS
+    VEHICULO_EXOTICO
+}
+
+class CodigosANSI {
+    +RESET : String
+    +ROJO_TEXTO : String
+    +VERDE_FONDO : String
+    +limpiarPantalla() : void
+}
+
+' ===================== GRAFO =====================
+
+class Grafo<T> {
+    #Map<T, Map<T, Integer>> adyacencias
+    +Grafo()
+    +agregarVertice(T) : void
+    +agregarArista(T, T, int) : void
+    +eliminarVertice(T) : void
+    +eliminarArista(T, T) : void
+    +obtenerArista(T, T) : int
+    +obtenerAdyacentes(T) : Map<T, Integer>
+}
+
+class Nodo<T> {
+    -T dato
+    -double costoAcumulado
+    -double heuristica
+    -Nodo<T> predecesor
+    -boolean visitado
+    +Nodo(T)
+    +evaluacionTotal() : double
+    +obtenerVecinos(Grafo<T>) : Lista<Nodo<T>>
+    +equals(Object) : boolean
+}
+
+class AEstrella<T> {
+    -ColaPrioridad<Nodo<T>> sa
+    -Lista<Nodo<T>> sc
+    -Nodo<T> nodoInicial
+    -Nodo<T> nodoObjetivo
+    -Grafo<T> grafo
+    -Heuristica<T> heuristica
+    +AEstrella(Nodo<T>, Nodo<T>, Comparador, Grafo<T>, Heuristica<T>)
+    +recorrer() : Lista<T>
+}
+
+interface Heuristica<T> {
+    +calcularPuntaje(T, T) : int
+}
+
+class HeuristicaSinDiagonales {
+    +calcularPuntaje(Celda, Celda) : int
+}
+
+class ComparadorNodoAEstrella<T> {
+    +comparar(Nodo<T>, Nodo<T>) : int
+}
+
+' ===================== ESTRUCTURAS =====================
+
+class Vector<T> {
+    -T[] datos
+    -int tamanioFisico
+    -int tamanioLogico
+    +Vector()
+    +agregar(T) : void
+    +eliminar() : T
+    +dato(int) : T
+    +tamanio() : int
+    +vacio() : boolean
+}
+
+class Lista<T> {
+    -Nodo<T> primero
+    -Nodo<T> ultimo
+    -int cantidadDatos
+    +Lista()
+    +agregar(T) : void
+    +eliminar() : T
+    +dato(int) : T
+    +iterador() : Iterador<T>
+    +tamanio() : int
+}
+
+class Cola<T> {
+    -Nodo<T> primero
+    -Nodo<T> ultimo
+    -int cantidadDatos
+    +Cola()
+    +agregar(T) : void
+    +eliminar() : T
+    +siguiente() : T
+    +vacio() : boolean
+}
+
+class ColaPrioridad<T> {
+    -Vector<T> datos
+    -Comparador<T> comparador
+    +ColaPrioridad(Comparador<T>)
+    +agregar(T) : void
+    +eliminar() : T
+    +siguiente() : T
+    +contiene(T) : boolean
+}
+
+class Diccionario<C,V> {
+    -VectorEstatico<Lista<Tupla<C,V>>> datos
+    -double factorDeCarga
+    -int tamanioTabla
+    +Diccionario(int, double)
+    +agregar(C, V) : V
+    +eliminar(C) : V
+    +obtenerValor(C) : V
+}
+
+interface Comparador<T> {
+    +comparar(T, T) : int
+}
+
+interface Iterador<T> {
+    +dato() : T
+    +haySiguiente() : boolean
+    +siguiente() : void
+    +agregar(T) : void
+    +eliminar() : T
+}
+
+' ===================== RELACIONES =====================
+
+Main - -> Juego : ejecuta
+
+Juego - -> Jugador
+Juego - -> Concesionario
+Juego - -> Mapa
+Juego - -> ControlMision
+
+Jugador - -> Garaje
+Jugador - -> ResultadoMision
+
+Garaje - -> Vector
+Garaje - -> Cola
+Garaje ..> Vehiculo
+
+Vehiculo <|- - Auto
+Vehiculo <|- - Moto
+Vehiculo <|- - Exotico
+
+Concesionario - -> Vehiculo
+CatalogoVehiculos ..> Vehiculo
+CatalogoVehiculos ..> Concesionario
+
+ControlMision - -> Vehiculo
+ControlMision - -> Jugador
+ControlMision - -> Mapa
+ControlMision - -> Mision
+ControlMision - -> ResultadoMision
+ControlMision - -> Gps
+ControlMision - -> Lista
+
+Mision - -> Vehiculo
+
+Gps - -> Mapa
+Gps - -> Grafo
+Gps - -> TipoAlgoritmo
+Gps - -> Lista
+Gps - -> AEstrella
+
+Mapa - -> Celda
+Celda - -> TipoCelda
+Celda - -> TipoRecompensa
+
+AEstrella - -> Nodo
+AEstrella - -> ColaPrioridad
+AEstrella - -> Lista
+AEstrella - -> Comparador
+AEstrella - -> Grafo
+AEstrella - -> Heuristica
+
+HeuristicaSinDiagonales ..|> Heuristica
+ComparadorNodoAEstrella ..|> Comparador
+
+ColaPrioridad - -> Vector
+ColaPrioridad - -> Comparador
+
+Lista - -> Iterador
+@enduml
+
+@startuml
+skinparam classAttributeIconSize 0
+
+
+class Main {
+    +main(String[] args) : void
+}
+
+class Juego {
+    -Jugador jugador
+    -Concesionario concesionario
+    -Mapa mapa
+    -ControlMision control
+    -boolean juegoActivo
+    -Scanner sc
+    +ejecutar() : void
+    -mostrarMenuPrincipal() : void
+    -mostrarEstadoJugador() : void
+    -irAlConcesionario() : void
+    -administrarGaraje() : void
+    -iniciarMision() : void
+    -guardarPartida() : void
+    -leerTexto(String) : String
+    -leerEntero(String) : int
+}
+
+class Jugador {
+    -String nombre
+    -double dinero
+    -Garaje garaje
+    +Jugador(String, double, Garaje)
+    +getNombre() : String
+    +getDinero() : double
+    +getGaraje() : Garaje
+    +sumarDinero(double) : void
+    +restarDinero(double) : boolean
+    +agregarVehiculo(Vehiculo) : void
+    +aplicarResultado(ResultadoMision) : void
+    +guardarPartida(String) : boolean
+    +cargarPartida(String) : boolean
+}
+
+class Garaje {
+    -Vector<Vehiculo> vehiculos
+    -int creditos
+    -int capacidadMaxVehiculos
+    -Cola<Vehiculo> zonaDeEspera
+    +Garaje()
+    +agregarVehiculo(Vehiculo) : void
+    +eliminarVehiculo(String) : void
+    +agregarCreditos(int) : void
+    +mejorarGaraje() : void
+    +cargarTanquesMaximo(Jugador) : void
+    +cargarTanque(Jugador, String, int) : void
+    +asignarVehiculo(String) : Vehiculo
+    +guardarEnCSV(String) : boolean
+    +cargarDesdeCSV(String) : boolean
+}
+
+
+abstract class Vehiculo {
+    #String nombre
+    #String marca
+    #int precio
+    #int capacidadGasolina
+    #int gasolinaActual
+    #int kilometraje
+    #int velocidadMaxima
+    +Vehiculo(String, String, int, int, int)
+    +cargarGasolina(int) : void
+    +consumirGasolina(int) : void
+    +sumarKilometraje(int) : void
+    +calcularCostoMantenimiento() : int
+    +getRuedas() : int
+}
+
+class Auto {
+    -int RUEDAS
+    -int COSTO_RUEDA
+    +Auto(String, String, int, int, int)
+    +calcularCostoMantenimiento() : int
+    +getRuedas() : int
+}
+
+class Moto {
+    -int RUEDAS
+    -int COSTO_RUEDA
+    +Moto(String, String, int, int, int)
+    +calcularCostoMantenimiento() : int
+    +getRuedas() : int
+}
+
+class Exotico {
+    -int ruedas
+    +Exotico(String, int, int, int, int)
+    +calcularCostoMantenimiento() : int
+    +getRuedas() : int
+    +setRuedas(int) : void
+}
+
+class Concesionario {
+    -Vehiculo[] inventario
+    -int cantidad
+    +Concesionario()
+    +agregarVehiculo(Vehiculo) : void
+    +buscarPorNombre(String) : Vehiculo[]
+    +buscarPorMarca(String) : Vehiculo[]
+    +comprarVehiculo(String) : Vehiculo
+    +pasarVehiculoAlGaraje(String, Garaje) : void
+}
+
+class CatalogoVehiculos {
+    +crearCatalogoAutos() : Vehiculo[]
+    +crearCatalogoMotos() : Vehiculo[]
+    +crearVehiculoExotico() : Exotico
+    +crearConcesionarioCompleto() : Concesionario
+}
+
+
+class Mision {
+    -int tiempoLimite
+    -int recompensaDinero
+    -int recompensaCreditos
+    -Vehiculo vehiculoAsignado
+    -String dificultad
+    +Mision(int, int, int, Vehiculo)
+    +generarMisionFacil() : Mision
+    +generarMisionMedia() : Mision
+    +generarMisionDificil() : Mision
+    +asignarVehiculo(Garaje) : boolean
+}
+
+class ControlMision {
+    -Vehiculo vehiculo
+    -Jugador jugador
+    -Mapa mapa
+    -Mision mision
+    -double tiempoRestante
+    -boolean enCurso
+    -boolean completada
+    -ResultadoMision resultadoMision
+    -Gps gps
+    -Lista<Celda> caminoActual
+    +ControlMision(Vehiculo, Jugador, Mapa, Mision, Gps)
+    +iniciarMision() : void
+    +moverVehiculo(String) : void
+    +getResultado() : ResultadoMision
+}
+
+class ResultadoMision {
+    -boolean completada
+    -int dineroGanado
+    -int creditosGanados
+    -boolean vehiculoExotico
+    -Estado estado
+    +ResultadoMision(Mision, boolean, boolean, Estado)
+    +estaCompletada() : boolean
+    +getDineroGanado() : int
+}
+
+enum Estado {
+}
+
+
+class Gps {
+    -Mapa mapa
+    -Grafo<Celda> grafo
+    -TipoAlgoritmo algoritmoActual
+    +Gps(Mapa)
+    +mapaAGrafo() : void
+    +calcularCamino(Celda, Celda) : Lista<Celda>
+    +visualizarCaminoEnMapa(Lista<Celda>) : void
+    +calcularCostoCamino(Lista<Celda>) : double
+}
+
+enum TipoAlgoritmo {
+    A_ESTRELLA
+    BFS
+}
+
+
+class Mapa {
+    -Celda[][] celdas
+    -int filas
+    -int columnas
+    -Celda celdaSalida
+    -Celda celdaDestino
+    -int filaJugador
+    -int columnaJugador
+    +Mapa()
+    +Mapa(int, int)
+    +getCelda(int, int) : Celda
+    +generarAleatorio() : void
+    +cargarDesdeArchivo(String) : Mapa
+    +guardarEnArchivo(String) : void
+    +imprimirMapa() : void
+    +movimientoExitoso(String) : boolean
+}
+
+class Celda {
+    -int fila
+    -int columna
+    -TipoCelda tipo
+    -TipoRecompensa recompensa
+    -boolean recompensaRecolectada
+    +Celda(int, int, TipoCelda)
+    +getCostoTransito() : int
+    +esTransitable() : boolean
+    +recolectarRecompensa() : void
+    +equals(Object) : boolean
+}
+
+enum TipoCelda {
+    CALLE
+    EDIFICIO
+    SALIDA
+    DESTINO
+    CONGESTION
+    RECOMPENSA
+    JUGADOR
+    CAMINO_GPS
+}
+
+enum TipoRecompensa {
+    DINERO
+    CREDITOS
+    VEHICULO_EXOTICO
+}
+
+class CodigosANSI {
+    +RESET : String
+    +ROJO_TEXTO : String
+    +VERDE_FONDO : String
+    +limpiarPantalla() : void
+}
+
+
+class Grafo<T> {
+    #Map<T, Map<T, Integer>> adyacencias
+    +Grafo()
+    +agregarVertice(T) : void
+    +agregarArista(T, T, int) : void
+    +eliminarVertice(T) : void
+    +eliminarArista(T, T) : void
+    +obtenerArista(T, T) : int
+    +obtenerAdyacentes(T) : Map<T, Integer>
+}
+
+class Nodo<T> {
+    -T dato
+    -double costoAcumulado
+    -double heuristica
+    -Nodo<T> predecesor
+    -boolean visitado
+    +Nodo(T)
+    +evaluacionTotal() : double
+    +obtenerVecinos(Grafo<T>) : Lista<Nodo<T>>
+    +equals(Object) : boolean
+}
+
+class AEstrella<T> {
+    -ColaPrioridad<Nodo<T>> sa
+    -Lista<Nodo<T>> sc
+    -Nodo<T> nodoInicial
+    -Nodo<T> nodoObjetivo
+    -Grafo<T> grafo
+    -Heuristica<T> heuristica
+    +AEstrella(Nodo<T>, Nodo<T>, Comparador, Grafo<T>, Heuristica<T>)
+    +recorrer() : Lista<T>
+}
+
+interface Heuristica<T> {
+    +calcularPuntaje(T, T) : int
+}
+
+class HeuristicaSinDiagonales {
+    +calcularPuntaje(Celda, Celda) : int
+}
+
+class ComparadorNodoAEstrella<T> {
+    +comparar(Nodo<T>, Nodo<T>) : int
+}
+
+
+class Vector<T> {
+    -T[] datos
+    -int tamanioFisico
+    -int tamanioLogico
+    +Vector()
+    +agregar(T) : void
+    +eliminar() : T
+    +dato(int) : T
+    +tamanio() : int
+    +vacio() : boolean
+}
+
+class Lista<T> {
+    -Nodo<T> primero
+    -Nodo<T> ultimo
+    -int cantidadDatos
+    +Lista()
+    +agregar(T) : void
+    +eliminar() : T
+    +dato(int) : T
+    +iterador() : Iterador<T>
+    +tamanio() : int
+}
+
+class Cola<T> {
+    -Nodo<T> primero
+    -Nodo<T> ultimo
+    -int cantidadDatos
+    +Cola()
+    +agregar(T) : void
+    +eliminar() : T
+    +siguiente() : T
+    +vacio() : boolean
+}
+
+class ColaPrioridad<T> {
+    -Vector<T> datos
+    -Comparador<T> comparador
+    +ColaPrioridad(Comparador<T>)
+    +agregar(T) : void
+    +eliminar() : T
+    +siguiente() : T
+    +contiene(T) : boolean
+}
+
+class Diccionario<C,V> {
+    -VectorEstatico<Lista<Tupla<C,V>>> datos
+    -double factorDeCarga
+    -int tamanioTabla
+    +Diccionario(int, double)
+    +agregar(C, V) : V
+    +eliminar(C) : V
+    +obtenerValor(C) : V
+}
+
+interface Comparador<T> {
+    +comparar(T, T) : int
+}
+
+interface Iterador<T> {
+    +dato() : T
+    +haySiguiente() : boolean
+    +siguiente() : void
+    +agregar(T) : void
+    +eliminar() : T
+}
+
+
+Main - -> Juego : ejecuta
+
+Juego - -> Jugador
+Juego - -> Concesionario
+Juego - -> Mapa
+Juego - -> ControlMision
+
+Jugador - -> Garaje
+Jugador - -> ResultadoMision
+
+Garaje - -> Vector
+Garaje - -> Cola
+Garaje ..> Vehiculo
+
+Vehiculo <|- - Auto
+Vehiculo <|- - Moto
+Vehiculo <|- - Exotico
+
+Concesionario - -> Vehiculo
+CatalogoVehiculos ..> Vehiculo
+CatalogoVehiculos ..> Concesionario
+
+ControlMision - -> Vehiculo
+ControlMision - -> Jugador
+ControlMision - -> Mapa
+ControlMision - -> Mision
+ControlMision - -> ResultadoMision
+ControlMision - -> Gps
+ControlMision - -> Lista
+
+Mision - -> Vehiculo
+
+Gps - -> Mapa
+Gps - -> Grafo
+Gps - -> TipoAlgoritmo
+Gps - -> Lista
+Gps - -> AEstrella
+
+Mapa - -> Celda
+Celda - -> TipoCelda
+Celda - -> TipoRecompensa
+
+AEstrella - -> Nodo
+AEstrella - -> ColaPrioridad
+AEstrella - -> Lista
+AEstrella - -> Comparador
+AEstrella - -> Grafo
+AEstrella - -> Heuristica
+
+HeuristicaSinDiagonales ..|> Heuristica
+ComparadorNodoAEstrella ..|> Comparador
+
+ColaPrioridad - -> Vector
+ColaPrioridad - -> Comparador
+
+Lista - -> Iterador
+@enduml
+
+PlantUML version 1.2022.7(Mon Aug 22 17:01:30 UTC 2022)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Default Encoding: UTF-8
+Language: en
+Country: null
+--></g></svg>
