@@ -72,10 +72,12 @@ public class AEstrella<T> {
     private boolean listaContiene(Lista<Nodo<T>> lista, Nodo<T> nodo) {
     Iterador<Nodo<T>> iterar = lista.iterador();
     while (iterar.haySiguiente()) {
-        iterar.siguiente();
+        // Primero verifico el dato actual
         if (iterar.dato().equals(nodo)) {
             return true;
         }
+        // Luego avanzo al siguiente
+        iterar.siguiente();
     }
     return false;
 }
