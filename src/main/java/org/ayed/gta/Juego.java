@@ -277,9 +277,9 @@ public class Juego {
                     mision,
                     gps);
 
-            control.iniciarMision();
             // Inicializo la posición del jugador en la salida del mapa
             mapa.inicializarPosicionJugador();
+            control.iniciarMision();
             mapa.imprimirMapa();
 
             while (control.estaEnCurso()) {
