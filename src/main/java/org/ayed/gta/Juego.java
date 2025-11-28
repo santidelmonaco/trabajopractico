@@ -265,18 +265,22 @@ public class Juego {
 
             mapa = crearMapaMision();
 
+            System.out.println("Inicializando sistema GPS...");
+            Gps gps = new Gps(mapa);
+            gps.mapaAGrafo();
+            System.out.println("GPS listo. Calculando ruta óptima...");
+
             control = new ControlMision(
                     mision.getVehiculoAsignado(),
                     jugador,
                     mapa,
-                    mision);
+                    mision,
+                    gps);
 
-            if (mapa != null) {
-                control.iniciarMision();
-                // Inicializo la posición del jugador en la salida del mapa
-                mapa.inicializarPosicionJugador();
-                mapa.imprimirMapa();
-            }
+            control.iniciarMision();
+            // Inicializo la posición del jugador en la salida del mapa
+            mapa.inicializarPosicionJugador();
+            mapa.imprimirMapa();
 
             while (control.estaEnCurso()) {
                 mostrarInformacionMision(control);
