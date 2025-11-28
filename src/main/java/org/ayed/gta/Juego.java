@@ -424,7 +424,7 @@ public class Juego {
     }
 
     private void guardarPartida() {
-        String nombreArchivo = "partida_guardada.txt";
+        String nombreArchivo = jugador.getNombre() + "_partida.txt";
         if (jugador.guardarPartida(nombreArchivo)) {
             System.out.println(">> Partida guardada correctamente en: " + nombreArchivo);
         } else {

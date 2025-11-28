@@ -133,8 +133,8 @@ public class ControlMision{
         vehiculo.sumarKilometraje(1);
 
         double costo = mapa.obtenerCosto(origen, destino);
-        double tiempoCalle = costo / vehiculo.getVelocidadMaxima();
-        tiempoRestante -= tiempoCalle;
+        int segundosConsumidos = (int) Math.ceil(costo / vehiculo.getVelocidadMaxima());
+        tiempoRestante -= segundosConsumidos;
 
         // Después de mover, actualizo el GPS para el nuevo camino
         actualizarGPS();
