@@ -47,17 +47,17 @@ public class CatalogoVehiculos {
         int indice = 0;
         
         // Motos deportivas
-        catalogo[indice++] = new Moto("Kawasaki Ninja", "Kawasaki", 12000, 17, 280);
-        catalogo[indice++] = new Moto("Yamaha R1", "Yamaha", 15000, 17, 290);
-        catalogo[indice++] = new Moto("Honda CBR1000RR", "Honda", 14000, 16, 285);
+        catalogo[indice++] = new Moto("Kawasaki Ninja", "Kawasaki", 12000, 40, 280);
+        catalogo[indice++] = new Moto("Yamaha R1", "Yamaha", 15000, 40, 290);
+        catalogo[indice++] = new Moto("Honda CBR1000RR", "Honda", 14000, 40, 285);
         
         // Motos cruiser
-        catalogo[indice++] = new Moto("Harley Davidson Fat Boy", "Harley Davidson", 18000, 19, 180);
+        catalogo[indice++] = new Moto("Harley Davidson Fat Boy", "Harley Davidson", 18000, 45, 180);
         catalogo[indice++] = new Moto("Indian Chief", "Indian", 19000, 20, 170);
         
         // Motos urbanas
-        catalogo[indice++] = new Moto("Honda PCX", "Honda", 3000, 8, 90);
-        catalogo[indice++] = new Moto("Yamaha NMAX", "Yamaha", 3200, 7, 95);
+        catalogo[indice++] = new Moto("Honda PCX", "Honda", 3000, 48, 90);
+        catalogo[indice++] = new Moto("Yamaha NMAX", "Yamaha", 3200, 47, 95);
         
         return catalogo;
     }

@@ -48,16 +48,28 @@ public class ControlMision{
      */
     public void moverVehiculo(String direccion){
         if(!enCurso) return;
-
         if(verificarGasolina()) return;
         if(!verificarDestino(direccion)) return;
 
-        moverYActualizar(direccion);
+        String origen = mapa.getPosicionActual();
+        String destino = mapa.obtenerDestino(origen, direccion);
+
+        if(destino == null){
+            fallarMision(ResultadoMision.Estado.FALLO_MOVIMIENTO);
+            return;
+        }
+        if(!mapa.movimientoExitoso(direccion)){
+            fallarMision(ResultadoMision.Estado.FALLO_MOVIMIENTO);
+            return;
+        }
+
+        moverYActualizar(origen, destino);
+
         verificarYRecogerRecompensa();
         verificarTiempo();
         verificarCompletada();
-
     }
+
 
     /**
      * Verifica si el vehiculo tiene gasolina disponible
@@ -87,12 +99,6 @@ public class ControlMision{
             fallarMision(ResultadoMision.Estado.FALLO_MOVIMIENTO);
             return false;
         }
-
-        boolean movimiento = mapa.movimientoExitoso(direccion);
-        if(!movimiento){
-            fallarMision(ResultadoMision.Estado.FALLO_MOVIMIENTO);
-            return false;
-        }
         return true;
     }
 
@@ -104,17 +110,15 @@ public class ControlMision{
      *
      * @param direccion Direccion a la cual se mueve
      */
-    private void moverYActualizar(String direccion){
+    private void moverYActualizar(String origen, String destino){
         vehiculo.consumirGasolina(1);
         vehiculo.sumarKilometraje(1);
 
-        String origen = mapa.getPosicionActual();
-        String destino = mapa.obtenerDestino(origen, direccion);
-
         double costo = mapa.obtenerCosto(origen, destino);
-        double tiempoCalle = costo/vehiculo.getVelocidadMaxima();
+        double tiempoCalle = costo / vehiculo.getVelocidadMaxima();
         tiempoRestante -= tiempoCalle;
     }
+
 
     /**
      * Verifica si el tiempo de la mision esta en 0 o menos
