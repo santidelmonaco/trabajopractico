@@ -306,6 +306,8 @@ public class Juego {
 
             mostrarResumenFinal(resultado);
 
+            aplicarMantenimientoDiario();
+
             seleccionar = false;
         }
     }
@@ -446,5 +448,21 @@ public class Juego {
         int valor = sc.nextInt();
         sc.nextLine();
         return valor;
+    }
+
+    private void aplicarMantenimientoDiario(){
+        int costo = jugador.getGaraje().obtenerCostoMantenimiento();
+
+        System.out.println("Costo total de mantenimiento diario $" + costo);
+        
+        if(jugador.getDinero() < costo){
+            System.out.println("\nNo tenes suficiente dinero para pagar el mantenimiento");
+            System.out.println("Has perdido la partida");
+            juegoActivo = false;
+            return;
+        }
+        jugador.restarDinero(costo);
+        System.out.println("Pago realizado correctamente");
+        System.out.println("\nDinero restante: " + jugador.getDinero());
     }
 }

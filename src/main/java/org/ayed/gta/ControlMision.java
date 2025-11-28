@@ -40,7 +40,12 @@ public class ControlMision{
         // Calculo y visualizo el camino inicial del GPS
         actualizarGPS();
     }
-
+     
+     /**
+     * Calcula el mejor camino desde la posicion actual del jugador hasta la celda destino 
+     * utilizando el GPS y actualiza su actualizacion en el mapa.
+     * Se ejecuta al iniciar mision y luego de cada movimiento exitoso
+     */
     private void actualizarGPS() {
         Celda origen = mapa.getCeldaJugador();
         Celda destino = mapa.getCeldaDestino();
