@@ -1,5 +1,6 @@
 package org.ayed.gta;
 import org.ayed.gta.mapa.*;
+import org.ayed.tda.lista.Lista;
 
 /**
  * Controlador de mision que administra el progreso, el movimiento del vehiculo y el estado final de la mision
@@ -13,16 +14,20 @@ public class ControlMision{
     private boolean enCurso;
     private boolean completada;
     private ResultadoMision resultadoMision;
+    private Gps gps;
+    private Lista<Celda> caminoActual;
 
-    public ControlMision(Vehiculo vehiculo, Jugador jugador, Mapa mapa, Mision mision){
+    public ControlMision(Vehiculo vehiculo, Jugador jugador, Mapa mapa, Mision mision, Gps gps){
         this.vehiculo = vehiculo;
         this.jugador = jugador;
         this.mapa = mapa;
         this.mision = mision;
+        this.gps = gps;
         this.tiempoRestante = mision.getTiempoLimite();
         this.enCurso = false;
         this.completada = false;
         this.resultadoMision = new ResultadoMision(mision, false, false, ResultadoMision.Estado.EN_CURSO);
+        this.caminoActual = null;
     }
 
     /**
@@ -32,6 +37,19 @@ public class ControlMision{
     public void iniciarMision(){
         enCurso = true;
         resultadoMision = new ResultadoMision(mision, false, false, ResultadoMision.Estado.EN_CURSO);
+        // Calculo y visualizo el camino inicial del GPS
+        actualizarGPS();
+    }
+
+    private void actualizarGPS() {
+        Celda origen = mapa.getCeldaJugador();
+        Celda destino = mapa.getCeldaDestino();
+
+        caminoActual = gps.calcularCamino(origen, destino);
+
+        if (caminoActual != null) {
+            gps.visualizarCaminoEnMapa(caminoActual);
+        }
     }
 
     /**
@@ -117,6 +135,9 @@ public class ControlMision{
         double costo = mapa.obtenerCosto(origen, destino);
         double tiempoCalle = costo / vehiculo.getVelocidadMaxima();
         tiempoRestante -= tiempoCalle;
+
+        // Después de mover, actualizo el GPS para el nuevo camino
+        actualizarGPS();
     }
 
 
