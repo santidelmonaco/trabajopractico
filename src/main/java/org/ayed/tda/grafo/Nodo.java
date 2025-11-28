@@ -40,7 +40,7 @@ public class Nodo<T> {
         this.heuristica = heuristica;
     }
 
-    public double EvaluaciónTotal() {
+    public double evaluacionTotal() {
         return costoAcumulado + heuristica;
     }
 
@@ -56,7 +56,7 @@ public class Nodo<T> {
         return visitado;
     }
 
-    public void Visitado(boolean visitado) {
+    public void visitado(boolean visitado) {
         this.visitado = visitado;
     }
 
