@@ -71,7 +71,7 @@ public class Juego {
             Garaje nuevoGaraje = new Garaje();
             // Crear nuevo jugador con nombre ingresado
             String nombre = leerTexto("Ingrese el nombre del jugador: ");
-            jugador = new Jugador(nombre, 8000, nuevoGaraje);
+            jugador = new Jugador(nombre, Jugador.DINERO_INICIAL, nuevoGaraje);
             System.out.println("Nueva partida iniciada para " + nombre + ".");
         } else if (opcion == 2) {
             String nombreArchivo = leerTexto("Ingrese el nombre del archivo de guardado: ");
@@ -80,11 +80,11 @@ public class Juego {
             boolean cargado = jugador.cargarPartida(nombreArchivo);
             if (!cargado) {
                 System.out.println("No se pudo cargar la partida. Iniciando nueva...");
-                jugador = new Jugador("Jugador", 8000, new Garaje());
+                jugador = new Jugador("Jugador", Jugador.DINERO_INICIAL, new Garaje());
             }
         } else {
             System.out.println("Opción inválida, iniciando nueva partida.");
-            jugador = new Jugador("Jugador", 8000, new Garaje());
+            jugador = new Jugador("Jugador", Jugador.DINERO_INICIAL, new Garaje());
         }
 
         concesionario = CatalogoVehiculos.crearConcesionarioCompleto();

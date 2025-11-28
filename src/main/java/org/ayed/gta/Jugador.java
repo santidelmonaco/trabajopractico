@@ -3,6 +3,8 @@ import org.ayed.tda.vector.Vector;
 
 
 public class Jugador {
+    public static final int DINERO_INICIAL = 9000;
+
     private String nombre;
     private double dinero;
     private Garaje garaje;
