@@ -263,7 +263,7 @@ public class Juego {
                 continue;
             }
 
-            mapa = crearMapaMision();
+            mapa = crearMapaMision(mision);
 
             System.out.println("Inicializando sistema GPS...");
             Gps gps = new Gps(mapa);
@@ -341,22 +341,59 @@ public class Juego {
         }
     }
 
-    private Mapa crearMapaMision() {
-        System.out.println("CARGAR MAPA DE LA MISIÓN ");
+    private Mapa crearMapaMision(Mision mision) {
+        System.out.println("\n=== CONFIGURACIÓN DEL MAPA ===");
+        System.out.println("1. Cargar mapa desde archivo");
+        System.out.println("2. Generar mapa aleatorio");
 
-        String nombreArchivo = leerTexto("Ingrese el nombre del archivo del mapa: ");
+        int opcion = leerEntero("Seleccione una opción: ");
 
-        try {
-            Mapa mapa = new Mapa();
-            mapa = mapa.cargarDesdeArchivo(nombreArchivo);
-            System.out.println("Mapa cargado");
-            return mapa;
-
-        } catch (IOException e) {
-            System.out.println("Error: " + e.getMessage());
-            return null;
+        if (opcion == 1) {
+            String nombreArchivo = leerTexto("Ingrese el nombre del archivo del mapa: ");
+            try {
+                Mapa mapa = new Mapa();
+                mapa = mapa.cargarDesdeArchivo(nombreArchivo);
+                System.out.println("Mapa cargado correctamente.");
+                return mapa;
+            } catch (IOException e) {
+                System.out.println("Error al cargar: " + e.getMessage());
+                System.out.println("Generando mapa aleatorio por defecto...");
+                return generarMapaAleatorio(mision);
+            }
+        } else {
+            return generarMapaAleatorio(mision);
         }
     }
+
+    private Mapa generarMapaAleatorio(Mision mision) {
+        // Dimensiones según dificultad
+        int filas, columnas;
+
+        switch (mision.getDificultad()) {
+            case "FÁCIL":
+                filas = 10;
+                columnas = 15;
+                break;
+            case "MEDIA":
+                filas = 15;
+                columnas = 20;
+                break;
+            case "DIFÍCIL":
+                filas = 20;
+                columnas = 25;
+                break;
+            default:
+                filas = 10;
+                columnas = 15;
+        }
+
+        Mapa mapa = new Mapa(filas, columnas);
+        mapa.generarAleatorio();
+
+        System.out.println("Mapa aleatorio generado: " + filas + "x" + columnas);
+        return mapa;
+    }
+
 
     private void mostrarInformacionMision(ControlMision control) {
         System.out.println("\n ESTADO DE LA MISIÓN");
