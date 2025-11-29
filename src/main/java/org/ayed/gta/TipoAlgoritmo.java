@@ -6,6 +6,7 @@ package org.ayed.gta;
 public enum TipoAlgoritmo {
     A_ESTRELLA,
     DIJKSTRA,
-    BFS
+    BFS,
+    FLOYD_WARSHALL
 }
 

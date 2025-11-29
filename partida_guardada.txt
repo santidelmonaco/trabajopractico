@@ -1,0 +1,5 @@
+CREDITOS;0
+CAPACIDAD;5
+
+Tipo;Nombre;Marca;Precio;CapacidadGasolina;GasolinaActual;Kilometraje;VelocidadMaxima;Ruedas
+Auto;Ford Focus;Ford;17000;52;52;0;185;4
